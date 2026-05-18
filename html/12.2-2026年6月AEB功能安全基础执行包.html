@@ -1,6 +1,7 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.2 · 2026年6月 AEB功能安全基础执行包</title><style>
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>12.2 · 2026年6月 AEB功能安全基础执行包</title><style>
 :root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
-</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.2 · 2026年6月 AEB功能安全基础执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</a></li>
+.figure-sub{margin:-6px 0 12px;color:#64748b;font-size:13px}.ladder{display:flex;flex-wrap:wrap;gap:8px}.ladder .step{flex:1;min-width:72px;padding:11px;border-radius:12px;text-align:center;font-weight:800;font-size:12px;color:#fff}.ladder .qm{background:#94a3b8}.ladder .a{background:#60a5fa}.ladder .b{background:#38bdf8}.ladder .c{background:#0ea5e9}.ladder .d{background:#1d4ed8}.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare .box{padding:14px;border-radius:14px;border:2px solid #dbe3ef}.compare .bad{border-color:#fecaca;background:#fff5f5}.compare .good{border-color:#bbf7d0;background:#f0fdf4}.stack{display:flex;flex-direction:column;gap:8px}.stack .layer{padding:12px 14px;border-radius:12px;border:1px solid #dbe3ef;background:#fff;font-weight:700}.stack .layer small{display:block;font-weight:400;color:#64748b;margin-top:4px;font-size:12px}.three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mini-card{padding:14px;border-radius:14px;background:#fff;border:1px solid #dbe3ef}.mini-card h4{margin:0 0 6px;font-size:14px}.tag{display:inline-block;margin:3px 6px 0 0;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:800}.tag-fn{background:#fee2e2;color:#991b1b}.tag-fp{background:#ffedd5;color:#9a3412}</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.2 · 2026年6月 AEB功能安全基础执行包<br/>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</a></li>
 <li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
 <li class="level-2"><a href="#2.-本月交付物清单">2. 本月交付物清单</a></li>
 <li class="level-2"><a href="#3.-本月学习总图">3. 本月学习总图</a></li>
@@ -94,7 +95,12 @@
 <li class="level-3"><a href="#18.1-hara如何适配端到端模型">18.1 HARA如何适配端到端模型</a></li>
 <li class="level-3"><a href="#18.2-safety-goal如何适配端到端模型">18.2 Safety Goal如何适配端到端模型</a></li>
 <li class="level-3"><a href="#18.3-fsc-tsc如何适配端到端模型">18.3 FSC/TSC如何适配端到端模型</a></li>
-<li class="level-3"><a href="#18.4-新增实践任务">18.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.2 · 2026年6月 AEB功能安全基础执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</h1>
+<li class="level-3"><a href="#18.4-新增实践任务">18.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.2 · 2026年6月 AEB功能安全基础执行包</h1><p>增强阅读版 · 全文保留 · 章节辅助理解图 + Mermaid 流程图</p></section><h1 id="2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</h1><section class="figure"><p class="figure-title">辅助图：AEB 漏触发 vs 误触发（与5月 FN/FP 对照）</p>
+<p class="figure-sub">6月用功能安全语言描述同一类风险的两种方向。</p>
+<div class="compare">
+<div class="box bad"><h4>漏触发 · FN 方向</h4><p>真实有碰撞风险，AEB 未预警/未制动。</p><span class="tag tag-fn">Hazard：未触发或过晚</span></div>
+<div class="box bad"><h4>误触发 · FP 方向</h4><p>无合理碰撞风险，AEB 强制动。</p><span class="tag tag-fp">Hazard：错误制动</span></div>
+</div></section>
 <section class="figure"><p class="figure-title">辅助图：AEB功能安全分析主线</p><div class="flow"><div class="node">Item Definition</div><div class="arrow">→</div><div class="node">Hazard</div><div class="arrow">→</div><div class="node">Operational Situation</div><div class="arrow">→</div><div class="node">Hazardous Event</div><div class="arrow">→</div><div class="node">HARA</div><div class="arrow">→</div><div class="node">Safety Goal</div><div class="arrow">→</div><div class="node">FSC/TSC</div><div class="arrow">→</div><div class="node">Verification Evidence</div></div></section><section class="figure"><p class="figure-title">辅助图：S/E/C 到 ASIL</p><div class="grid-2"><div class="card"><h4>Severity</h4><p>伤害后果有多严重。</p></div><div class="card"><h4>Exposure</h4><p>运行场景出现频率。</p></div><div class="card"><h4>Controllability</h4><p>驾驶员或交通参与者可控性。</p></div><div class="card"><h4>ASIL Candidate</h4><p>结合场景推导，不能脱离场景固定判断。</p></div></div></section><section class="figure"><p class="figure-title">辅助图：安全需求追踪链</p><div class="flow"><div class="node">Hazardous Event</div><div class="arrow">→</div><div class="node">Safety Goal</div><div class="arrow">→</div><div class="node">FSR</div><div class="arrow">→</div><div class="node">TSR</div><div class="arrow">→</div><div class="node">Verification</div><div class="arrow">→</div><div class="node">Evidence</div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
 <p>本文件是 <code>12-2026年度双轨学习与能力建设计划书.md</code> 中“2026年6月计划”的具体实现。</p>
 <p>6月主题：</p>
@@ -114,7 +120,14 @@
 <li>FSR和TSR如何分解？</li>
 <li>如何把Safety Goal追踪到测试证据？</li>
 </ul>
-<h2 id="2.-本月交付物清单">2. 本月交付物清单</h2>
+<h2 id="2.-本月交付物清单">2. 本月交付物清单</h2><section class="figure"><p class="figure-title">辅助图：6月交付物依赖顺序</p>
+<p class="figure-sub">M06-01～08 建议按此顺序完成。</p>
+<div class="flow"><div class="node">M06-01 Item Def</div><span class="arrow">→</span>
+<div class="node">M06-02 Hazard</div><span class="arrow">→</span>
+<div class="node">M06-03 HARA</div><span class="arrow">→</span>
+<div class="node">M06-04 SG</div><span class="arrow">→</span>
+<div class="node">M06-05/06 FSC·TSC</div><span class="arrow">→</span>
+<div class="node">M06-07 追踪表</div></div></section>
 <div class="table-wrap"><table><thead><tr>
 <th>编号</th>
 <th>交付物</th>
@@ -164,19 +177,29 @@
 <h2 id="3.-本月学习总图">3. 本月学习总图</h2>
 <p>功能安全分析可以理解为一个逐层收敛过程：</p>
 <div class="mermaid">flowchart TD
-    item[&quot;Item Definition&lt;br/&gt;定义功能边界&quot;] --&gt; hazard[&quot;Hazard Identification&lt;br/&gt;识别危险&quot;]
-    hazard --&gt; situation[&quot;Operational Situation&lt;br/&gt;定义运行场景&quot;]
-    situation --&gt; hara[&quot;HARA&lt;br/&gt;危险事件分析&quot;]
-    hara --&gt; asil[&quot;S/E/C + ASIL&lt;br/&gt;风险等级判断&quot;]
-    asil --&gt; sg[&quot;Safety Goal&lt;br/&gt;安全目标&quot;]
-    sg --&gt; fsc[&quot;FSC&lt;br/&gt;功能安全概念&quot;]
-    fsc --&gt; tsc[&quot;TSC&lt;br/&gt;技术安全概念&quot;]
-    tsc --&gt; req[&quot;FSR/TSR&lt;br/&gt;安全需求&quot;]
-    req --&gt; ver[&quot;Verification Evidence&lt;br/&gt;测试和证据&quot;]</div>
+    item["Item Definition&lt;br/&gt;定义功能边界"] --&gt; hazard["Hazard Identification&lt;br/&gt;识别危险"]
+    hazard --&gt; situation["Operational Situation&lt;br/&gt;定义运行场景"]
+    situation --&gt; hara["HARA&lt;br/&gt;危险事件分析"]
+    hara --&gt; asil["S/E/C + ASIL&lt;br/&gt;风险等级判断"]
+    asil --&gt; sg["Safety Goal&lt;br/&gt;安全目标"]
+    sg --&gt; fsc["FSC&lt;br/&gt;功能安全概念"]
+    fsc --&gt; tsc["TSC&lt;br/&gt;技术安全概念"]
+    tsc --&gt; req["FSR/TSR&lt;br/&gt;安全需求"]
+    req --&gt; ver["Verification Evidence&lt;br/&gt;测试和证据"]</div>
 <p>一句话理解：</p>
 <blockquote>HARA告诉你“什么场景下会有什么危险、严重到什么程度”；Safety Goal告诉你“系统必须避免什么”；FSC/TSC告诉你“系统怎么避免”；测试证据告诉你“怎么证明真的避免了”。</blockquote>
-<h2 id="4.-功能安全基础概念">4. 功能安全基础概念</h2>
-<h2 id="4.1-item-definition">4.1 Item Definition</h2>
+<h2 id="4.-功能安全基础概念">4. 功能安全基础概念</h2><section class="figure"><p class="figure-title">辅助图：Fault / Failure / Hazard 分层</p>
+<div class="stack">
+<div class="layer">Fault 故障<small>组件级异常，如传感器失效、软件缺陷</small></div>
+<div class="layer">Failure 失效<small>功能或元件未按预期工作</small></div>
+<div class="layer">Hazard 危险<small>车辆级危险行为，如 AEB 未制动</small></div>
+<div class="layer">Hazardous Event<small>危险 + 具体 Operational Situation</small></div>
+</div></section>
+<h2 id="4.1-item-definition">4.1 Item Definition</h2><section class="figure"><p class="figure-title">辅助图：AEB Item 边界示意</p>
+<div class="grid-2">
+<div class="card"><h4>分析范围内</h4><p>感知→风险判断→制动请求→HMI 状态→与 ESC/ACC 交互</p></div>
+<div class="card"><h4>分析范围外（需声明）</h4><p>轮胎抓地、制动器物理极限、其他 ADAS 功能内部实现</p></div>
+</div></section>
 <h3 id="4.1.1-理论">4.1.1 理论</h3>
 <p><code>Item Definition</code> 是功能安全分析的入口。</p>
 <p>它要回答：</p>
@@ -287,7 +310,12 @@
 </tbody></table></div>
 <p>验收标准：</p>
 <blockquote>能清楚说明“我分析的是哪个AEB，不分析哪些内容”。</blockquote>
-<h2 id="4.2-hazard">4.2 Hazard</h2>
+<h2 id="4.2-hazard">4.2 Hazard</h2><section class="figure"><p class="figure-title">辅助图：AEB 典型 Hazard 来源</p>
+<div class="three-col">
+<div class="mini-card"><h4>漏触发类</h4><p>未预警/未制动/过晚</p></div>
+<div class="mini-card"><h4>误触发类</h4><p>无风险强制动/错误目标</p></div>
+<div class="mini-card"><h4>能力异常类</h4><p>减速度过大/传感器退化未识别</p></div>
+</div></section>
 <h3 id="4.2.1-理论">4.2.1 理论</h3>
 <p><code>Hazard</code> 是可能导致伤害的潜在来源。</p>
 <p>在功能安全中，不能只写“系统故障”，要写这个故障可能造成的车辆危险行为。</p>
@@ -369,7 +397,11 @@
 </tbody></table></div>
 <p>验收标准：</p>
 <blockquote>写出来的Hazard必须是车辆级危险行为，而不是模块级故障。</blockquote>
-<h2 id="4.3-operational-situation">4.3 Operational Situation</h2>
+<h2 id="4.3-operational-situation">4.3 Operational Situation</h2><section class="figure"><p class="figure-title">辅助图：Operational Situation 要回答什么</p>
+<div class="flow"><div class="node">道路类型</div><div class="node">车速</div>
+<div class="node">目标类型</div><div class="node">天气/光照</div>
+<div class="node">交通密度</div><div class="node">驾驶员状态</div></div>
+<p class="figure-sub">同一 Hazard 在不同场景下 S/E/C 与 ASIL 可能不同。</p></section>
 <h3 id="4.3.1-理论">4.3.1 理论</h3>
 <p><code>Operational Situation</code> 是危险发生时的运行场景。</p>
 <p>同一个Hazard，在不同Operational Situation下，风险等级可能不同。</p>
@@ -444,7 +476,10 @@
 </tbody></table></div>
 <p>验收标准：</p>
 <blockquote>能说明为什么同一个Hazard在不同场景下ASIL可能不同。</blockquote>
-<h2 id="4.4-hazardous-event">4.4 Hazardous Event</h2>
+<h2 id="4.4-hazardous-event">4.4 Hazardous Event</h2><section class="figure"><p class="figure-title">辅助图：Hazardous Event 构成</p>
+<div class="flow"><div class="node">Hazard<br/>车辆级危险行为</div><span class="arrow">+</span>
+<div class="node">Operational Situation<br/>具体运行场景</div><span class="arrow">=</span>
+<div class="node">Hazardous Event<br/>可进入 HARA 的事件</div></div></section>
 <h3 id="4.4.1-理论">4.4.1 理论</h3>
 <p><code>Hazardous Event</code> = Hazard + Operational Situation。</p>
 <p>也就是：</p>
@@ -522,7 +557,12 @@
 </tbody></table></div>
 <p>验收标准：</p>
 <blockquote>每个Hazardous Event都必须包含“危险行为 + 场景”。</blockquote>
-<h2 id="5.-hara怎么做">5. HARA怎么做</h2>
+<h2 id="5.-hara怎么做">5. HARA怎么做</h2><section class="figure"><p class="figure-title">辅助图：HARA 在做什么</p>
+<div class="mermaid">flowchart LR
+  HE[Hazardous Event] --&gt; SEC[S / E / C]
+  SEC --&gt; ASIL[ASIL 候选]
+  ASIL --&gt; SG[Safety Goal 草案]
+</div></section>
 <h2 id="5.1-hara是什么">5.1 HARA是什么</h2>
 <p><code>HARA</code> 是 Hazard Analysis and Risk Assessment，危险分析与风险评估。</p>
 <p>它的目标是：</p>
@@ -764,7 +804,11 @@
 <td>后车驾驶员可控性较差</td>
 </tr>
 </tbody></table></div>
-<h2 id="5.6-asil怎么理解">5.6 ASIL怎么理解</h2>
+<h2 id="5.6-asil怎么理解">5.6 ASIL怎么理解</h2><section class="figure"><p class="figure-title">辅助图：ASIL 等级阶梯（由 S+E+C 查表，非凭感觉）</p>
+<div class="ladder"><div class="step qm">QM</div><div class="step a">ASIL A</div>
+<div class="step b">ASIL B</div><div class="step c">ASIL C</div>
+<div class="step d">ASIL D</div></div>
+<p class="figure-sub">同一 AEB 功能，不同 HE 可有不同 ASIL；作品集写「ASIL 候选」。</p></section>
 <p><code>ASIL</code> 是 Automotive Safety Integrity Level，汽车安全完整性等级。</p>
 <p>从低到高：</p>
 <ul>
@@ -784,7 +828,12 @@
 <li>同一个功能不同危险事件可能有不同ASIL。</li>
 <li>同一个危险事件在不同Operational Situation下ASIL也可能不同。</li>
 </ul>
-<h2 id="6.-aeb-hara-v1示例">6. AEB HARA V1示例</h2>
+<h2 id="6.-aeb-hara-v1示例">6. AEB HARA V1示例</h2><section class="figure"><p class="figure-title">辅助图：三个 HARA 示例场景对照</p>
+<div class="three-col">
+<div class="mini-card"><h4>示例1 漏触发</h4><p>高速跟车前车急刹 · FN 方向</p></div>
+<div class="mini-card"><h4>示例2 误触发</h4><p>高速无风险强制动 · FP 方向</p></div>
+<div class="mini-card"><h4>示例3 退化</h4><p>传感器污染仍输出可信判断</p></div>
+</div></section>
 <p>以下表格用于学习和作品集初版，不代表真实项目最终ASIL。</p>
 <div class="table-wrap"><table><thead><tr>
 <th>HE ID</th>
@@ -968,7 +1017,11 @@
 </tbody></table></div>
 <h3 id="safety-goal草案-3">Safety Goal草案</h3>
 <blockquote>当AEB关键传感器、感知链路或制动执行链路不满足安全运行条件时，系统应进入降级、退出或驾驶员提示状态。</blockquote>
-<h2 id="7.-safety-goal怎么推导">7. Safety Goal怎么推导</h2>
+<h2 id="7.-safety-goal怎么推导">7. Safety Goal怎么推导</h2><section class="figure"><p class="figure-title">辅助图：从 Hazardous Event 到 Safety Goal</p>
+<div class="flow"><div class="node">HE：场景+危险行为</div><span class="arrow">→</span>
+<div class="node">问：系统应避免什么？</div><span class="arrow">→</span>
+<div class="node">SG：可验证、面向功能</div><span class="arrow">→</span>
+<div class="node">避免写实现细节</div></div></section>
 <h2 id="7.1-理论">7.1 理论</h2>
 <p>Safety Goal是从HARA中高风险危险事件推导出的顶层安全目标。</p>
 <p>Safety Goal要表达：</p>
@@ -1029,7 +1082,12 @@
 <li>能被进一步分解为FSR。</li>
 <li>能通过验证证据证明。</li>
 </ul>
-<h2 id="8.-fsc功能安全概念">8. FSC功能安全概念</h2>
+<h2 id="8.-fsc功能安全概念">8. FSC功能安全概念</h2><section class="figure"><p class="figure-title">辅助图：FSC 层——功能级安全机制</p>
+<div class="stack">
+<div class="layer">Safety Goal</div>
+<div class="layer">FSC：预警策略 / 制动策略 / 降级退出 / 驾驶员提示</div>
+<div class="layer">FSR：可分配、可验证的功能安全需求</div>
+</div></section>
 <h2 id="8.1-fsc是什么">8.1 FSC是什么</h2>
 <p><code>FSC</code> 是 Functional Safety Concept，功能安全概念。</p>
 <p>它回答：</p>
@@ -1105,7 +1163,14 @@
 <li>独立合理性检查可以作为安全机制，阻止明显不合理的制动请求。</li>
 <li>后续TSC可以进一步定义检查内容，如目标有效性、车速范围、TTC范围、目标持续性、多传感器一致性。</li>
 </ul>
-<h2 id="9.-tsc技术安全概念">9. TSC技术安全概念</h2>
+<h2 id="9.-tsc技术安全概念">9. TSC技术安全概念</h2><section class="figure"><p class="figure-title">辅助图：AEB TSC 逻辑链（概念层）</p>
+<div class="mermaid">flowchart LR
+  S[传感器] --&gt; P[感知融合]
+  P --&gt; R[风险/TTC]
+  R --&gt; B[制动请求]
+  B --&gt; V[底盘执行]
+  R --&gt; H[HMI/记录]
+</div></section>
 <h2 id="9.1-tsc是什么">9.1 TSC是什么</h2>
 <p><code>TSC</code> 是 Technical Safety Concept，技术安全概念。</p>
 <p>它回答：</p>
@@ -1201,7 +1266,12 @@
 <li>驾驶员是否已有明确接管输入。</li>
 <li>制动请求是否超过限制。</li>
 </ul>
-<h2 id="10.-sg-fsr-tsr追踪表">10. SG-FSR-TSR追踪表</h2>
+<h2 id="10.-sg-fsr-tsr追踪表">10. SG-FSR-TSR追踪表</h2><section class="figure"><p class="figure-title">辅助图：SG → FSR → TSR → 验证 闭环</p>
+<div class="flow"><div class="node">SG-xxx</div><span class="arrow">↓</span>
+<div class="node">FSR-xxx</div><span class="arrow">↓</span>
+<div class="node">TSR-xxx</div><span class="arrow">↓</span>
+<div class="node">Test Case / Evidence</div></div>
+<p class="figure-sub">每个 SG 至少一条 FSR、一条 TSR、一条验证证据，见 §10.1 伪代码检查。</p></section>
 <div class="table-wrap"><table><thead><tr>
 <th>SG</th>
 <th>FSR</th>
@@ -1565,7 +1635,11 @@ for tsr in technical_safety_requirements:
 <td></td>
 </tr>
 </tbody></table></div>
-<h2 id="12.-常见错误">12. 常见错误</h2>
+<h2 id="12.-常见错误">12. 常见错误</h2><section class="figure"><p class="figure-title">辅助图：6月常见错误速查</p>
+<div class="grid-2">
+<div class="card"><h4>概念混淆</h4><p>Fault≠Hazard；脱离场景定 ASIL</p></div>
+<div class="card"><h4>文档问题</h4><p>SG 写太技术；FSC/TSC 混写；无追踪</p></div>
+</div></section>
 <h3 id="12.1-把故障当成hazard">12.1 把故障当成Hazard</h3>
 <p>错误：</p>
 <blockquote>摄像头故障。</blockquote>
@@ -1718,7 +1792,11 @@ for tsr in technical_safety_requirements:
 </ul>
 <p>一句话验收：</p>
 <blockquote>看到一个AEB风险，你能从“危险事件”一路讲到“安全目标、功能需求、技术机制和验证证据”。</blockquote>
-<h2 id="18.-端到端模型视角补充">18. 端到端模型视角补充</h2>
+<h2 id="18.-端到端模型视角补充">18. 端到端模型视角补充</h2><section class="figure"><p class="figure-title">辅助图：模块化 HARA 语言 → 端到端行为语言</p>
+<div class="compare">
+<div class="box"><h4>模块化</h4><p>感知漏检、融合错误、TTC 延迟…</p></div>
+<div class="box good"><h4>端到端</h4><p>无风险时输出制动；风险场景反应过慢；OOD 未降级…</p></div>
+</div></section>
 <p>端到端模型不会取消HARA、Safety Goal、FSC/TSC的价值。</p>
 <p>它改变的是：</p>
 <p><strong>安全需求不再总能清晰分配到传统感知、预测、规划模块，而要更多分配到模型行为约束、运行时监控和输出安全检查。</strong></p>
