@@ -1,0 +1,1797 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.2 · 2026年6月 AEB功能安全基础执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.2 · 2026年6月 AEB功能安全基础执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月交付物清单">2. 本月交付物清单</a></li>
+<li class="level-2"><a href="#3.-本月学习总图">3. 本月学习总图</a></li>
+<li class="level-2"><a href="#4.-功能安全基础概念">4. 功能安全基础概念</a></li>
+<li class="level-2"><a href="#4.1-item-definition">4.1 Item Definition</a></li>
+<li class="level-3"><a href="#4.1.1-理论">4.1.1 理论</a></li>
+<li class="level-3"><a href="#4.1.2-aeb-item-definition示例">4.1.2 AEB Item Definition示例</a></li>
+<li class="level-3"><a href="#4.1.3-实践任务">4.1.3 实践任务</a></li>
+<li class="level-2"><a href="#4.2-hazard">4.2 Hazard</a></li>
+<li class="level-3"><a href="#4.2.1-理论">4.2.1 理论</a></li>
+<li class="level-3"><a href="#4.2.2-aeb主要hazard清单">4.2.2 AEB主要Hazard清单</a></li>
+<li class="level-3"><a href="#4.2.3-实践任务">4.2.3 实践任务</a></li>
+<li class="level-2"><a href="#4.3-operational-situation">4.3 Operational Situation</a></li>
+<li class="level-3"><a href="#4.3.1-理论">4.3.1 理论</a></li>
+<li class="level-3"><a href="#4.3.2-aeb典型operational-situation">4.3.2 AEB典型Operational Situation</a></li>
+<li class="level-3"><a href="#4.3.3-实践任务">4.3.3 实践任务</a></li>
+<li class="level-2"><a href="#4.4-hazardous-event">4.4 Hazardous Event</a></li>
+<li class="level-3"><a href="#4.4.1-理论">4.4.1 理论</a></li>
+<li class="level-3"><a href="#4.4.2-aeb-hazardous-event示例">4.4.2 AEB Hazardous Event示例</a></li>
+<li class="level-3"><a href="#4.4.3-实践任务">4.4.3 实践任务</a></li>
+<li class="level-2"><a href="#5.-hara怎么做">5. HARA怎么做</a></li>
+<li class="level-2"><a href="#5.1-hara是什么">5.1 HARA是什么</a></li>
+<li class="level-2"><a href="#5.2-hara核心字段">5.2 HARA核心字段</a></li>
+<li class="level-2"><a href="#5.3-severity怎么理解">5.3 Severity怎么理解</a></li>
+<li class="level-3"><a href="#aeb-severity示例">AEB Severity示例</a></li>
+<li class="level-2"><a href="#5.4-exposure怎么理解">5.4 Exposure怎么理解</a></li>
+<li class="level-3"><a href="#aeb-exposure示例">AEB Exposure示例</a></li>
+<li class="level-2"><a href="#5.5-controllability怎么理解">5.5 Controllability怎么理解</a></li>
+<li class="level-3"><a href="#aeb-controllability示例">AEB Controllability示例</a></li>
+<li class="level-2"><a href="#5.6-asil怎么理解">5.6 ASIL怎么理解</a></li>
+<li class="level-2"><a href="#6.-aeb-hara-v1示例">6. AEB HARA V1示例</a></li>
+<li class="level-2"><a href="#6.1-示例1-高速跟车aeb漏触发">6.1 示例1：高速跟车AEB漏触发</a></li>
+<li class="level-3"><a href="#场景描述">场景描述</a></li>
+<li class="level-3"><a href="#风险分析">风险分析</a></li>
+<li class="level-3"><a href="#s-e-c判断">S/E/C判断</a></li>
+<li class="level-3"><a href="#safety-goal草案">Safety Goal草案</a></li>
+<li class="level-3"><a href="#后续需求方向">后续需求方向</a></li>
+<li class="level-2"><a href="#6.2-示例2-高速aeb误触发强制动">6.2 示例2：高速AEB误触发强制动</a></li>
+<li class="level-3"><a href="#场景描述-2">场景描述</a></li>
+<li class="level-3"><a href="#风险分析-2">风险分析</a></li>
+<li class="level-3"><a href="#s-e-c判断-2">S/E/C判断</a></li>
+<li class="level-3"><a href="#safety-goal草案-2">Safety Goal草案</a></li>
+<li class="level-3"><a href="#后续需求方向-2">后续需求方向</a></li>
+<li class="level-2"><a href="#6.3-示例3-传感器污染未识别">6.3 示例3：传感器污染未识别</a></li>
+<li class="level-3"><a href="#场景描述-3">场景描述</a></li>
+<li class="level-3"><a href="#风险分析-3">风险分析</a></li>
+<li class="level-3"><a href="#s-e-c判断-3">S/E/C判断</a></li>
+<li class="level-3"><a href="#safety-goal草案-3">Safety Goal草案</a></li>
+<li class="level-2"><a href="#7.-safety-goal怎么推导">7. Safety Goal怎么推导</a></li>
+<li class="level-2"><a href="#7.1-理论">7.1 理论</a></li>
+<li class="level-2"><a href="#7.2-aeb-safety-goals-v1">7.2 AEB Safety Goals V1</a></li>
+<li class="level-2"><a href="#7.3-safety-goal检查标准">7.3 Safety Goal检查标准</a></li>
+<li class="level-2"><a href="#8.-fsc功能安全概念">8. FSC功能安全概念</a></li>
+<li class="level-2"><a href="#8.1-fsc是什么">8.1 FSC是什么</a></li>
+<li class="level-2"><a href="#8.2-aeb-fsc-v1">8.2 AEB FSC V1</a></li>
+<li class="level-2"><a href="#8.3-fsc示例解释">8.3 FSC示例解释</a></li>
+<li class="level-2"><a href="#9.-tsc技术安全概念">9. TSC技术安全概念</a></li>
+<li class="level-2"><a href="#9.1-tsc是什么">9.1 TSC是什么</a></li>
+<li class="level-2"><a href="#9.2-aeb-tsc-v1">9.2 AEB TSC V1</a></li>
+<li class="level-2"><a href="#9.3-tsc示例解释">9.3 TSC示例解释</a></li>
+<li class="level-2"><a href="#10.-sg-fsr-tsr追踪表">10. SG-FSR-TSR追踪表</a></li>
+<li class="level-2"><a href="#10.1-代码视角-追踪矩阵完整性检查">10.1 代码视角：追踪矩阵完整性检查</a></li>
+<li class="level-2"><a href="#11.-6月实践任务">11. 6月实践任务</a></li>
+<li class="level-2"><a href="#11.1-实践任务1-完成aeb-item-definition">11.1 实践任务1：完成AEB Item Definition</a></li>
+<li class="level-2"><a href="#11.2-实践任务2-写出至少6个hazardous-event">11.2 实践任务2：写出至少6个Hazardous Event</a></li>
+<li class="level-2"><a href="#11.3-实践任务3-完成hara-v1">11.3 实践任务3：完成HARA V1</a></li>
+<li class="level-2"><a href="#11.4-实践任务4-完成safety-goals-v1">11.4 实践任务4：完成Safety Goals V1</a></li>
+<li class="level-2"><a href="#11.5-实践任务5-完成fsc-v1">11.5 实践任务5：完成FSC V1</a></li>
+<li class="level-2"><a href="#11.6-实践任务6-完成tsc-v1">11.6 实践任务6：完成TSC V1</a></li>
+<li class="level-2"><a href="#11.7-实践任务7-完成追踪表">11.7 实践任务7：完成追踪表</a></li>
+<li class="level-2"><a href="#12.-常见错误">12. 常见错误</a></li>
+<li class="level-3"><a href="#12.1-把故障当成hazard">12.1 把故障当成Hazard</a></li>
+<li class="level-3"><a href="#12.2-脱离场景判断asil">12.2 脱离场景判断ASIL</a></li>
+<li class="level-3"><a href="#12.3-safety-goal写得太技术化">12.3 Safety Goal写得太技术化</a></li>
+<li class="level-3"><a href="#12.4-fsc和tsc混淆">12.4 FSC和TSC混淆</a></li>
+<li class="level-3"><a href="#12.5-没有追踪关系">12.5 没有追踪关系</a></li>
+<li class="level-2"><a href="#13.-6月验收问答">13. 6月验收问答</a></li>
+<li class="level-3"><a href="#13.1-aeb-item-definition为什么重要">13.1 AEB Item Definition为什么重要？</a></li>
+<li class="level-3"><a href="#13.2-hazard和failure有什么区别">13.2 Hazard和Failure有什么区别？</a></li>
+<li class="level-3"><a href="#13.3-hazardous-event是什么">13.3 Hazardous Event是什么？</a></li>
+<li class="level-3"><a href="#13.4-asil为什么不能固定说aeb就是asil-d">13.4 ASIL为什么不能固定说AEB就是ASIL D？</a></li>
+<li class="level-3"><a href="#13.5-safety-goal和fsr有什么区别">13.5 Safety Goal和FSR有什么区别？</a></li>
+<li class="level-3"><a href="#13.6-fsc和tsc有什么区别">13.6 FSC和TSC有什么区别？</a></li>
+<li class="level-3"><a href="#13.7-aeb误触发为什么也是功能安全问题">13.7 AEB误触发为什么也是功能安全问题？</a></li>
+<li class="level-3"><a href="#13.8-ai模型漏检应该放在fusa-sotif还是ai-safety">13.8 AI模型漏检应该放在FuSa、SOTIF还是AI Safety？</a></li>
+<li class="level-2"><a href="#14.-与5月成果的衔接">14. 与5月成果的衔接</a></li>
+<li class="level-2"><a href="#15.-与7月学习的衔接">15. 与7月学习的衔接</a></li>
+<li class="level-2"><a href="#16.-6月底复盘模板">16. 6月底复盘模板</a></li>
+<li class="level-2"><a href="#17.-本月最终验收标准">17. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#18.-端到端模型视角补充">18. 端到端模型视角补充</a></li>
+<li class="level-3"><a href="#18.1-hara如何适配端到端模型">18.1 HARA如何适配端到端模型</a></li>
+<li class="level-3"><a href="#18.2-safety-goal如何适配端到端模型">18.2 Safety Goal如何适配端到端模型</a></li>
+<li class="level-3"><a href="#18.3-fsc-tsc如何适配端到端模型">18.3 FSC/TSC如何适配端到端模型</a></li>
+<li class="level-3"><a href="#18.4-新增实践任务">18.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.2 · 2026年6月 AEB功能安全基础执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年6月aeb功能安全基础执行包">2026年6月AEB功能安全基础执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：AEB功能安全分析主线</p><div class="flow"><div class="node">Item Definition</div><div class="arrow">→</div><div class="node">Hazard</div><div class="arrow">→</div><div class="node">Operational Situation</div><div class="arrow">→</div><div class="node">Hazardous Event</div><div class="arrow">→</div><div class="node">HARA</div><div class="arrow">→</div><div class="node">Safety Goal</div><div class="arrow">→</div><div class="node">FSC/TSC</div><div class="arrow">→</div><div class="node">Verification Evidence</div></div></section><section class="figure"><p class="figure-title">辅助图：S/E/C 到 ASIL</p><div class="grid-2"><div class="card"><h4>Severity</h4><p>伤害后果有多严重。</p></div><div class="card"><h4>Exposure</h4><p>运行场景出现频率。</p></div><div class="card"><h4>Controllability</h4><p>驾驶员或交通参与者可控性。</p></div><div class="card"><h4>ASIL Candidate</h4><p>结合场景推导，不能脱离场景固定判断。</p></div></div></section><section class="figure"><p class="figure-title">辅助图：安全需求追踪链</p><div class="flow"><div class="node">Hazardous Event</div><div class="arrow">→</div><div class="node">Safety Goal</div><div class="arrow">→</div><div class="node">FSR</div><div class="arrow">→</div><div class="node">TSR</div><div class="arrow">→</div><div class="node">Verification</div><div class="arrow">→</div><div class="node">Evidence</div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>本文件是 <code>12-2026年度双轨学习与能力建设计划书.md</code> 中“2026年6月计划”的具体实现。</p>
+<p>6月主题：</p>
+<p><strong>AEB功能安全基础：HARA、Safety Goal、FSC/TSC。</strong></p>
+<p>本月目标不是泛泛了解 <code>ISO 26262</code>，而是围绕一个具体功能 <code>AEB</code>，把功能安全概念阶段的核心逻辑打通：</p>
+<blockquote>功能定义 -&gt; 危险识别 -&gt; 场景分析 -&gt; ASIL判断 -&gt; Safety Goal -&gt; FSC -&gt; TSC -&gt; 需求追踪。</blockquote>
+<p>本月结束后，应能回答：</p>
+<ul>
+<li>AEB是什么功能，边界是什么？</li>
+<li>AEB有哪些危险事件？</li>
+<li>为什么AEB漏触发和误触发都可能是安全问题？</li>
+<li>HARA到底怎么做？</li>
+<li>S/E/C分别怎么理解？</li>
+<li>ASIL为什么不能脱离场景固定判断？</li>
+<li>Safety Goal怎么从危险事件推导出来？</li>
+<li>FSC和TSC有什么区别？</li>
+<li>FSR和TSR如何分解？</li>
+<li>如何把Safety Goal追踪到测试证据？</li>
+</ul>
+<h2 id="2.-本月交付物清单">2. 本月交付物清单</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>编号</th>
+<th>交付物</th>
+<th>目标</th>
+</tr></thead><tbody>
+<tr>
+<td>M06-01</td>
+<td>AEB Item Definition</td>
+<td>明确分析边界</td>
+</tr>
+<tr>
+<td>M06-02</td>
+<td>AEB Hazard List</td>
+<td>识别危险来源</td>
+</tr>
+<tr>
+<td>M06-03</td>
+<td>AEB HARA V1</td>
+<td>完成危险事件、S/E/C、ASIL候选和Safety Goal</td>
+</tr>
+<tr>
+<td>M06-04</td>
+<td>AEB Safety Goals V1</td>
+<td>从HARA推导安全目标</td>
+</tr>
+<tr>
+<td>M06-05</td>
+<td>AEB FSC V1</td>
+<td>将Safety Goal转为功能安全需求</td>
+</tr>
+<tr>
+<td>M06-06</td>
+<td>AEB TSC V1</td>
+<td>将功能需求落到技术安全机制</td>
+</tr>
+<tr>
+<td>M06-07</td>
+<td>SG-FSR-TSR追踪表</td>
+<td>建立需求追踪链</td>
+</tr>
+<tr>
+<td>M06-08</td>
+<td>6月验收问答</td>
+<td>检查是否真正理解</td>
+</tr>
+</tbody></table></div>
+<h2 id="3.-本月学习总图">3. 本月学习总图</h2>
+<p>功能安全分析可以理解为一个逐层收敛过程：</p>
+<div class="mermaid">flowchart TD
+    item[&quot;Item Definition&lt;br/&gt;定义功能边界&quot;] --&gt; hazard[&quot;Hazard Identification&lt;br/&gt;识别危险&quot;]
+    hazard --&gt; situation[&quot;Operational Situation&lt;br/&gt;定义运行场景&quot;]
+    situation --&gt; hara[&quot;HARA&lt;br/&gt;危险事件分析&quot;]
+    hara --&gt; asil[&quot;S/E/C + ASIL&lt;br/&gt;风险等级判断&quot;]
+    asil --&gt; sg[&quot;Safety Goal&lt;br/&gt;安全目标&quot;]
+    sg --&gt; fsc[&quot;FSC&lt;br/&gt;功能安全概念&quot;]
+    fsc --&gt; tsc[&quot;TSC&lt;br/&gt;技术安全概念&quot;]
+    tsc --&gt; req[&quot;FSR/TSR&lt;br/&gt;安全需求&quot;]
+    req --&gt; ver[&quot;Verification Evidence&lt;br/&gt;测试和证据&quot;]</div>
+<p>一句话理解：</p>
+<blockquote>HARA告诉你“什么场景下会有什么危险、严重到什么程度”；Safety Goal告诉你“系统必须避免什么”；FSC/TSC告诉你“系统怎么避免”；测试证据告诉你“怎么证明真的避免了”。</blockquote>
+<h2 id="4.-功能安全基础概念">4. 功能安全基础概念</h2>
+<h2 id="4.1-item-definition">4.1 Item Definition</h2>
+<h3 id="4.1.1-理论">4.1.1 理论</h3>
+<p><code>Item Definition</code> 是功能安全分析的入口。</p>
+<p>它要回答：</p>
+<ul>
+<li>分析对象是什么？</li>
+<li>功能目标是什么？</li>
+<li>系统边界在哪里？</li>
+<li>输入是什么？</li>
+<li>输出是什么？</li>
+<li>与哪些外部系统交互？</li>
+<li>驾驶员责任是什么？</li>
+<li>ODD或使用条件是什么？</li>
+<li>不分析什么？</li>
+</ul>
+<p>如果Item Definition不清楚，后面的HARA会失控。</p>
+<p>例如，AEB可以有不同边界：</p>
+<ul>
+<li>只分析纵向紧急制动功能。</li>
+<li>分析AEB作为L2辅助驾驶功能的一部分。</li>
+<li>分析AEB作为L3 ADS最小风险策略的一部分。</li>
+<li>分析AEB与ACC、FCW、ESC、HMI的交互。</li>
+</ul>
+<p>边界不同，HARA、ASIL、Safety Goal和安全机制都会不同。</p>
+<h3 id="4.1.2-aeb-item-definition示例">4.1.2 AEB Item Definition示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>项目</th>
+<th>内容</th>
+</tr></thead><tbody>
+<tr>
+<td>功能名称</td>
+<td>AEB，Automatic Emergency Braking，自动紧急制动</td>
+</tr>
+<tr>
+<td>功能目标</td>
+<td>当前方车辆、行人、两轮车或障碍物存在碰撞风险且驾驶员未及时响应时，系统自动预警或制动，降低碰撞概率或减轻碰撞严重度</td>
+</tr>
+<tr>
+<td>自动化等级</td>
+<td>主要作为L1/L2辅助驾驶功能，也可作为更高阶ADS纵向安全子功能</td>
+</tr>
+<tr>
+<td>主要输入</td>
+<td>摄像头、毫米波雷达、激光雷达如有、车速、横摆率、方向盘角、制动踏板、油门踏板、目标距离、相对速度、目标类别、置信度</td>
+</tr>
+<tr>
+<td>主要输出</td>
+<td>预警请求、制动请求、目标减速度、功能状态、故障状态、HMI提示、事件记录</td>
+</tr>
+<tr>
+<td>执行对象</td>
+<td>ESC/ESP、制动系统、VCU/底盘域控、HMI、诊断记录模块</td>
+</tr>
+<tr>
+<td>驾驶员责任</td>
+<td>L1/L2场景下驾驶员持续监控环境并对驾驶负责</td>
+</tr>
+<tr>
+<td>初始ODD</td>
+<td>城市道路、高速道路、10-120 km/h、晴天/小雨/夜间等需进一步定义</td>
+</tr>
+<tr>
+<td>不覆盖范围</td>
+<td>不覆盖完整自动驾驶决策，不覆盖转向避让策略，不覆盖所有NOA系统行为</td>
+</tr>
+<tr>
+<td>安全状态</td>
+<td>错误制动请求被抑制或限制；关键故障时AEB降级/退出并提示驾驶员；基础制动仍可用</td>
+</tr>
+</tbody></table></div>
+<h3 id="4.1.3-实践任务">4.1.3 实践任务</h3>
+<p>请补充你自己的AEB Item Definition：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>项目</th>
+<th>你的填写</th>
+</tr></thead><tbody>
+<tr>
+<td>功能边界</td>
+<td></td>
+</tr>
+<tr>
+<td>目标物类型</td>
+<td></td>
+</tr>
+<tr>
+<td>车速范围</td>
+<td></td>
+</tr>
+<tr>
+<td>道路范围</td>
+<td></td>
+</tr>
+<tr>
+<td>传感器配置</td>
+<td></td>
+</tr>
+<tr>
+<td>输出接口</td>
+<td></td>
+</tr>
+<tr>
+<td>驾驶员责任</td>
+<td></td>
+</tr>
+<tr>
+<td>不覆盖内容</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>验收标准：</p>
+<blockquote>能清楚说明“我分析的是哪个AEB，不分析哪些内容”。</blockquote>
+<h2 id="4.2-hazard">4.2 Hazard</h2>
+<h3 id="4.2.1-理论">4.2.1 理论</h3>
+<p><code>Hazard</code> 是可能导致伤害的潜在来源。</p>
+<p>在功能安全中，不能只写“系统故障”，要写这个故障可能造成的车辆危险行为。</p>
+<p>错误写法：</p>
+<ul>
+<li>感知模块故障。</li>
+<li>雷达信号异常。</li>
+<li>软件bug。</li>
+<li>模型漏检。</li>
+</ul>
+<p>更好的写法：</p>
+<ul>
+<li>AEB未在碰撞风险存在时触发制动。</li>
+<li>AEB在无碰撞风险时发出强制动请求。</li>
+<li>AEB发出过大的减速度请求。</li>
+<li>AEB关键传感器不可用但系统未降级。</li>
+</ul>
+<p>区别是：</p>
+<blockquote>Hazard要面向车辆级危险行为，而不是停留在模块故障。</blockquote>
+<h3 id="4.2.2-aeb主要hazard清单">4.2.2 AEB主要Hazard清单</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Hazard ID</th>
+<th>Hazard</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>H-AEB-001</td>
+<td>前方真实碰撞风险存在，AEB未触发或触发过晚</td>
+<td>对应漏触发，可能导致追尾或撞人</td>
+</tr>
+<tr>
+<td>H-AEB-002</td>
+<td>无真实碰撞风险，AEB误触发强制动</td>
+<td>对应误触发，可能导致后车追尾或乘员伤害</td>
+</tr>
+<tr>
+<td>H-AEB-003</td>
+<td>AEB制动请求减速度过大或持续过长</td>
+<td>可能导致车辆失稳、后车追尾或乘员不适</td>
+</tr>
+<tr>
+<td>H-AEB-004</td>
+<td>关键传感器故障或退化未被识别，AEB继续输出可信判断</td>
+<td>可能导致漏触发、误触发或错误风险评估</td>
+</tr>
+<tr>
+<td>H-AEB-005</td>
+<td>AEB不可用或退出时未提示驾驶员</td>
+<td>驾驶员误信任系统，未及时接管</td>
+</tr>
+<tr>
+<td>H-AEB-006</td>
+<td>AEB制动请求未被执行或执行延迟</td>
+<td>碰撞风险未被有效降低</td>
+</tr>
+</tbody></table></div>
+<h3 id="4.2.3-实践任务">4.2.3 实践任务</h3>
+<p>补充至少3个AEB Hazard：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Hazard ID</th>
+<th>Hazard</th>
+<th>可能后果</th>
+</tr></thead><tbody>
+<tr>
+<td>H-AEB-007</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H-AEB-008</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H-AEB-009</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>验收标准：</p>
+<blockquote>写出来的Hazard必须是车辆级危险行为，而不是模块级故障。</blockquote>
+<h2 id="4.3-operational-situation">4.3 Operational Situation</h2>
+<h3 id="4.3.1-理论">4.3.1 理论</h3>
+<p><code>Operational Situation</code> 是危险发生时的运行场景。</p>
+<p>同一个Hazard，在不同Operational Situation下，风险等级可能不同。</p>
+<p>例如：</p>
+<p>危险：AEB误触发强制动。</p>
+<p>不同场景：</p>
+<ul>
+<li>高速巡航，后车距离很近。</li>
+<li>城市低速拥堵。</li>
+<li>地库低速行驶。</li>
+</ul>
+<p>这三个场景的严重度、暴露率、可控性都不同，因此ASIL可能不同。</p>
+<h3 id="4.3.2-aeb典型operational-situation">4.3.2 AEB典型Operational Situation</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Situation ID</th>
+<th>Operational Situation</th>
+<th>关注点</th>
+</tr></thead><tbody>
+<tr>
+<td>OS-AEB-001</td>
+<td>高速道路，100 km/h跟车，前车急刹</td>
+<td>漏触发可能导致高速追尾</td>
+</tr>
+<tr>
+<td>OS-AEB-002</td>
+<td>城市道路，40 km/h，行人横穿</td>
+<td>漏触发可能导致行人伤害</td>
+</tr>
+<tr>
+<td>OS-AEB-003</td>
+<td>高速巡航，后车跟车距离近，无真实障碍物</td>
+<td>误制动可能导致后车追尾</td>
+</tr>
+<tr>
+<td>OS-AEB-004</td>
+<td>雨雾天气，传感器部分污染</td>
+<td>功能不足或传感器退化风险</td>
+</tr>
+<tr>
+<td>OS-AEB-005</td>
+<td>夜间逆光或隧道出口</td>
+<td>感知性能下降</td>
+</tr>
+<tr>
+<td>OS-AEB-006</td>
+<td>低速拥堵，车辆频繁起停</td>
+<td>误触发可能引起轻微碰撞或体验问题</td>
+</tr>
+</tbody></table></div>
+<h3 id="4.3.3-实践任务">4.3.3 实践任务</h3>
+<p>对每个Hazard至少配置2个Operational Situation：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Hazard</th>
+<th>Operational Situation 1</th>
+<th>Operational Situation 2</th>
+</tr></thead><tbody>
+<tr>
+<td>AEB未触发或触发过晚</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AEB误触发强制动</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AEB制动请求过大</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>验收标准：</p>
+<blockquote>能说明为什么同一个Hazard在不同场景下ASIL可能不同。</blockquote>
+<h2 id="4.4-hazardous-event">4.4 Hazardous Event</h2>
+<h3 id="4.4.1-理论">4.4.1 理论</h3>
+<p><code>Hazardous Event</code> = Hazard + Operational Situation。</p>
+<p>也就是：</p>
+<blockquote>危险行为发生在具体运行场景中，才形成可评估的危险事件。</blockquote>
+<p>示例：</p>
+<ul>
+<li>Hazard：AEB未触发或触发过晚。</li>
+<li>Operational Situation：高速跟车，前车急刹。</li>
+<li>Hazardous Event：高速跟车前车急刹时，AEB未触发或触发过晚，导致追尾风险。</li>
+</ul>
+<h3 id="4.4.2-aeb-hazardous-event示例">4.4.2 AEB Hazardous Event示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>Hazardous Event</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-001</td>
+<td>高速跟车前车急刹时，AEB未触发或触发过晚</td>
+</tr>
+<tr>
+<td>HE-AEB-002</td>
+<td>城市道路行人横穿时，AEB未触发或触发过晚</td>
+</tr>
+<tr>
+<td>HE-AEB-003</td>
+<td>高速巡航且后车距离较近时，AEB在无碰撞风险下误触发强制动</td>
+</tr>
+<tr>
+<td>HE-AEB-004</td>
+<td>雨雾或传感器污染场景下，AEB未识别传感器退化并继续输出可信判断</td>
+</tr>
+<tr>
+<td>HE-AEB-005</td>
+<td>AEB不可用时未提示驾驶员，驾驶员误以为功能可用</td>
+</tr>
+</tbody></table></div>
+<h3 id="4.4.3-实践任务">4.4.3 实践任务</h3>
+<p>写出5个AEB Hazardous Event：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>Hazard</th>
+<th>Operational Situation</th>
+<th>Hazardous Event</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X04</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X05</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>验收标准：</p>
+<blockquote>每个Hazardous Event都必须包含“危险行为 + 场景”。</blockquote>
+<h2 id="5.-hara怎么做">5. HARA怎么做</h2>
+<h2 id="5.1-hara是什么">5.1 HARA是什么</h2>
+<p><code>HARA</code> 是 Hazard Analysis and Risk Assessment，危险分析与风险评估。</p>
+<p>它的目标是：</p>
+<ul>
+<li>找出功能可能导致的不合理风险。</li>
+<li>结合运行场景评估风险等级。</li>
+<li>推导Safety Goal。</li>
+<li>为后续FSC/TSC提供输入。</li>
+</ul>
+<p>HARA不是为了填表，而是为了回答：</p>
+<blockquote>这个功能在什么场景下可能伤人？严重程度如何？出现概率如何？驾驶员能不能控制？系统必须避免什么？</blockquote>
+<h2 id="5.2-hara核心字段">5.2 HARA核心字段</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>字段</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>Hazard ID</td>
+<td>危险编号</td>
+</tr>
+<tr>
+<td>Hazard</td>
+<td>车辆级危险行为</td>
+</tr>
+<tr>
+<td>Operational Situation</td>
+<td>运行场景</td>
+</tr>
+<tr>
+<td>Hazardous Event</td>
+<td>危险事件</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>严重度</td>
+</tr>
+<tr>
+<td>Exposure</td>
+<td>暴露率</td>
+</tr>
+<tr>
+<td>Controllability</td>
+<td>可控性</td>
+</tr>
+<tr>
+<td>ASIL</td>
+<td>汽车安全完整性等级</td>
+</tr>
+<tr>
+<td>Safety Goal</td>
+<td>安全目标</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.3-severity怎么理解">5.3 Severity怎么理解</h2>
+<p><code>Severity</code> 表示可能伤害的严重程度。</p>
+<p>常见理解：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>等级</th>
+<th>含义</th>
+<th>AEB例子</th>
+</tr></thead><tbody>
+<tr>
+<td>S0</td>
+<td>无伤害</td>
+<td>仅轻微体验问题</td>
+</tr>
+<tr>
+<td>S1</td>
+<td>轻微或中等伤害</td>
+<td>低速轻微碰撞、乘员轻微不适</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>严重但通常可存活伤害</td>
+<td>中速碰撞、行人受伤</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>致命或危及生命伤害</td>
+<td>高速追尾、撞行人、撞两轮车</td>
+</tr>
+</tbody></table></div>
+<p>注意：</p>
+<p>Severity关注伤害后果，不关注发生概率。</p>
+<h3 id="aeb-severity示例">AEB Severity示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>可能Severity</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>高速跟车前车急刹，AEB漏触发</td>
+<td>S3候选</td>
+<td>高速追尾可能导致严重或致命伤害</td>
+</tr>
+<tr>
+<td>城市40 km/h行人横穿，AEB漏触发</td>
+<td>S2/S3候选</td>
+<td>行人伤害严重，具体取决于速度和碰撞形态</td>
+</tr>
+<tr>
+<td>低速拥堵AEB误触发</td>
+<td>S1/S2候选</td>
+<td>通常速度低，但仍可能导致轻微碰撞或乘员不适</td>
+</tr>
+<tr>
+<td>高速无障碍物AEB强制动，后车很近</td>
+<td>S2/S3候选</td>
+<td>可能导致后车追尾</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.4-exposure怎么理解">5.4 Exposure怎么理解</h2>
+<p><code>Exposure</code> 表示车辆处于该运行场景的频率。</p>
+<p>常见理解：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>等级</th>
+<th>含义</th>
+<th>例子</th>
+</tr></thead><tbody>
+<tr>
+<td>E0</td>
+<td>几乎不可能</td>
+<td>极端罕见场景</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>很低概率</td>
+<td>特殊道路或特殊天气</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>低概率</td>
+<td>偶发场景</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>中等概率</td>
+<td>日常可能遇到</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>高概率</td>
+<td>经常遇到</td>
+</tr>
+</tbody></table></div>
+<p>Exposure不是危险发生概率，而是运行场景出现概率。</p>
+<p>例如：</p>
+<ul>
+<li>高速跟车是常见场景，Exposure可能较高。</li>
+<li>极端暴雪可能Exposure较低。</li>
+<li>城市行人横穿在城市道路较常见。</li>
+</ul>
+<h3 id="aeb-exposure示例">AEB Exposure示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>可能Exposure</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>高速跟车</td>
+<td>E4候选</td>
+<td>高速驾驶中常见</td>
+</tr>
+<tr>
+<td>城市行人横穿</td>
+<td>E3/E4候选</td>
+<td>城市道路常见</td>
+</tr>
+<tr>
+<td>严重暴雪</td>
+<td>E1/E2候选</td>
+<td>与地区和ODD有关</td>
+</tr>
+<tr>
+<td>地库低速行驶</td>
+<td>E2/E3候选</td>
+<td>取决于功能是否在地库可用</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.5-controllability怎么理解">5.5 Controllability怎么理解</h2>
+<p><code>Controllability</code> 表示驾驶员或其他交通参与者避免伤害的能力。</p>
+<p>常见理解：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>等级</th>
+<th>含义</th>
+<th>AEB例子</th>
+</tr></thead><tbody>
+<tr>
+<td>C0</td>
+<td>可完全控制</td>
+<td>几乎无风险</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>一般驾驶员容易控制</td>
+<td>低速、反应时间充足</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>部分驾驶员可控制</td>
+<td>情况突然，但仍可能通过制动/转向避免</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>很难或不可控制</td>
+<td>高速、突然、反应时间极短</td>
+</tr>
+</tbody></table></div>
+<p>Controllability非常依赖场景：</p>
+<ul>
+<li>高速前车急刹，驾驶员可控性较差。</li>
+<li>低速拥堵，驾驶员较容易控制。</li>
+<li>行人突然横穿，行人和驾驶员可控性都可能低。</li>
+</ul>
+<h3 id="aeb-controllability示例">AEB Controllability示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>可能Controllability</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>高速前车急刹AEB漏触发</td>
+<td>C2/C3候选</td>
+<td>驾驶员反应时间有限</td>
+</tr>
+<tr>
+<td>城市行人突然横穿AEB漏触发</td>
+<td>C2/C3候选</td>
+<td>目标突然出现，可控性较低</td>
+</tr>
+<tr>
+<td>低速误制动</td>
+<td>C1/C2候选</td>
+<td>后车和驾驶员通常有一定反应空间</td>
+</tr>
+<tr>
+<td>高速误制动且后车近</td>
+<td>C2/C3候选</td>
+<td>后车驾驶员可控性较差</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.6-asil怎么理解">5.6 ASIL怎么理解</h2>
+<p><code>ASIL</code> 是 Automotive Safety Integrity Level，汽车安全完整性等级。</p>
+<p>从低到高：</p>
+<ul>
+<li>QM。</li>
+<li>ASIL A。</li>
+<li>ASIL B。</li>
+<li>ASIL C。</li>
+<li>ASIL D。</li>
+</ul>
+<p>ASIL不是凭感觉定的，而是由：</p>
+<blockquote>Severity + Exposure + Controllability</blockquote>
+<p>共同决定。</p>
+<p>注意：</p>
+<ul>
+<li>ASIL需要结合企业方法、车型、目标市场、ODD和评审规则最终确认。</li>
+<li>学习作品集中可以写“ASIL候选”，不要绝对声称固定结论。</li>
+<li>同一个功能不同危险事件可能有不同ASIL。</li>
+<li>同一个危险事件在不同Operational Situation下ASIL也可能不同。</li>
+</ul>
+<h2 id="6.-aeb-hara-v1示例">6. AEB HARA V1示例</h2>
+<p>以下表格用于学习和作品集初版，不代表真实项目最终ASIL。</p>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>Hazardous Event</th>
+<th>S</th>
+<th>E</th>
+<th>C</th>
+<th>ASIL候选</th>
+<th>Safety Goal草案</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-001</td>
+<td>高速跟车前车急刹时，AEB未触发或触发过晚</td>
+<td>S3</td>
+<td>E4</td>
+<td>C2/C3</td>
+<td>ASIL C/D候选</td>
+<td>AEB应在ODD内识别高碰撞风险并及时触发预警或制动</td>
+</tr>
+<tr>
+<td>HE-AEB-002</td>
+<td>城市道路行人横穿时，AEB未触发或触发过晚</td>
+<td>S2/S3</td>
+<td>E3/E4</td>
+<td>C2/C3</td>
+<td>ASIL B/C/D候选</td>
+<td>AEB应在行人碰撞风险超过阈值时及时预警或制动</td>
+</tr>
+<tr>
+<td>HE-AEB-003</td>
+<td>高速巡航且后车距离较近时，AEB在无碰撞风险下误触发强制动</td>
+<td>S2/S3</td>
+<td>E3/E4</td>
+<td>C2</td>
+<td>ASIL B/C候选</td>
+<td>AEB不应在无合理碰撞风险时发出强制动请求</td>
+</tr>
+<tr>
+<td>HE-AEB-004</td>
+<td>AEB制动请求减速度过大或持续过长</td>
+<td>S2</td>
+<td>E3/E4</td>
+<td>C1/C2</td>
+<td>ASIL A/B候选</td>
+<td>AEB制动请求应被限制在车辆稳定性和乘员安全范围内</td>
+</tr>
+<tr>
+<td>HE-AEB-005</td>
+<td>传感器污染或退化未被识别，AEB继续输出可信判断</td>
+<td>S2/S3</td>
+<td>E2/E3</td>
+<td>C2</td>
+<td>ASIL B/C候选</td>
+<td>当关键传感器不满足安全运行条件时，AEB应降级、退出或提示</td>
+</tr>
+<tr>
+<td>HE-AEB-006</td>
+<td>AEB不可用但未提示驾驶员</td>
+<td>S1/S2</td>
+<td>E3</td>
+<td>C2</td>
+<td>ASIL A/B候选</td>
+<td>AEB不可用、降级或退出时应及时向驾驶员提示</td>
+</tr>
+</tbody></table></div>
+<h2 id="6.1-示例1-高速跟车aeb漏触发">6.1 示例1：高速跟车AEB漏触发</h2>
+<h3 id="场景描述">场景描述</h3>
+<p>自车在高速道路以100 km/h跟随前车行驶，前车突然急刹。AEB因目标检测漏检、TTC估计错误或风险判断延迟，未及时触发预警或制动。</p>
+<h3 id="风险分析">风险分析</h3>
+<ul>
+<li>Hazard：AEB未触发或触发过晚。</li>
+<li>Operational Situation：高速跟车，前车急刹。</li>
+<li>Hazardous Event：高速跟车前车急刹时，AEB未触发或触发过晚。</li>
+<li>可能后果：高速追尾，乘员严重伤害。</li>
+</ul>
+<h3 id="s-e-c判断">S/E/C判断</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>判断</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>S</td>
+<td>S3候选</td>
+<td>高速追尾可能导致严重或致命伤害</td>
+</tr>
+<tr>
+<td>E</td>
+<td>E4候选</td>
+<td>高速跟车是常见驾驶场景</td>
+</tr>
+<tr>
+<td>C</td>
+<td>C2/C3候选</td>
+<td>前车急刹时驾驶员反应时间有限</td>
+</tr>
+</tbody></table></div>
+<h3 id="safety-goal草案">Safety Goal草案</h3>
+<blockquote>AEB应在ODD内当前方目标存在高碰撞风险时，在规定时间内触发预警或制动，以降低碰撞概率或减轻碰撞严重度。</blockquote>
+<h3 id="后续需求方向">后续需求方向</h3>
+<ul>
+<li>感知目标检测应覆盖前车急刹场景。</li>
+<li>TTC计算应满足时间准确性要求。</li>
+<li>AEB风险判断应在规定时间内完成。</li>
+<li>制动请求应及时传递到底盘执行系统。</li>
+<li>关键输入异常时应降级或提示。</li>
+</ul>
+<h2 id="6.2-示例2-高速aeb误触发强制动">6.2 示例2：高速AEB误触发强制动</h2>
+<h3 id="场景描述-2">场景描述</h3>
+<p>自车在高速道路正常巡航，前方无真实碰撞风险。由于路面阴影、金属反光、目标误检或融合错误，AEB错误发出强制动请求。</p>
+<h3 id="风险分析-2">风险分析</h3>
+<ul>
+<li>Hazard：AEB误触发强制动。</li>
+<li>Operational Situation：高速巡航，后车距离较近。</li>
+<li>Hazardous Event：无真实碰撞风险时AEB误触发强制动。</li>
+<li>可能后果：后车追尾，乘员受伤，交通扰动。</li>
+</ul>
+<h3 id="s-e-c判断-2">S/E/C判断</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>判断</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>S</td>
+<td>S2/S3候选</td>
+<td>后车追尾可能造成严重伤害</td>
+</tr>
+<tr>
+<td>E</td>
+<td>E3/E4候选</td>
+<td>高速巡航常见，后车跟随也常见</td>
+</tr>
+<tr>
+<td>C</td>
+<td>C2候选</td>
+<td>后车驾驶员可能有一定反应空间，但高速下控制难度较高</td>
+</tr>
+</tbody></table></div>
+<h3 id="safety-goal草案-2">Safety Goal草案</h3>
+<blockquote>AEB不应在无合理碰撞风险时发出导致车辆显著减速的强制动请求。</blockquote>
+<h3 id="后续需求方向-2">后续需求方向</h3>
+<ul>
+<li>AEB制动请求应经过独立合理性检查。</li>
+<li>应检查目标持续性、TTC范围、目标类别、置信度。</li>
+<li>应进行多传感器一致性检查。</li>
+<li>应限制最大减速度、jerk和制动持续时间。</li>
+<li>对误检高发场景应建立回归测试集。</li>
+</ul>
+<h2 id="6.3-示例3-传感器污染未识别">6.3 示例3：传感器污染未识别</h2>
+<h3 id="场景描述-3">场景描述</h3>
+<p>雨雾、泥污、雪、水滴等导致摄像头或雷达性能下降，但系统未识别传感器不可用或性能退化，AEB继续输出可信判断。</p>
+<h3 id="风险分析-3">风险分析</h3>
+<ul>
+<li>Hazard：关键传感器退化未被识别。</li>
+<li>Operational Situation：雨雾或传感器污染场景。</li>
+<li>Hazardous Event：传感器退化但AEB继续输出可信判断。</li>
+<li>可能后果：漏触发、误触发或错误风险评估。</li>
+</ul>
+<h3 id="s-e-c判断-3">S/E/C判断</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>判断</th>
+<th>理由</th>
+</tr></thead><tbody>
+<tr>
+<td>S</td>
+<td>S2/S3候选</td>
+<td>取决于车速和目标类型，可能导致严重碰撞</td>
+</tr>
+<tr>
+<td>E</td>
+<td>E2/E3候选</td>
+<td>雨雾和污染场景与地区、天气、季节有关</td>
+</tr>
+<tr>
+<td>C</td>
+<td>C2候选</td>
+<td>驾驶员可能不知道AEB能力下降，控制难度增加</td>
+</tr>
+</tbody></table></div>
+<h3 id="safety-goal草案-3">Safety Goal草案</h3>
+<blockquote>当AEB关键传感器、感知链路或制动执行链路不满足安全运行条件时，系统应进入降级、退出或驾驶员提示状态。</blockquote>
+<h2 id="7.-safety-goal怎么推导">7. Safety Goal怎么推导</h2>
+<h2 id="7.1-理论">7.1 理论</h2>
+<p>Safety Goal是从HARA中高风险危险事件推导出的顶层安全目标。</p>
+<p>Safety Goal要表达：</p>
+<blockquote>系统必须避免什么不合理风险。</blockquote>
+<p>不要把Safety Goal写得太细。</p>
+<p>错误写法：</p>
+<ul>
+<li>摄像头应以30fps输出图像。</li>
+<li>TTC阈值应设置为1.5秒。</li>
+<li>CAN信号超时时间应为100ms。</li>
+</ul>
+<p>这些是技术需求，不是Safety Goal。</p>
+<p>更好的写法：</p>
+<ul>
+<li>AEB应在ODD内碰撞风险超过阈值时及时触发预警或制动。</li>
+<li>AEB不应在无合理碰撞风险时发出强制动请求。</li>
+<li>AEB制动请求应被限制在车辆稳定性和乘员安全范围内。</li>
+<li>AEB不可用、降级或退出时应及时提示驾驶员。</li>
+</ul>
+<h2 id="7.2-aeb-safety-goals-v1">7.2 AEB Safety Goals V1</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>SG ID</th>
+<th>Safety Goal</th>
+<th>来源</th>
+</tr></thead><tbody>
+<tr>
+<td>SG-AEB-001</td>
+<td>AEB应在ODD内当前方目标存在高碰撞风险时，在规定时间内触发预警或制动</td>
+<td>HE-AEB-001、HE-AEB-002</td>
+</tr>
+<tr>
+<td>SG-AEB-002</td>
+<td>AEB不应在无合理碰撞风险时发出导致车辆显著减速的强制动请求</td>
+<td>HE-AEB-003</td>
+</tr>
+<tr>
+<td>SG-AEB-003</td>
+<td>AEB制动请求应受到减速度、jerk、持续时间和车辆稳定性约束</td>
+<td>HE-AEB-004</td>
+</tr>
+<tr>
+<td>SG-AEB-004</td>
+<td>当关键传感器、感知链路或制动执行链路不满足安全运行条件时，AEB应降级、退出或提示驾驶员</td>
+<td>HE-AEB-005</td>
+</tr>
+<tr>
+<td>SG-AEB-005</td>
+<td>AEB不可用、降级或退出时，应向驾驶员发出及时且可理解的提示</td>
+<td>HE-AEB-006</td>
+</tr>
+</tbody></table></div>
+<h2 id="7.3-safety-goal检查标准">7.3 Safety Goal检查标准</h2>
+<p>一个好的Safety Goal应满足：</p>
+<ul>
+<li>来源于HARA。</li>
+<li>描述车辆级安全目标。</li>
+<li>不过早指定具体技术实现。</li>
+<li>能被进一步分解为FSR。</li>
+<li>能通过验证证据证明。</li>
+</ul>
+<h2 id="8.-fsc功能安全概念">8. FSC功能安全概念</h2>
+<h2 id="8.1-fsc是什么">8.1 FSC是什么</h2>
+<p><code>FSC</code> 是 Functional Safety Concept，功能安全概念。</p>
+<p>它回答：</p>
+<blockquote>为了实现Safety Goal，系统在功能层面应该具备哪些安全能力？</blockquote>
+<p>FSC通常输出：</p>
+<ul>
+<li>Functional Safety Requirement，FSR。</li>
+<li>安全状态。</li>
+<li>功能降级策略。</li>
+<li>初步安全机制。</li>
+<li>功能分配对象。</li>
+</ul>
+<p>FSC仍然偏功能层，不应该过早写具体代码、通信周期、芯片配置。</p>
+<h2 id="8.2-aeb-fsc-v1">8.2 AEB FSC V1</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>FSR ID</th>
+<th>Functional Safety Requirement</th>
+<th>对应SG</th>
+<th>分配对象</th>
+</tr></thead><tbody>
+<tr>
+<td>FSR-AEB-001</td>
+<td>AEB应基于目标距离、相对速度、目标类型、TTC和置信度评估碰撞风险</td>
+<td>SG-AEB-001</td>
+<td>AEB功能模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-002</td>
+<td>AEB应在碰撞风险超过阈值且驾驶员未有效响应时触发预警或制动请求</td>
+<td>SG-AEB-001</td>
+<td>AEB决策模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-003</td>
+<td>AEB制动请求应经过独立合理性检查，避免单点错误导致误制动</td>
+<td>SG-AEB-002</td>
+<td>AEB监控模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-004</td>
+<td>AEB制动请求应限制最大减速度、jerk和持续时间</td>
+<td>SG-AEB-003</td>
+<td>制动请求管理模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-005</td>
+<td>AEB应监控关键传感器状态、输入有效性、时间戳和信号一致性</td>
+<td>SG-AEB-004</td>
+<td>感知/融合/诊断模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-006</td>
+<td>当AEB不可用、降级或退出时，应向驾驶员发出提示</td>
+<td>SG-AEB-005</td>
+<td>HMI模块</td>
+</tr>
+<tr>
+<td>FSR-AEB-007</td>
+<td>AEB应记录触发、抑制、故障、降级和驾驶员接管事件</td>
+<td>SG-AEB-001~005</td>
+<td>诊断/数据记录模块</td>
+</tr>
+</tbody></table></div>
+<h2 id="8.3-fsc示例解释">8.3 FSC示例解释</h2>
+<p>以 <code>SG-AEB-002</code> 为例：</p>
+<p>Safety Goal：</p>
+<blockquote>AEB不应在无合理碰撞风险时发出导致车辆显著减速的强制动请求。</blockquote>
+<p>对应FSR：</p>
+<blockquote>AEB制动请求应经过独立合理性检查，避免单点错误导致误制动。</blockquote>
+<p>为什么合理：</p>
+<ul>
+<li>误制动可能来自感知误检、TTC错误、软件逻辑错误。</li>
+<li>独立合理性检查可以作为安全机制，阻止明显不合理的制动请求。</li>
+<li>后续TSC可以进一步定义检查内容，如目标有效性、车速范围、TTC范围、目标持续性、多传感器一致性。</li>
+</ul>
+<h2 id="9.-tsc技术安全概念">9. TSC技术安全概念</h2>
+<h2 id="9.1-tsc是什么">9.1 TSC是什么</h2>
+<p><code>TSC</code> 是 Technical Safety Concept，技术安全概念。</p>
+<p>它回答：</p>
+<blockquote>功能层安全需求如何落到系统架构、技术机制和接口要求上？</blockquote>
+<p>TSC比FSC更具体。</p>
+<p>它会涉及：</p>
+<ul>
+<li>传感器输入检查。</li>
+<li>时间同步。</li>
+<li>信号有效性。</li>
+<li>目标一致性。</li>
+<li>TTC合理性。</li>
+<li>制动请求限幅。</li>
+<li>通信超时。</li>
+<li>E2E保护。</li>
+<li>诊断。</li>
+<li>降级。</li>
+<li>HMI提示。</li>
+</ul>
+<h2 id="9.2-aeb-tsc-v1">9.2 AEB TSC V1</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>TSR ID</th>
+<th>Technical Safety Requirement</th>
+<th>对应FSR</th>
+<th>安全机制</th>
+</tr></thead><tbody>
+<tr>
+<td>TSR-AEB-001</td>
+<td>AEB输入信号应检查时间戳、有效位、更新周期和范围</td>
+<td>FSR-AEB-005</td>
+<td>Input Validity Check</td>
+</tr>
+<tr>
+<td>TSR-AEB-002</td>
+<td>摄像头、雷达等关键目标输入应进行目标一致性和持续性检查</td>
+<td>FSR-AEB-001、005</td>
+<td>Sensor Fusion Consistency</td>
+</tr>
+<tr>
+<td>TSR-AEB-003</td>
+<td>TTC计算结果应进行范围检查和跳变检查</td>
+<td>FSR-AEB-001</td>
+<td>TTC Plausibility Check</td>
+</tr>
+<tr>
+<td>TSR-AEB-004</td>
+<td>AEB制动请求应由独立监控器检查目标有效性、车速范围、TTC范围和驾驶员输入</td>
+<td>FSR-AEB-003</td>
+<td>Independent Monitor</td>
+</tr>
+<tr>
+<td>TSR-AEB-005</td>
+<td>制动请求应限制最大减速度、jerk和持续时间</td>
+<td>FSR-AEB-004</td>
+<td>Actuation Limiter</td>
+</tr>
+<tr>
+<td>TSR-AEB-006</td>
+<td>AEB与制动系统通信应具备超时检测和错误处理</td>
+<td>FSR-AEB-002、004</td>
+<td>Communication Timeout</td>
+</tr>
+<tr>
+<td>TSR-AEB-007</td>
+<td>关键故障应触发DTC、HMI提示和功能降级</td>
+<td>FSR-AEB-005、006</td>
+<td>Diagnostics and Degradation</td>
+</tr>
+<tr>
+<td>TSR-AEB-008</td>
+<td>AEB触发、抑制、故障和驾驶员接管事件应记录时间、版本、输入和输出状态</td>
+<td>FSR-AEB-007</td>
+<td>Event Logging</td>
+</tr>
+</tbody></table></div>
+<h2 id="9.3-tsc示例解释">9.3 TSC示例解释</h2>
+<p>以 <code>TSR-AEB-004</code> 为例：</p>
+<p>技术需求：</p>
+<blockquote>AEB制动请求应由独立监控器检查目标有效性、车速范围、TTC范围和驾驶员输入。</blockquote>
+<p>它解决的问题：</p>
+<ul>
+<li>感知误检导致虚假目标。</li>
+<li>TTC计算错误导致误制动。</li>
+<li>软件逻辑错误导致错误制动请求。</li>
+<li>驾驶员已经踩油门或转向避让时系统仍强制动。</li>
+</ul>
+<p>监控器可以检查：</p>
+<ul>
+<li>目标是否持续存在。</li>
+<li>目标是否位于自车路径相关区域。</li>
+<li>TTC是否在合理范围。</li>
+<li>车速是否在AEB工作范围。</li>
+<li>驾驶员是否已有明确接管输入。</li>
+<li>制动请求是否超过限制。</li>
+</ul>
+<h2 id="10.-sg-fsr-tsr追踪表">10. SG-FSR-TSR追踪表</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>SG</th>
+<th>FSR</th>
+<th>TSR</th>
+<th>验证方法</th>
+<th>证据</th>
+</tr></thead><tbody>
+<tr>
+<td>SG-AEB-001</td>
+<td>FSR-AEB-001</td>
+<td>TSR-AEB-001/002/003</td>
+<td>SIL仿真、场景回放、实车测试</td>
+<td>输入有效性测试、TTC验证报告</td>
+</tr>
+<tr>
+<td>SG-AEB-001</td>
+<td>FSR-AEB-002</td>
+<td>TSR-AEB-004</td>
+<td>SIL/HIL、封闭场测试</td>
+<td>AEB触发时刻和制动请求记录</td>
+</tr>
+<tr>
+<td>SG-AEB-002</td>
+<td>FSR-AEB-003</td>
+<td>TSR-AEB-004</td>
+<td>误触发场景测试、故障注入</td>
+<td>False Brake Rate报告、监控器测试</td>
+</tr>
+<tr>
+<td>SG-AEB-003</td>
+<td>FSR-AEB-004</td>
+<td>TSR-AEB-005</td>
+<td>制动边界测试、HIL</td>
+<td>最大减速度、jerk、持续时间测试</td>
+</tr>
+<tr>
+<td>SG-AEB-004</td>
+<td>FSR-AEB-005</td>
+<td>TSR-AEB-001/006/007</td>
+<td>传感器遮挡、通信超时、故障注入</td>
+<td>DTC、降级状态、HMI提示记录</td>
+</tr>
+<tr>
+<td>SG-AEB-005</td>
+<td>FSR-AEB-006</td>
+<td>TSR-AEB-007</td>
+<td>HMI测试、故障注入</td>
+<td>HMI提示测试报告</td>
+</tr>
+</tbody></table></div>
+<p>追踪表的意义：</p>
+<blockquote>认证机构或面试官问“你如何证明这个Safety Goal被落实”，你可以从SG一路追踪到FSR、TSR、验证方法和证据。</blockquote>
+<h2 id="10.1-代码视角-追踪矩阵完整性检查">10.1 代码视角：追踪矩阵完整性检查</h2>
+<p>6月的代码实践不需要复杂开发，只需要把追踪关系变成可检查规则。</p>
+<p>目的：</p>
+<blockquote>防止Safety Goal、FSR、TSR、验证方法和证据之间出现断链。</blockquote>
+<p>建议用CSV或YAML维护追踪表，字段包括：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>字段</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>sg_id</td>
+<td>Safety Goal编号</td>
+</tr>
+<tr>
+<td>fsr_id</td>
+<td>Functional Safety Requirement编号</td>
+</tr>
+<tr>
+<td>tsr_id</td>
+<td>Technical Safety Requirement编号</td>
+</tr>
+<tr>
+<td>verification</td>
+<td>验证方法</td>
+</tr>
+<tr>
+<td>evidence</td>
+<td>证据文件或证据类型</td>
+</tr>
+</tbody></table></div>
+<p>检查规则：</p>
+<ul>
+<li>每个 <code>SG</code> 至少关联一个 <code>FSR</code>。</li>
+<li>每个 <code>FSR</code> 至少关联一个 <code>TSR</code>。</li>
+<li>每个 <code>TSR</code> 必须有验证方法。</li>
+<li>每个验证方法必须有证据类型。</li>
+<li>不允许出现空字段。</li>
+</ul>
+<p>伪代码示意：</p>
+<pre><code># 伪代码示意，后续可实现为 scripts/trace/traceability_check.py
+for sg in safety_goals:
+    assert has_related_fsr(sg)
+
+for fsr in functional_safety_requirements:
+    assert has_related_tsr(fsr)
+
+for tsr in technical_safety_requirements:
+    assert has_verification(tsr)
+    assert has_evidence(tsr)</code></pre>
+<p>输出报告应包括：</p>
+<ul>
+<li>缺少FSR的Safety Goal。</li>
+<li>缺少TSR的FSR。</li>
+<li>缺少验证方法的TSR。</li>
+<li>缺少证据的验证项。</li>
+<li>是否满足进入Safety Case的最低完整性。</li>
+</ul>
+<h2 id="11.-6月实践任务">11. 6月实践任务</h2>
+<h2 id="11.1-实践任务1-完成aeb-item-definition">11.1 实践任务1：完成AEB Item Definition</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>项目</th>
+<th>内容</th>
+</tr></thead><tbody>
+<tr>
+<td>功能目标</td>
+<td></td>
+</tr>
+<tr>
+<td>输入</td>
+<td></td>
+</tr>
+<tr>
+<td>输出</td>
+<td></td>
+</tr>
+<tr>
+<td>执行对象</td>
+<td></td>
+</tr>
+<tr>
+<td>驾驶员责任</td>
+<td></td>
+</tr>
+<tr>
+<td>ODD初始范围</td>
+<td></td>
+</tr>
+<tr>
+<td>不覆盖范围</td>
+<td></td>
+</tr>
+<tr>
+<td>安全状态</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="11.2-实践任务2-写出至少6个hazardous-event">11.2 实践任务2：写出至少6个Hazardous Event</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>Hazard</th>
+<th>Operational Situation</th>
+<th>Hazardous Event</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X04</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X05</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X06</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="11.3-实践任务3-完成hara-v1">11.3 实践任务3：完成HARA V1</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>Hazardous Event</th>
+<th>S</th>
+<th>S理由</th>
+<th>E</th>
+<th>E理由</th>
+<th>C</th>
+<th>C理由</th>
+<th>ASIL候选</th>
+<th>Safety Goal</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HE-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<p>要求：</p>
+<ul>
+<li>每个S/E/C都必须写理由。</li>
+<li>ASIL写“候选”，不要写死。</li>
+<li>Safety Goal不要写成技术实现。</li>
+</ul>
+<h2 id="11.4-实践任务4-完成safety-goals-v1">11.4 实践任务4：完成Safety Goals V1</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>SG ID</th>
+<th>Safety Goal</th>
+<th>来源HE</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>SG-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SG-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SG-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="11.5-实践任务5-完成fsc-v1">11.5 实践任务5：完成FSC V1</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>FSR ID</th>
+<th>Functional Safety Requirement</th>
+<th>对应SG</th>
+<th>分配对象</th>
+</tr></thead><tbody>
+<tr>
+<td>FSR-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FSR-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FSR-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="11.6-实践任务6-完成tsc-v1">11.6 实践任务6：完成TSC V1</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>TSR ID</th>
+<th>Technical Safety Requirement</th>
+<th>对应FSR</th>
+<th>安全机制</th>
+</tr></thead><tbody>
+<tr>
+<td>TSR-AEB-X01</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSR-AEB-X02</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSR-AEB-X03</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="11.7-实践任务7-完成追踪表">11.7 实践任务7：完成追踪表</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>SG</th>
+<th>FSR</th>
+<th>TSR</th>
+<th>Verification Method</th>
+<th>Evidence</th>
+</tr></thead><tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="12.-常见错误">12. 常见错误</h2>
+<h3 id="12.1-把故障当成hazard">12.1 把故障当成Hazard</h3>
+<p>错误：</p>
+<blockquote>摄像头故障。</blockquote>
+<p>正确：</p>
+<blockquote>摄像头故障导致AEB未识别前方目标，系统未触发制动，产生碰撞风险。</blockquote>
+<h3 id="12.2-脱离场景判断asil">12.2 脱离场景判断ASIL</h3>
+<p>错误：</p>
+<blockquote>AEB一定是ASIL D。</blockquote>
+<p>正确：</p>
+<blockquote>AEB不同危险事件、不同运行场景下ASIL不同，需要结合S/E/C判断。</blockquote>
+<h3 id="12.3-safety-goal写得太技术化">12.3 Safety Goal写得太技术化</h3>
+<p>错误：</p>
+<blockquote>系统应在100ms内检测CAN信号超时。</blockquote>
+<p>正确：</p>
+<blockquote>AEB关键输入或执行链路不满足安全运行条件时，系统应降级、退出或提示驾驶员。</blockquote>
+<h3 id="12.4-fsc和tsc混淆">12.4 FSC和TSC混淆</h3>
+<p>FSC偏功能安全能力：</p>
+<blockquote>系统应监控关键传感器状态。</blockquote>
+<p>TSC偏技术实现要求：</p>
+<blockquote>摄像头目标输入应检查时间戳、有效位、更新周期和信号冻结。</blockquote>
+<h3 id="12.5-没有追踪关系">12.5 没有追踪关系</h3>
+<p>如果只有HARA、Safety Goal、FSR、TSR分散存在，但没有追踪表，就很难支撑认证和审计。</p>
+<p>必须建立：</p>
+<blockquote>HE -&gt; SG -&gt; FSR -&gt; TSR -&gt; Verification -&gt; Evidence</blockquote>
+<h2 id="13.-6月验收问答">13. 6月验收问答</h2>
+<h3 id="13.1-aeb-item-definition为什么重要">13.1 AEB Item Definition为什么重要？</h3>
+<p>回答：</p>
+<p>Item Definition定义分析对象和边界。如果不明确AEB的功能目标、输入输出、驾驶员责任、ODD和不覆盖范围，HARA会失控，ASIL判断和Safety Goal也会不稳定。</p>
+<h3 id="13.2-hazard和failure有什么区别">13.2 Hazard和Failure有什么区别？</h3>
+<p>回答：</p>
+<p>Failure是系统、硬件、软件或模型层面的失效，例如摄像头信号异常、模型漏检。Hazard是车辆级危险行为，例如AEB未触发或误触发。功能安全分析最终关注的是Failure可能导致的车辆级Hazard。</p>
+<h3 id="13.3-hazardous-event是什么">13.3 Hazardous Event是什么？</h3>
+<p>回答：</p>
+<p>Hazardous Event是Hazard和Operational Situation的组合。只有把危险行为放到具体运行场景中，才能评估Severity、Exposure和Controllability。</p>
+<h3 id="13.4-asil为什么不能固定说aeb就是asil-d">13.4 ASIL为什么不能固定说AEB就是ASIL D？</h3>
+<p>回答：</p>
+<p>ASIL由Severity、Exposure和Controllability共同决定。同一个AEB功能中，漏触发、误触发、制动请求过大、传感器退化未识别等危险事件不同；同一个危险事件在高速、城市、低速拥堵等场景下S/E/C也不同，因此ASIL不能脱离场景固定判断。</p>
+<h3 id="13.5-safety-goal和fsr有什么区别">13.5 Safety Goal和FSR有什么区别？</h3>
+<p>回答：</p>
+<p>Safety Goal是从HARA推导出的顶层安全目标，描述系统必须避免的不合理风险。FSR是为了实现Safety Goal而定义的功能安全需求，更接近系统应具备的安全能力。</p>
+<h3 id="13.6-fsc和tsc有什么区别">13.6 FSC和TSC有什么区别？</h3>
+<p>回答：</p>
+<p>FSC是功能安全概念，回答系统在功能层面应具备哪些安全能力。TSC是技术安全概念，回答这些功能安全需求如何落到系统架构、技术机制、接口和诊断上。</p>
+<h3 id="13.7-aeb误触发为什么也是功能安全问题">13.7 AEB误触发为什么也是功能安全问题？</h3>
+<p>回答：</p>
+<p>AEB误触发强制动可能导致后车追尾、乘员伤害和交通扰动，因此不仅漏触发是风险，误触发也是不合理风险。需要通过目标合理性检查、多传感器一致性、制动请求限幅、误触发场景回归测试等机制控制。</p>
+<h3 id="13.8-ai模型漏检应该放在fusa-sotif还是ai-safety">13.8 AI模型漏检应该放在FuSa、SOTIF还是AI Safety？</h3>
+<p>回答：</p>
+<p>要看原因。如果漏检来自硬件、通信或软件故障，偏FuSa；如果传感器未故障但在夜间、遮挡、逆光等场景能力不足，偏SOTIF；如果漏检来自数据覆盖不足、模型泛化不足或增训回归问题，偏AI Safety。真实项目中三者可能交叉，需要在Safety Case中说明边界和证据。</p>
+<h2 id="14.-与5月成果的衔接">14. 与5月成果的衔接</h2>
+<p>5月学习的AI基础概念会进入6月功能安全分析：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>5月概念</th>
+<th>6月用途</th>
+</tr></thead><tbody>
+<tr>
+<td>FN</td>
+<td>形成AEB漏触发危险事件</td>
+</tr>
+<tr>
+<td>FP</td>
+<td>形成AEB误触发危险事件</td>
+</tr>
+<tr>
+<td>OOD</td>
+<td>形成超出ODD仍输出可信判断的危险事件</td>
+</tr>
+<tr>
+<td>数据分布偏移</td>
+<td>支撑SOTIF和AI Safety风险来源说明</td>
+</tr>
+<tr>
+<td>高置信度错误</td>
+<td>支撑未降级、未提示类危险事件</td>
+</tr>
+<tr>
+<td>回归验证</td>
+<td>后续验证Safety Goal落实时使用</td>
+</tr>
+</tbody></table></div>
+<h2 id="15.-与7月学习的衔接">15. 与7月学习的衔接</h2>
+<p>7月会进入：</p>
+<p><strong>ADS架构 + PV/BEV/Occupancy安全风险。</strong></p>
+<p>6月输出会作为7月输入：</p>
+<ul>
+<li>Safety Goal会映射到架构中的感知、融合、AEB决策、制动执行、HMI、诊断。</li>
+<li>FSR会帮助确定功能层安全能力。</li>
+<li>TSR会帮助分析技术安全机制放在哪里。</li>
+<li>追踪表会帮助后续连接测试验证和Safety Case。</li>
+</ul>
+<h2 id="16.-6月底复盘模板">16. 6月底复盘模板</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>问题</th>
+<th>复盘内容</th>
+</tr></thead><tbody>
+<tr>
+<td>是否能清楚说明AEB Item Definition？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否完成至少6个Hazardous Event？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能解释S/E/C？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能说明ASIL候选理由？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否完成Safety Goals V1？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否完成FSC V1？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否完成TSC V1？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否建立SG-FSR-TSR追踪表？</td>
+<td></td>
+</tr>
+<tr>
+<td>哪些概念还不清楚？</td>
+<td></td>
+</tr>
+<tr>
+<td>7月学习ADS架构前需要补什么？</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="17.-本月最终验收标准">17. 本月最终验收标准</h2>
+<p>6月底应达到：</p>
+<ul>
+<li>能独立解释AEB功能安全分析流程。</li>
+<li>能写出AEB Item Definition。</li>
+<li>能识别至少6个AEB Hazardous Event。</li>
+<li>能对至少3个危险事件做S/E/C分析。</li>
+<li>能解释ASIL候选理由。</li>
+<li>能从HARA推导Safety Goal。</li>
+<li>能从Safety Goal拆出FSR。</li>
+<li>能从FSR拆出TSR。</li>
+<li>能建立基础追踪表。</li>
+<li>能在面试中用AEB漏触发和误触发讲清楚FuSa基础逻辑。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个AEB风险，你能从“危险事件”一路讲到“安全目标、功能需求、技术机制和验证证据”。</blockquote>
+<h2 id="18.-端到端模型视角补充">18. 端到端模型视角补充</h2>
+<p>端到端模型不会取消HARA、Safety Goal、FSC/TSC的价值。</p>
+<p>它改变的是：</p>
+<p><strong>安全需求不再总能清晰分配到传统感知、预测、规划模块，而要更多分配到模型行为约束、运行时监控和输出安全检查。</strong></p>
+<h3 id="18.1-hara如何适配端到端模型">18.1 HARA如何适配端到端模型</h3>
+<p>端到端下，危险事件应从“模块失效”转向“模型输出危险行为”。</p>
+<div class="table-wrap"><table><thead><tr>
+<th>传统写法</th>
+<th>端到端安全写法</th>
+</tr></thead><tbody>
+<tr>
+<td>感知漏检前方行人</td>
+<td>端到端模型未对前方真实行人输出减速或避让行为</td>
+</tr>
+<tr>
+<td>规划轨迹错误</td>
+<td>端到端模型输出与障碍物冲突的轨迹</td>
+</tr>
+<tr>
+<td>TTC计算错误</td>
+<td>端到端模型未在高碰撞风险场景中及时产生安全响应</td>
+</tr>
+<tr>
+<td>误检导致误制动</td>
+<td>端到端模型在无合理风险场景下输出不必要急制动</td>
+</tr>
+</tbody></table></div>
+<h3 id="18.2-safety-goal如何适配端到端模型">18.2 Safety Goal如何适配端到端模型</h3>
+<p>Safety Goal应保持车辆级表达。</p>
+<p>示例：</p>
+<ul>
+<li>端到端驾驶模型不应在无合理碰撞风险时输出导致车辆显著减速的控制行为。</li>
+<li>端到端驾驶模型应在目标ODD内对高碰撞风险场景输出及时、可执行且安全的减速或避让行为。</li>
+<li>当输入超出ODD、模型置信度不足或运行时监控发现输出异常时，系统应进入降级、fallback或请求接管。</li>
+</ul>
+<h3 id="18.3-fsc-tsc如何适配端到端模型">18.3 FSC/TSC如何适配端到端模型</h3>
+<p>端到端下的安全机制更应关注：</p>
+<ul>
+<li>输出轨迹合理性检查。</li>
+<li>碰撞风险独立监控。</li>
+<li>速度、加速度、jerk限制。</li>
+<li>交通规则约束。</li>
+<li>ODD/OOD监控。</li>
+<li>fallback/MRC。</li>
+<li>模型版本回归测试。</li>
+<li>运行时异常检测。</li>
+</ul>
+<h3 id="18.4-新增实践任务">18.4 新增实践任务</h3>
+<p>将AEB危险事件改写为端到端行为风险：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>HE ID</th>
+<th>模块化危险事件</th>
+<th>端到端行为风险表达</th>
+</tr></thead><tbody>
+<tr>
+<td>HE-AEB-001</td>
+<td>前方真实目标存在，AEB未触发</td>
+<td>模型未在高碰撞风险场景输出安全减速行为</td>
+</tr>
+<tr>
+<td>HE-AEB-002</td>
+<td>无风险时AEB误触发</td>
+<td>模型在无合理风险场景输出不必要强制动</td>
+</tr>
+<tr>
+<td>HE-AEB-003</td>
+<td>制动请求过大</td>
+<td>模型输出的纵向控制超过舒适性和稳定性边界</td>
+</tr>
+</tbody></table></div>
+<p>验收：</p>
+<blockquote>能把传统模块化HARA语言改写成端到端模型行为安全语言。</blockquote><div class="footer">Source: 12.2-2026年6月AEB功能安全基础执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>

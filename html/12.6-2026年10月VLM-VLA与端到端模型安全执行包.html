@@ -1,0 +1,359 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.6 · 2026年10月 VLM/VLA与端到端模型安全执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.6 · 2026年10月 VLM/VLA与端到端模型安全执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年10月vlm-vla与端到端模型安全执行包">2026年10月VLM/VLA与端到端模型安全执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月目标">2. 本月目标</a></li>
+<li class="level-2"><a href="#3.-核心概念">3. 核心概念</a></li>
+<li class="level-3"><a href="#3.1-transformer">3.1 Transformer</a></li>
+<li class="level-3"><a href="#3.2-vit">3.2 ViT</a></li>
+<li class="level-3"><a href="#3.3-vlm">3.3 VLM</a></li>
+<li class="level-3"><a href="#3.4-vla">3.4 VLA</a></li>
+<li class="level-2"><a href="#4.-vlm与vla对比">4. VLM与VLA对比</a></li>
+<li class="level-2"><a href="#5.-端到端模型安全">5. 端到端模型安全</a></li>
+<li class="level-2"><a href="#6.-安全约束层">6. 安全约束层</a></li>
+<li class="level-2"><a href="#7.-服务机器人歧义指令示例">7. 服务机器人歧义指令示例</a></li>
+<li class="level-2"><a href="#8.-端到端模型safety-case追问清单">8. 端到端模型Safety Case追问清单</a></li>
+<li class="level-2"><a href="#9.-智驾端到端aeb-noa安全追问">9. 智驾端到端AEB/NOA安全追问</a></li>
+<li class="level-2"><a href="#10.-机器人vla安全追问">10. 机器人VLA安全追问</a></li>
+<li class="level-2"><a href="#11.-实践任务">11. 实践任务</a></li>
+<li class="level-3"><a href="#11.1-transformer-vit安全风险摘要">11.1 Transformer/ViT安全风险摘要</a></li>
+<li class="level-3"><a href="#11.2-vlm-vla区别与安全影响说明">11.2 VLM/VLA区别与安全影响说明</a></li>
+<li class="level-3"><a href="#11.3-服务机器人歧义指令风险分析">11.3 服务机器人歧义指令风险分析</a></li>
+<li class="level-3"><a href="#11.4-端到端模型safety-case追问清单">11.4 端到端模型Safety Case追问清单</a></li>
+<li class="level-2"><a href="#12.-验收问答">12. 验收问答</a></li>
+<li class="level-3"><a href="#12.1-vlm和vla有什么区别">12.1 VLM和VLA有什么区别？</a></li>
+<li class="level-3"><a href="#12.2-为什么端到端模型更难做safety-case">12.2 为什么端到端模型更难做Safety Case？</a></li>
+<li class="level-3"><a href="#12.3-vla为什么需要独立安全约束层">12.3 VLA为什么需要独立安全约束层？</a></li>
+<li class="level-2"><a href="#13.-本月最终验收标准">13. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#14.-智驾端到端安全保证补强">14. 智驾端到端安全保证补强</a></li>
+<li class="level-3"><a href="#14.1-端到端模型的安全对象">14.1 端到端模型的安全对象</a></li>
+<li class="level-3"><a href="#14.2-端到端模型的不可接受行为">14.2 端到端模型的不可接受行为</a></li>
+<li class="level-3"><a href="#14.3-运行时安全监控器">14.3 运行时安全监控器</a></li>
+<li class="level-3"><a href="#14.4-新增实践任务">14.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.6 · 2026年10月 VLM/VLA与端到端模型安全执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年10月vlm-vla与端到端模型安全执行包">2026年10月VLM/VLA与端到端模型安全执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：VLM / VLA风险差异</p><div class="grid-2"><div class="card"><h4>VLM</h4><p>看图和语言理解，错了可能说错、理解错。</p></div><div class="card"><h4>VLA</h4><p>视觉+语言+动作，错了可能直接动错，风险更高。</p></div></div></section><section class="figure"><p class="figure-title">辅助图：端到端安全约束链</p><div class="flow"><div class="node">传感器输入</div><div class="arrow">→</div><div class="node">E2E模型</div><div class="arrow">→</div><div class="node">轨迹/动作输出</div><div class="arrow">→</div><div class="node">独立安全监控</div><div class="arrow">→</div><div class="node">限速/限力/碰撞检查</div><div class="arrow">→</div><div class="node">执行器</div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>10月主题：</p>
+<p><strong>Transformer、ViT、VLM、VLA和端到端模型安全。</strong></p>
+<p>本月目标不是训练模型，而是理解这些模型如何改变智能驾驶和机器人安全论证。</p>
+<p>核心问题：</p>
+<blockquote>当模型从“识别目标”走向“理解场景、生成轨迹、执行动作”时，安全风险如何变化？Safety Case如何跟上？</blockquote>
+<h2 id="2.-本月目标">2. 本月目标</h2>
+<p>10月底应能做到：</p>
+<ul>
+<li>解释Transformer、ViT、VLM、VLA的基本含义。</li>
+<li>说明VLM和VLA的区别。</li>
+<li>说明端到端模型为什么更难验证和认证。</li>
+<li>识别VLA在机器人场景中的误理解、误执行、危险动作风险。</li>
+<li>建立端到端模型Safety Case追问清单。</li>
+<li>建立服务机器人歧义指令风险分析。</li>
+</ul>
+<h2 id="3.-核心概念">3. 核心概念</h2>
+<h3 id="3.1-transformer">3.1 Transformer</h3>
+<p>Transformer核心是Attention机制，擅长处理序列、多模态和长距离依赖。</p>
+<p>安全关注：</p>
+<ul>
+<li>输入扰动是否导致输出不稳定。</li>
+<li>注意力是否关注错误对象。</li>
+<li>多模态冲突时如何决策。</li>
+<li>是否存在幻觉或错误推理。</li>
+</ul>
+<h3 id="3.2-vit">3.2 ViT</h3>
+<p>ViT是Vision Transformer，将图像切成patch后用Transformer处理。</p>
+<p>安全关注：</p>
+<ul>
+<li>小目标是否被patch粒度影响。</li>
+<li>遮挡和复杂光照下是否退化。</li>
+<li>视觉模型是否按高风险场景分层验证。</li>
+</ul>
+<h3 id="3.3-vlm">3.3 VLM</h3>
+<p>VLM是Vision-Language Model，视觉语言模型。</p>
+<p>输入：</p>
+<ul>
+<li>图像/视频。</li>
+<li>文本问题或指令。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>场景描述。</li>
+<li>问答结果。</li>
+<li>任务理解。</li>
+</ul>
+<p>风险：</p>
+<ul>
+<li>看错物体。</li>
+<li>理解错场景。</li>
+<li>产生幻觉解释。</li>
+<li>把危险物体当普通物体。</li>
+</ul>
+<h3 id="3.4-vla">3.4 VLA</h3>
+<p>VLA是Vision-Language-Action模型。</p>
+<p>输入：</p>
+<ul>
+<li>视觉。</li>
+<li>语言。</li>
+<li>机器人状态。</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>动作。</li>
+<li>轨迹。</li>
+<li>抓取。</li>
+<li>任务步骤。</li>
+</ul>
+<p>VLA比VLM更危险，因为它直接连接物理动作。</p>
+<p>风险：</p>
+<ul>
+<li>误解指令。</li>
+<li>生成危险动作。</li>
+<li>在人附近快速动作。</li>
+<li>抓取危险物体。</li>
+<li>真实环境变化后仍执行原动作。</li>
+</ul>
+<h2 id="4.-vlm与vla对比">4. VLM与VLA对比</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>VLM</th>
+<th>VLA</th>
+</tr></thead><tbody>
+<tr>
+<td>全称</td>
+<td>Vision-Language Model</td>
+<td>Vision-Language-Action Model</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>文本、描述、理解结果</td>
+<td>动作、轨迹、任务步骤</td>
+</tr>
+<tr>
+<td>主要风险</td>
+<td>看错、说错、理解错</td>
+<td>看错后做错、理解错后执行危险动作</td>
+</tr>
+<tr>
+<td>安全约束</td>
+<td>拒答、置信度、人工确认</td>
+<td>限速、限力、碰撞检测、急停、运行时监控</td>
+</tr>
+<tr>
+<td>安全等级</td>
+<td>影响认知判断</td>
+<td>直接影响物理世界</td>
+</tr>
+</tbody></table></div>
+<p>一句话：</p>
+<blockquote>VLM错了可能说错，VLA错了可能动错。</blockquote>
+<h2 id="5.-端到端模型安全">5. 端到端模型安全</h2>
+<p>端到端模型尝试从传感器输入直接输出轨迹、控制或决策。</p>
+<p>优点：</p>
+<ul>
+<li>链路简化。</li>
+<li>表达能力强。</li>
+<li>减少手工规则。</li>
+</ul>
+<p>风险：</p>
+<ul>
+<li>中间过程不可解释。</li>
+<li>安全需求难以分配。</li>
+<li>故障根因难定位。</li>
+<li>数据覆盖要求极高。</li>
+<li>Safety Case难度上升。</li>
+<li>模型更新影响范围大。</li>
+</ul>
+<h2 id="6.-安全约束层">6. 安全约束层</h2>
+<p>对于VLA和端到端模型，必须关注是否存在独立安全约束。</p>
+<p>典型安全约束：</p>
+<ul>
+<li>动作限速。</li>
+<li>加速度/jerk限制。</li>
+<li>力限制。</li>
+<li>工作空间限制。</li>
+<li>人机距离约束。</li>
+<li>碰撞检测。</li>
+<li>轨迹合理性检查。</li>
+<li>不确定时停止。</li>
+<li>人工确认。</li>
+<li>急停。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>模型输出是否直接进入执行器？</li>
+<li>是否有独立监控器？</li>
+<li>是否有规则约束层？</li>
+<li>不确定时是否停止？</li>
+<li>危险指令是否被拒绝？</li>
+</ul>
+<h2 id="7.-服务机器人歧义指令示例">7. 服务机器人歧义指令示例</h2>
+<p>场景：</p>
+<p>用户对服务机器人说：“把那个东西拿过来。”</p>
+<p>风险：</p>
+<ul>
+<li>“那个东西”指代不清。</li>
+<li>机器人误识别物体。</li>
+<li>机器人抓取危险物品。</li>
+<li>机器人穿过人群执行任务。</li>
+<li>用户意图和实际动作不一致。</li>
+</ul>
+<p>安全要求：</p>
+<ul>
+<li>指令歧义时请求确认。</li>
+<li>危险物品不得自动抓取。</li>
+<li>人机距离不足时暂停。</li>
+<li>动作执行前做路径和碰撞检查。</li>
+<li>记录指令、理解结果、动作结果。</li>
+</ul>
+<h2 id="8.-端到端模型safety-case追问清单">8. 端到端模型Safety Case追问清单</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>问题</th>
+<th>目的</th>
+</tr></thead><tbody>
+<tr>
+<td>安全需求如何分配？</td>
+<td>防止模型黑盒吞掉需求</td>
+</tr>
+<tr>
+<td>中间状态是否可观测？</td>
+<td>支持问题定位</td>
+</tr>
+<tr>
+<td>输出是否经过独立检查？</td>
+<td>防止危险动作直接执行</td>
+</tr>
+<tr>
+<td>长尾场景如何覆盖？</td>
+<td>防止未知风险</td>
+</tr>
+<tr>
+<td>OOD如何识别？</td>
+<td>防止超域运行</td>
+</tr>
+<tr>
+<td>模型更新如何验证？</td>
+<td>防止回归</td>
+</tr>
+<tr>
+<td>是否有fallback？</td>
+<td>失败后进入安全状态</td>
+</tr>
+<tr>
+<td>Safety Case证据如何组织？</td>
+<td>支持认证和审计</td>
+</tr>
+</tbody></table></div>
+<h2 id="9.-智驾端到端aeb-noa安全追问">9. 智驾端到端AEB/NOA安全追问</h2>
+<ul>
+<li>模型输出轨迹是否可解释？</li>
+<li>输出轨迹是否经过交通规则检查？</li>
+<li>是否有限速、限加速度、限jerk？</li>
+<li>对cut-in、施工区、遮挡区是否专项验证？</li>
+<li>是否有独立碰撞风险监控器？</li>
+<li>是否保留传统安全兜底？</li>
+</ul>
+<h2 id="10.-机器人vla安全追问">10. 机器人VLA安全追问</h2>
+<ul>
+<li>是否区分认知结果和动作执行？</li>
+<li>是否有任务级安全规则？</li>
+<li>是否有危险动作黑名单？</li>
+<li>是否有人工确认机制？</li>
+<li>是否有力/速度/空间限制？</li>
+<li>是否有急停和安全姿态？</li>
+<li>是否记录模型输入、输出和执行结果？</li>
+</ul>
+<h2 id="11.-实践任务">11. 实践任务</h2>
+<h3 id="11.1-transformer-vit安全风险摘要">11.1 Transformer/ViT安全风险摘要</h3>
+<p>要求：</p>
+<ul>
+<li>每个概念一句话解释。</li>
+<li>每个概念列出至少3个安全风险。</li>
+</ul>
+<h3 id="11.2-vlm-vla区别与安全影响说明">11.2 VLM/VLA区别与安全影响说明</h3>
+<p>要求：</p>
+<ul>
+<li>说明VLM和VLA区别。</li>
+<li>说明为什么VLA更需要安全约束。</li>
+<li>给出至少3个机器人场景例子。</li>
+</ul>
+<h3 id="11.3-服务机器人歧义指令风险分析">11.3 服务机器人歧义指令风险分析</h3>
+<p>填写：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>指令</th>
+<th>歧义点</th>
+<th>可能危险动作</th>
+<th>安全策略</th>
+</tr></thead><tbody>
+<tr>
+<td>把那个东西拿过来</td>
+<td>目标不明确</td>
+<td>抓错物体</td>
+<td>请求确认</td>
+</tr>
+</tbody></table></div>
+<h3 id="11.4-端到端模型safety-case追问清单">11.4 端到端模型Safety Case追问清单</h3>
+<p>输出一份不少于20个问题的清单。</p>
+<h2 id="12.-验收问答">12. 验收问答</h2>
+<h3 id="12.1-vlm和vla有什么区别">12.1 VLM和VLA有什么区别？</h3>
+<p>VLM主要输出理解或文本，VLA输出动作或任务执行结果。VLA直接影响物理世界，因此安全风险更高。</p>
+<h3 id="12.2-为什么端到端模型更难做safety-case">12.2 为什么端到端模型更难做Safety Case？</h3>
+<p>因为中间过程不可解释、安全需求难分配、故障根因难定位、数据覆盖要求高、模型更新影响范围大。</p>
+<h3 id="12.3-vla为什么需要独立安全约束层">12.3 VLA为什么需要独立安全约束层？</h3>
+<p>因为VLA输出可能直接导致物理动作，必须通过限速、限力、碰撞检测、人机距离、人工确认和急停等机制拦截危险动作。</p>
+<h2 id="13.-本月最终验收标准">13. 本月最终验收标准</h2>
+<p>10月底应达到：</p>
+<ul>
+<li>能解释Transformer、ViT、VLM、VLA。</li>
+<li>能说明VLM和VLA的安全差异。</li>
+<li>能分析端到端模型Safety Case难点。</li>
+<li>能给出机器人VLA安全约束建议。</li>
+<li>能完成服务机器人歧义指令风险分析。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个多模态或具身智能模型，你能判断它从感知、理解到动作的安全风险，并提出独立约束、验证和证据链要求。</blockquote>
+<h2 id="14.-智驾端到端安全保证补强">14. 智驾端到端安全保证补强</h2>
+<p>10月是端到端安全的重点月份，需要将端到端从“模型概念”升级为“安全保证对象”。</p>
+<h3 id="14.1-端到端模型的安全对象">14.1 端到端模型的安全对象</h3>
+<p>端到端安全分析关注的不只是模型结构，而是：</p>
+<ul>
+<li>输入是否可靠。</li>
+<li>输出轨迹是否安全。</li>
+<li>行为是否符合ODD。</li>
+<li>失败是否可检测。</li>
+<li>风险是否可验证。</li>
+<li>证据是否可审计。</li>
+</ul>
+<h3 id="14.2-端到端模型的不可接受行为">14.2 端到端模型的不可接受行为</h3>
+<p>应建立不可接受行为清单：</p>
+<ul>
+<li>对真实碰撞风险不减速。</li>
+<li>无风险场景急刹。</li>
+<li>轨迹穿越障碍物。</li>
+<li>贴近行人或两轮车。</li>
+<li>在ODD外继续自动驾驶。</li>
+<li>施工区行为不符合预期。</li>
+<li>输出过大加速度、减速度或jerk。</li>
+<li>接管请求不及时。</li>
+</ul>
+<h3 id="14.3-运行时安全监控器">14.3 运行时安全监控器</h3>
+<p>端到端系统建议保留独立安全监控器。</p>
+<p>监控内容：</p>
+<ul>
+<li>轨迹碰撞风险。</li>
+<li>TTC阈值。</li>
+<li>与可通行空间一致性。</li>
+<li>速度/加速度/jerk边界。</li>
+<li>车道和道路边界。</li>
+<li>ODD/OOD状态。</li>
+<li>驾驶员接管状态。</li>
+</ul>
+<h3 id="14.4-新增实践任务">14.4 新增实践任务</h3>
+<p>输出：</p>
+<ul>
+<li><code>端到端ADS不可接受行为清单</code>。</li>
+<li><code>端到端输出轨迹安全检查清单</code>。</li>
+<li><code>端到端模型运行时监控器需求草案</code>。</li>
+</ul>
+<p>验收：</p>
+<blockquote>能说明端到端模型不是“模型输出就执行”，而必须经过独立安全约束、行为验证和证据链管理。</blockquote><div class="footer">Source: 12.6-2026年10月VLM-VLA与端到端模型安全执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>

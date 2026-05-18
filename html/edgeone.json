@@ -1,0 +1,6 @@
+﻿{
+  "name": "ads-ai-safety-blog",
+  "installCommand": "echo no-deps",
+  "buildCommand": "echo static",
+  "outputDirectory": "."
+}

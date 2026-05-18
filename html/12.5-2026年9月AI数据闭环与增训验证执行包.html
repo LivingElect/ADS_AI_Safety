@@ -1,0 +1,490 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.5 · 2026年9月 AI数据闭环与增训验证执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.5 · 2026年9月 AI数据闭环与增训验证执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年9月ai数据闭环与增训验证执行包">2026年9月AI数据闭环与增训验证执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月目标">2. 本月目标</a></li>
+<li class="level-2"><a href="#3.-ai数据闭环总图">3. AI数据闭环总图</a></li>
+<li class="level-2"><a href="#4.-数据质量要求">4. 数据质量要求</a></li>
+<li class="level-2"><a href="#5.-aeb数据gap分析">5. AEB数据gap分析</a></li>
+<li class="level-3"><a href="#5.1-从触发条件反推数据需求">5.1 从触发条件反推数据需求</a></li>
+<li class="level-3"><a href="#5.2-数据gap模板">5.2 数据gap模板</a></li>
+<li class="level-2"><a href="#6.-增训触发规则">6. 增训触发规则</a></li>
+<li class="level-2"><a href="#7.-增训效果验证">7. 增训效果验证</a></li>
+<li class="level-3"><a href="#7.1-验证指标">7.1 验证指标</a></li>
+<li class="level-3"><a href="#7.2-增训前后对比模板">7.2 增训前后对比模板</a></li>
+<li class="level-2"><a href="#8.-发布门禁">8. 发布门禁</a></li>
+<li class="level-3"><a href="#8.1-门禁规则">8.1 门禁规则</a></li>
+<li class="level-3"><a href="#8.2-发布结论">8.2 发布结论</a></li>
+<li class="level-2"><a href="#9.-具身智能数据闭环迁移">9. 具身智能数据闭环迁移</a></li>
+<li class="level-2"><a href="#10.-代码实践">10. 代码实践</a></li>
+<li class="level-2"><a href="#11.-实践任务">11. 实践任务</a></li>
+<li class="level-2"><a href="#12.-验收问答">12. 验收问答</a></li>
+<li class="level-3"><a href="#12.1-数据量大是否等于安全充分">12.1 数据量大是否等于安全充分？</a></li>
+<li class="level-3"><a href="#12.2-如何证明增训有效">12.2 如何证明增训有效？</a></li>
+<li class="level-3"><a href="#12.3-为什么要做回归测试">12.3 为什么要做回归测试？</a></li>
+<li class="level-2"><a href="#13.-本月最终验收标准">13. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#14.-端到端模型数据闭环补充">14. 端到端模型数据闭环补充</a></li>
+<li class="level-3"><a href="#14.1-端到端数据需求">14.1 端到端数据需求</a></li>
+<li class="level-3"><a href="#14.2-端到端回归指标">14.2 端到端回归指标</a></li>
+<li class="level-3"><a href="#14.3-端到端发布门禁">14.3 端到端发布门禁</a></li>
+<li class="level-3"><a href="#14.4-新增实践任务">14.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.5 · 2026年9月 AI数据闭环与增训验证执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年9月ai数据闭环与增训验证执行包">2026年9月AI数据闭环与增训验证执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：AI数据闭环</p><div class="flow"><div class="node">安全事件/测试失败</div><div class="arrow">→</div><div class="node">数据gap</div><div class="arrow">→</div><div class="node">补采/挖掘/仿真</div><div class="arrow">→</div><div class="node">标注质检</div><div class="arrow">→</div><div class="node">增训</div><div class="arrow">→</div><div class="node">验证</div><div class="arrow">→</div><div class="node">回归</div><div class="arrow">→</div><div class="node">发布门禁</div><div class="arrow">→</div><div class="node">证据归档</div></div></section><section class="figure"><p class="figure-title">辅助图：发布门禁判断</p><div class="grid-3"><div class="card"><h4>PASS</h4><p>所有关键门禁满足。</p></div><div class="card"><h4>BLOCK</h4><p>关键安全场景退化或证据缺失。</p></div><div class="card"><h4>CONDITIONAL</h4><p>风险可控但需限制ODD或补充监控。</p></div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>9月主题：</p>
+<p><strong>AI数据闭环、数据gap、增训和回归验证。</strong></p>
+<p>8月已经完成ODD、触发条件和场景工程。9月要把这些场景风险转成AI安全数据闭环：</p>
+<blockquote>哪些场景需要补数据？补完数据如何训练？训练后如何证明风险降低？如何防止旧场景回退？如何形成发布门禁和认证证据？</blockquote>
+<h2 id="2.-本月目标">2. 本月目标</h2>
+<p>9月底应能做到：</p>
+<ul>
+<li>从AEB触发条件反推数据需求。</li>
+<li>建立数据质量要求清单。</li>
+<li>做数据gap分析。</li>
+<li>设计增训触发规则。</li>
+<li>设计增训效果验证模板。</li>
+<li>建立模型发布门禁。</li>
+<li>建立具身智能数据闭环风险清单。</li>
+</ul>
+<h2 id="3.-ai数据闭环总图">3. AI数据闭环总图</h2>
+<div class="mermaid">flowchart LR
+    event[&quot;Safety Event / Test Failure&quot;] --&gt; triage[&quot;Safety Relevance Triage&quot;]
+    triage --&gt; gap[&quot;Data Gap Analysis&quot;]
+    gap --&gt; collect[&quot;Data Collection / Mining / Simulation&quot;]
+    collect --&gt; label[&quot;Labeling &amp; Quality Review&quot;]
+    label --&gt; train[&quot;Model Retraining&quot;]
+    train --&gt; val[&quot;Validation&quot;]
+    val --&gt; reg[&quot;Critical Scenario Regression&quot;]
+    reg --&gt; gate[&quot;Release Gate&quot;]
+    gate --&gt; evidence[&quot;Evidence Archive&quot;]</div>
+<p>一句话：</p>
+<blockquote>数据闭环不是“多采点数据”，而是从安全事件出发，经过数据gap、增训、验证、回归、门禁和证据归档的完整工程闭环。</blockquote>
+<h2 id="4.-数据质量要求">4. 数据质量要求</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Requirement ID</th>
+<th>Data Requirement</th>
+<th>Metric / Check</th>
+</tr></thead><tbody>
+<tr>
+<td>DR-AEB-001</td>
+<td>数据应覆盖目标ODD内主要目标类型</td>
+<td>目标类型覆盖率</td>
+</tr>
+<tr>
+<td>DR-AEB-002</td>
+<td>数据应覆盖高风险触发条件</td>
+<td>场景覆盖矩阵</td>
+</tr>
+<tr>
+<td>DR-AEB-003</td>
+<td>标注应包含类别、位置、遮挡、光照、天气等标签</td>
+<td>标注完整率</td>
+</tr>
+<tr>
+<td>DR-AEB-004</td>
+<td>训练/验证/测试集应相互独立</td>
+<td>数据泄漏检查</td>
+</tr>
+<tr>
+<td>DR-AEB-005</td>
+<td>安全相关样本应可追溯</td>
+<td>数据版本和来源记录</td>
+</tr>
+<tr>
+<td>DR-AEB-006</td>
+<td>长尾场景应单独管理</td>
+<td>长尾场景清单</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.-aeb数据gap分析">5. AEB数据gap分析</h2>
+<h3 id="5.1-从触发条件反推数据需求">5.1 从触发条件反推数据需求</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Triggering Condition</th>
+<th>数据缺口</th>
+<th>补强方式</th>
+</tr></thead><tbody>
+<tr>
+<td>夜间黑衣行人</td>
+<td>夜间低照度行人样本不足</td>
+<td>补采/公开数据/仿真生成</td>
+</tr>
+<tr>
+<td>逆光静止车辆</td>
+<td>逆光目标置信度样本不足</td>
+<td>回放挖掘/专项采集</td>
+</tr>
+<tr>
+<td>雨天传感器污染</td>
+<td>污染退化数据不足</td>
+<td>传感器污染注入</td>
+</tr>
+<tr>
+<td>cut-in急刹</td>
+<td>cut-in高风险轨迹不足</td>
+<td>场景库参数扫描</td>
+</tr>
+<tr>
+<td>反光/阴影误检</td>
+<td>负样本不足</td>
+<td>误检样本回灌</td>
+</tr>
+<tr>
+<td>低矮障碍物</td>
+<td>低矮目标样本不足</td>
+<td>封闭场采集</td>
+</tr>
+</tbody></table></div>
+<h3 id="5.2-数据gap模板">5.2 数据gap模板</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Gap ID</th>
+<th>场景</th>
+<th>目标物</th>
+<th>环境</th>
+<th>当前覆盖</th>
+<th>风险</th>
+<th>补强优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>GAP-AEB-001</td>
+<td>夜间横穿</td>
+<td>行人</td>
+<td>低照度</td>
+<td>不足</td>
+<td>FN导致漏制动</td>
+<td>高</td>
+</tr>
+<tr>
+<td>GAP-AEB-002</td>
+<td>反光路面</td>
+<td>无真实障碍</td>
+<td>强反光</td>
+<td>不足</td>
+<td>FP导致误制动</td>
+<td>中高</td>
+</tr>
+</tbody></table></div>
+<h2 id="6.-增训触发规则">6. 增训触发规则</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Trigger</th>
+<th>进入闭环条件</th>
+<th>动作</th>
+</tr></thead><tbody>
+<tr>
+<td>安全事件</td>
+<td>AEB漏触发/误触发</td>
+<td>安全分级+数据gap</td>
+</tr>
+<tr>
+<td>测试失败</td>
+<td>关键场景未通过</td>
+<td>补数据+回归</td>
+</tr>
+<tr>
+<td>ODD扩展</td>
+<td>新天气/新道路/新目标</td>
+<td>更新数据需求</td>
+</tr>
+<tr>
+<td>模型退化</td>
+<td>关键Recall下降</td>
+<td>阻断发布</td>
+</tr>
+<tr>
+<td>认证问题</td>
+<td>证据不足</td>
+<td>补充验证材料</td>
+</tr>
+</tbody></table></div>
+<h2 id="7.-增训效果验证">7. 增训效果验证</h2>
+<p>增训是否有效，不能只看总体指标。</p>
+<h3 id="7.1-验证指标">7.1 验证指标</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>指标</th>
+<th>目的</th>
+</tr></thead><tbody>
+<tr>
+<td>关键场景Recall</td>
+<td>证明漏检风险降低</td>
+</tr>
+<tr>
+<td>关键场景FP率</td>
+<td>证明误触发风险未升高</td>
+</tr>
+<tr>
+<td>Regression Delta</td>
+<td>证明旧场景未回退</td>
+</tr>
+<tr>
+<td>OOD识别率</td>
+<td>证明边界输入能被识别</td>
+</tr>
+<tr>
+<td>场景通过率</td>
+<td>证明测试用例通过</td>
+</tr>
+</tbody></table></div>
+<h3 id="7.2-增训前后对比模板">7.2 增训前后对比模板</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>V1</th>
+<th>V2</th>
+<th>变化</th>
+<th>是否可接受</th>
+</tr></thead><tbody>
+<tr>
+<td>夜间行人Recall</td>
+<td>0.68</td>
+<td>0.83</td>
+<td>+0.15</td>
+<td>是</td>
+</tr>
+<tr>
+<td>反光FP率</td>
+<td>0.04</td>
+<td>0.05</td>
+<td>+0.01</td>
+<td>需关注</td>
+</tr>
+<tr>
+<td>白天车辆Recall</td>
+<td>0.94</td>
+<td>0.93</td>
+<td>-0.01</td>
+<td>可接受</td>
+</tr>
+<tr>
+<td>静态障碍物Recall</td>
+<td>0.76</td>
+<td>0.72</td>
+<td>-0.04</td>
+<td>不可接受</td>
+</tr>
+</tbody></table></div>
+<p>结论示例：</p>
+<blockquote>V2改善了夜间行人Recall，但静态障碍物Recall下降超过阈值，不能直接发布，应补充静态障碍物回归分析。</blockquote>
+<h2 id="8.-发布门禁">8. 发布门禁</h2>
+<h3 id="8.1-门禁规则">8.1 门禁规则</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Gate</th>
+<th>规则</th>
+</tr></thead><tbody>
+<tr>
+<td>数据独立性</td>
+<td>训练/验证/测试集无泄漏</td>
+</tr>
+<tr>
+<td>关键Recall</td>
+<td>高风险目标Recall不得下降</td>
+</tr>
+<tr>
+<td>FP风险</td>
+<td>误触发率不得超过阈值</td>
+</tr>
+<tr>
+<td>回归测试</td>
+<td>历史高风险场景全部通过</td>
+</tr>
+<tr>
+<td>OOD处理</td>
+<td>OOD失败项已闭环</td>
+</tr>
+<tr>
+<td>证据归档</td>
+<td>数据、模型、测试版本已记录</td>
+</tr>
+</tbody></table></div>
+<h3 id="8.2-发布结论">8.2 发布结论</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>结论</th>
+<th>条件</th>
+</tr></thead><tbody>
+<tr>
+<td>PASS</td>
+<td>所有门禁满足</td>
+</tr>
+<tr>
+<td>BLOCK</td>
+<td>关键安全场景退化</td>
+</tr>
+<tr>
+<td>CONDITIONAL_RELEASE</td>
+<td>风险可控但需限制ODD或补充监控</td>
+</tr>
+</tbody></table></div>
+<h2 id="9.-具身智能数据闭环迁移">9. 具身智能数据闭环迁移</h2>
+<p>机器人/具身智能数据来源：</p>
+<ul>
+<li>仿真数据。</li>
+<li>遥操作数据。</li>
+<li>人类示教数据。</li>
+<li>实机运行日志。</li>
+<li>失败事件回放。</li>
+<li>用户交互数据。</li>
+</ul>
+<p>风险：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>风险</th>
+<th>安全影响</th>
+</tr></thead><tbody>
+<tr>
+<td>示教数据覆盖不足</td>
+<td>新环境泛化失败</td>
+</tr>
+<tr>
+<td>仿真到现实差距</td>
+<td>实机表现不安全</td>
+</tr>
+<tr>
+<td>危险指令样本不足</td>
+<td>VLA误执行</td>
+</tr>
+<tr>
+<td>儿童/宠物样本不足</td>
+<td>避障漏检</td>
+</tr>
+<tr>
+<td>透明/反光物体不足</td>
+<td>空间理解错误</td>
+</tr>
+</tbody></table></div>
+<h2 id="10.-代码实践">10. 代码实践</h2>
+<p>建议实现三个轻量脚本：</p>
+<ol>
+<li><code>data_gap_check.py</code>：统计场景覆盖缺口。</li>
+<li><code>model_comparison.py</code>：比较V1/V2关键安全指标。</li>
+<li><code>release_gate.py</code>：根据门禁规则输出PASS/BLOCK。</li>
+</ol>
+<p>伪代码：</p>
+<pre><code>if night_pedestrian_recall &lt; baseline:
+    block(&quot;Night pedestrian recall regressed&quot;)
+
+if fp_rate_reflection &gt; threshold:
+    block(&quot;Reflection false positive rate too high&quot;)
+
+if not dataset_independence_passed:
+    block(&quot;Dataset leakage risk&quot;)</code></pre>
+<h2 id="11.-实践任务">11. 实践任务</h2>
+<ul>
+<li>完成AEB数据质量要求清单。</li>
+<li>完成AEB数据gap分析模板。</li>
+<li>完成AEB增训触发规则。</li>
+<li>完成AEB增训效果验证模板。</li>
+<li>完成模型发布门禁模板。</li>
+<li>完成具身智能数据闭环风险清单。</li>
+</ul>
+<h2 id="12.-验收问答">12. 验收问答</h2>
+<h3 id="12.1-数据量大是否等于安全充分">12.1 数据量大是否等于安全充分？</h3>
+<p>不等于。安全关注的是关键ODD、触发条件、长尾场景和高风险目标是否覆盖。</p>
+<h3 id="12.2-如何证明增训有效">12.2 如何证明增训有效？</h3>
+<p>需要增训前后关键场景指标对比、独立测试集验证、历史回归测试和证据归档。</p>
+<h3 id="12.3-为什么要做回归测试">12.3 为什么要做回归测试？</h3>
+<p>因为模型解决新问题时可能破坏旧场景能力，安全发布必须证明没有引入新风险。</p>
+<h2 id="13.-本月最终验收标准">13. 本月最终验收标准</h2>
+<p>9月底应达到：</p>
+<ul>
+<li>能从触发条件推导数据需求。</li>
+<li>能识别数据gap。</li>
+<li>能设计增训闭环。</li>
+<li>能判断模型是否可发布。</li>
+<li>能说明数据、模型、测试、版本如何形成证据链。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个AI模型失败事件，你能把它转成数据gap、增训任务、验证计划、发布门禁和Safety Case证据。</blockquote>
+<h2 id="14.-端到端模型数据闭环补充">14. 端到端模型数据闭环补充</h2>
+<p>端到端模型对数据闭环提出更高要求。</p>
+<p>传统模型可以分别评估感知、预测、规划等模块；端到端模型更需要按“行为结果”组织数据和验证。</p>
+<h3 id="14.1-端到端数据需求">14.1 端到端数据需求</h3>
+<p>端到端数据不仅要覆盖目标物，还要覆盖：</p>
+<ul>
+<li>场景时序。</li>
+<li>交互行为。</li>
+<li>驾驶策略。</li>
+<li>轨迹选择。</li>
+<li>人类驾驶示例。</li>
+<li>失败和边界场景。</li>
+<li>ODD边界。</li>
+<li>接管和fallback事件。</li>
+</ul>
+<h3 id="14.2-端到端回归指标">14.2 端到端回归指标</h3>
+<p>除了传统模型指标，还应关注：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>指标</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>Collision Rate</td>
+<td>碰撞率</td>
+</tr>
+<tr>
+<td>Near Miss Rate</td>
+<td>近碰撞率</td>
+</tr>
+<tr>
+<td>Hard Brake Rate</td>
+<td>急刹率</td>
+</tr>
+<tr>
+<td>Jerk Violation</td>
+<td>jerk超限</td>
+</tr>
+<tr>
+<td>Lane Departure</td>
+<td>偏离车道</td>
+</tr>
+<tr>
+<td>Rule Violation</td>
+<td>违反交通规则</td>
+</tr>
+<tr>
+<td>Takeover Rate</td>
+<td>接管率</td>
+</tr>
+<tr>
+<td>Scenario Pass Rate</td>
+<td>场景通过率</td>
+</tr>
+</tbody></table></div>
+<h3 id="14.3-端到端发布门禁">14.3 端到端发布门禁</h3>
+<p>端到端模型发布前必须检查：</p>
+<ul>
+<li>高风险场景行为不退化。</li>
+<li>旧版本已解决场景不回退。</li>
+<li>ODD边界场景能降级或请求接管。</li>
+<li>输出轨迹满足安全约束。</li>
+<li>独立监控器未发现不可接受输出。</li>
+<li>Safety Case受影响证据已更新。</li>
+</ul>
+<h3 id="14.4-新增实践任务">14.4 新增实践任务</h3>
+<p>建立端到端模型V1/V2对比表：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>V1行为</th>
+<th>V2行为</th>
+<th>是否退化</th>
+<th>发布判断</th>
+</tr></thead><tbody>
+<tr>
+<td>夜间行人</td>
+<td>减速及时</td>
+<td>减速偏晚</td>
+<td>是</td>
+<td>BLOCK</td>
+</tr>
+<tr>
+<td>反光路面</td>
+<td>正常通过</td>
+<td>急刹</td>
+<td>是</td>
+<td>BLOCK</td>
+</tr>
+<tr>
+<td>前车急刹</td>
+<td>及时制动</td>
+<td>及时制动</td>
+<td>否</td>
+<td>PASS</td>
+</tr>
+</tbody></table></div><div class="footer">Source: 12.5-2026年9月AI数据闭环与增训验证执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>

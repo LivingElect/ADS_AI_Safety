@@ -1,0 +1,484 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.4 · 2026年8月 SOTIF与ODD场景工程执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.4 · 2026年8月 SOTIF与ODD场景工程执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年8月sotif与odd场景工程执行包">2026年8月SOTIF与ODD场景工程执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月目标">2. 本月目标</a></li>
+<li class="level-2"><a href="#3.-核心理论">3. 核心理论</a></li>
+<li class="level-3"><a href="#3.1-sotif关注什么">3.1 SOTIF关注什么</a></li>
+<li class="level-3"><a href="#3.2-fusa-sotif-ai-safety边界">3.2 FuSa、SOTIF、AI Safety边界</a></li>
+<li class="level-2"><a href="#4.-odd定义">4. ODD定义</a></li>
+<li class="level-3"><a href="#4.1-aeb初始odd示例">4.1 AEB初始ODD示例</a></li>
+<li class="level-3"><a href="#4.2-odd边界的安全意义">4.2 ODD边界的安全意义</a></li>
+<li class="level-2"><a href="#5.-triggering-condition触发条件">5. Triggering Condition触发条件</a></li>
+<li class="level-3"><a href="#5.1-aeb触发条件矩阵">5.1 AEB触发条件矩阵</a></li>
+<li class="level-2"><a href="#6.-场景库结构">6. 场景库结构</a></li>
+<li class="level-3"><a href="#6.1-四层场景">6.1 四层场景</a></li>
+<li class="level-3"><a href="#6.2-aeb场景样例">6.2 AEB场景样例</a></li>
+<li class="level-2"><a href="#7.-机器人操作域迁移">7. 机器人操作域迁移</a></li>
+<li class="level-3"><a href="#7.1-服务机器人商场操作域">7.1 服务机器人商场操作域</a></li>
+<li class="level-3"><a href="#7.2-机器人触发条件">7.2 机器人触发条件</a></li>
+<li class="level-2"><a href="#8.-实践任务">8. 实践任务</a></li>
+<li class="level-3"><a href="#8.1-aeb-odd边界清单">8.1 AEB ODD边界清单</a></li>
+<li class="level-3"><a href="#8.2-aeb触发条件矩阵">8.2 AEB触发条件矩阵</a></li>
+<li class="level-3"><a href="#8.3-机器人操作域与触发条件初版">8.3 机器人操作域与触发条件初版</a></li>
+<li class="level-2"><a href="#9.-常见错误">9. 常见错误</a></li>
+<li class="level-2"><a href="#10.-验收问答">10. 验收问答</a></li>
+<li class="level-3"><a href="#10.1-sotif和fusa有什么区别">10.1 SOTIF和FuSa有什么区别？</a></li>
+<li class="level-3"><a href="#10.2-odd为什么重要">10.2 ODD为什么重要？</a></li>
+<li class="level-3"><a href="#10.3-triggering-condition有什么价值">10.3 Triggering Condition有什么价值？</a></li>
+<li class="level-3"><a href="#10.4-机器人操作域和ads-odd有什么相似点">10.4 机器人操作域和ADS ODD有什么相似点？</a></li>
+<li class="level-2"><a href="#11.-本月最终验收标准">11. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#12.-端到端模型视角补充">12. 端到端模型视角补充</a></li>
+<li class="level-3"><a href="#12.1-端到端下的触发条件">12.1 端到端下的触发条件</a></li>
+<li class="level-3"><a href="#12.2-端到端sotif验证重点">12.2 端到端SOTIF验证重点</a></li>
+<li class="level-3"><a href="#12.3-新增实践任务">12.3 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.4 · 2026年8月 SOTIF与ODD场景工程执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年8月sotif与odd场景工程执行包">2026年8月SOTIF与ODD场景工程执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：SOTIF工程闭环</p><div class="flow"><div class="node">ODD边界</div><div class="arrow">→</div><div class="node">Triggering Condition</div><div class="arrow">→</div><div class="node">场景库</div><div class="arrow">→</div><div class="node">数据需求</div><div class="arrow">→</div><div class="node">测试验证</div><div class="arrow">→</div><div class="node">残余风险</div></div></section><section class="figure"><p class="figure-title">辅助图：FuSa / SOTIF / AI Safety边界</p><div class="grid-3"><div class="card"><h4>FuSa</h4><p>系统失效导致风险。</p></div><div class="card"><h4>SOTIF</h4><p>无故障但功能不足导致风险。</p></div><div class="card"><h4>AI Safety</h4><p>数据、模型、训练、验证不足导致风险。</p></div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>8月主题：</p>
+<p><strong>SOTIF、ODD、触发条件和机器人操作域。</strong></p>
+<p>7月已经理解了ADS架构、AEB链路、PV/BEV/Occupancy和HMI交互安全。8月要进一步回答：</p>
+<blockquote>系统没有坏，但为什么仍然可能不安全？哪些场景会触发功能不足？如何把ODD边界、触发条件、场景库、数据需求和测试验证串起来？</blockquote>
+<h2 id="2.-本月目标">2. 本月目标</h2>
+<p>8月底应能做到：</p>
+<ul>
+<li>解释 <code>ISO 21448 / SOTIF</code> 关注的问题。</li>
+<li>区分FuSa失效、SOTIF功能不足、AI Safety数据/模型不足。</li>
+<li>定义AEB初始ODD和ODD边界。</li>
+<li>列出AEB触发条件矩阵。</li>
+<li>将触发条件映射到数据需求和测试场景。</li>
+<li>建立机器人操作域和机器人触发条件初版。</li>
+</ul>
+<h2 id="3.-核心理论">3. 核心理论</h2>
+<h3 id="3.1-sotif关注什么">3.1 SOTIF关注什么</h3>
+<p>SOTIF关注：</p>
+<p><strong>系统没有发生随机硬件故障，也没有明确软件故障，但由于预期功能不足，在某些场景下仍然产生不合理风险。</strong></p>
+<p>典型例子：</p>
+<ul>
+<li>夜间黑衣行人，摄像头没有坏，但模型识别能力不足。</li>
+<li>逆光下前方静止车辆，传感器可用但感知置信度下降。</li>
+<li>雨雾导致目标边界模糊，系统仍然输出自信判断。</li>
+<li>前车cut-in后急刹，系统预测和TTC估计不足。</li>
+</ul>
+<h3 id="3.2-fusa-sotif-ai-safety边界">3.2 FuSa、SOTIF、AI Safety边界</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>类型</th>
+<th>关注点</th>
+<th>AEB例子</th>
+</tr></thead><tbody>
+<tr>
+<td>FuSa</td>
+<td>系统失效导致风险</td>
+<td>雷达信号冻结未诊断，AEB错误判断</td>
+</tr>
+<tr>
+<td>SOTIF</td>
+<td>无故障但功能不足</td>
+<td>夜间行人识别能力不足</td>
+</tr>
+<tr>
+<td>AI Safety</td>
+<td>数据/模型/训练/验证不足</td>
+<td>夜间行人样本不足，增训后未回归验证</td>
+</tr>
+</tbody></table></div>
+<p>实际项目中三者会交叉，不能机械切割。安全负责人要能说明风险来源、控制措施和证据链。</p>
+<h2 id="4.-odd定义">4. ODD定义</h2>
+<p><code>ODD</code> 是 Operational Design Domain，运行设计域。</p>
+<p>ODD回答：</p>
+<blockquote>系统在哪些条件下被设计为可用？</blockquote>
+<h3 id="4.1-aeb初始odd示例">4.1 AEB初始ODD示例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>初始范围</th>
+<th>边界/风险</th>
+</tr></thead><tbody>
+<tr>
+<td>道路</td>
+<td>城市道路、高速道路</td>
+<td>施工区、复杂交叉口、非结构化道路</td>
+</tr>
+<tr>
+<td>车速</td>
+<td>10-120 km/h</td>
+<td>极低速地库、高速极限场景</td>
+</tr>
+<tr>
+<td>天气</td>
+<td>晴天、小雨、轻雾</td>
+<td>暴雨、大雪、浓雾、积水</td>
+</tr>
+<tr>
+<td>光照</td>
+<td>白天、夜间有照明</td>
+<td>逆光、隧道口、弱光黑衣行人</td>
+</tr>
+<tr>
+<td>目标物</td>
+<td>车辆、行人、两轮车、静态障碍物</td>
+<td>异形车、低矮物、施工锥桶、动物</td>
+</tr>
+<tr>
+<td>传感器状态</td>
+<td>正常、轻微退化</td>
+<td>严重遮挡、污染、失准</td>
+</tr>
+</tbody></table></div>
+<h3 id="4.2-odd边界的安全意义">4.2 ODD边界的安全意义</h3>
+<p>ODD边界不是宣传范围，而是Safety Case边界。</p>
+<p>如果系统超出ODD仍然运行，会产生：</p>
+<ul>
+<li>模型泛化不足风险。</li>
+<li>驾驶员误信任风险。</li>
+<li>测试证据不覆盖风险。</li>
+<li>认证证据失效风险。</li>
+</ul>
+<h2 id="5.-triggering-condition触发条件">5. Triggering Condition触发条件</h2>
+<p>触发条件是使预期功能不足变成不安全行为的场景因素。</p>
+<h3 id="5.1-aeb触发条件矩阵">5.1 AEB触发条件矩阵</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>TC ID</th>
+<th>Triggering Condition</th>
+<th>可能不安全行为</th>
+<th>数据需求</th>
+<th>测试方法</th>
+</tr></thead><tbody>
+<tr>
+<td>TC-AEB-001</td>
+<td>夜间黑衣行人横穿</td>
+<td>行人漏检，AEB触发过晚</td>
+<td>夜间行人数据</td>
+<td>仿真+实车夜间测试</td>
+</tr>
+<tr>
+<td>TC-AEB-002</td>
+<td>逆光静止车辆</td>
+<td>目标置信度下降</td>
+<td>逆光车辆数据</td>
+<td>回放+封闭场测试</td>
+</tr>
+<tr>
+<td>TC-AEB-003</td>
+<td>前车cut-in后急刹</td>
+<td>TTC估计不足</td>
+<td>cut-in数据</td>
+<td>参数扫描</td>
+</tr>
+<tr>
+<td>TC-AEB-004</td>
+<td>雨天传感器污染</td>
+<td>感知退化未识别</td>
+<td>雨天污染数据</td>
+<td>传感器污染注入</td>
+</tr>
+<tr>
+<td>TC-AEB-005</td>
+<td>路面反光/阴影</td>
+<td>FP误制动</td>
+<td>反光负样本</td>
+<td>误触发测试</td>
+</tr>
+<tr>
+<td>TC-AEB-006</td>
+<td>低矮障碍物</td>
+<td>障碍物漏检</td>
+<td>低矮目标数据</td>
+<td>封闭场测试</td>
+</tr>
+<tr>
+<td>TC-AEB-007</td>
+<td>行人被大车遮挡后出现</td>
+<td>触发过晚</td>
+<td>遮挡行人数据</td>
+<td>场景回放</td>
+</tr>
+</tbody></table></div>
+<h2 id="6.-场景库结构">6. 场景库结构</h2>
+<h3 id="6.1-四层场景">6.1 四层场景</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>层级</th>
+<th>说明</th>
+<th>AEB例子</th>
+</tr></thead><tbody>
+<tr>
+<td>Functional Scenario</td>
+<td>自然语言描述</td>
+<td>前车急刹，AEB应预警并制动</td>
+</tr>
+<tr>
+<td>Logical Scenario</td>
+<td>参数范围</td>
+<td>自车60-120 km/h，TTC 0.8-2.5s</td>
+</tr>
+<tr>
+<td>Concrete Scenario</td>
+<td>固定参数</td>
+<td>自车100 km/h，前车0.6g制动，TTC 1.2s</td>
+</tr>
+<tr>
+<td>Test Scenario</td>
+<td>可执行测试用例</td>
+<td>OpenSCENARIO/封闭场/回放用例</td>
+</tr>
+</tbody></table></div>
+<h3 id="6.2-aeb场景样例">6.2 AEB场景样例</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Functional Scenario</th>
+<th>Logical Parameters</th>
+<th>Concrete Example</th>
+</tr></thead><tbody>
+<tr>
+<td>前车急刹</td>
+<td>自车60-120 km/h，前车减速度0.2g-1.0g</td>
+<td>自车100 km/h，前车0.6g制动</td>
+</tr>
+<tr>
+<td>行人横穿</td>
+<td>行人速度1-3 m/s，距离10-40m</td>
+<td>夜间黑衣行人20m处横穿</td>
+</tr>
+<tr>
+<td>cut-in急刹</td>
+<td>cut-in距离5-30m，TTC 0.8-2.0s</td>
+<td>前车15m cut-in后急刹</td>
+</tr>
+</tbody></table></div>
+<h2 id="7.-机器人操作域迁移">7. 机器人操作域迁移</h2>
+<p>机器人操作域类似ADS ODD。</p>
+<h3 id="7.1-服务机器人商场操作域">7.1 服务机器人商场操作域</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>范围</th>
+<th>边界风险</th>
+</tr></thead><tbody>
+<tr>
+<td>场景</td>
+<td>商场通道、服务台附近</td>
+<td>临时施工、拥挤活动区</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>低速移动</td>
+<td>人流密集需进一步限速</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>成人、儿童、老人、推车、宠物</td>
+<td>儿童突然奔跑、透明物体</td>
+</tr>
+<tr>
+<td>地面</td>
+<td>平整地面</td>
+<td>反光、湿滑、台阶、坡道</td>
+</tr>
+<tr>
+<td>光照</td>
+<td>室内正常光照</td>
+<td>强反光、局部暗区</td>
+</tr>
+<tr>
+<td>交互</td>
+<td>语音/屏幕/灯光提示</td>
+<td>用户围堵、恶意指令、误解任务</td>
+</tr>
+</tbody></table></div>
+<h3 id="7.2-机器人触发条件">7.2 机器人触发条件</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>TC ID</th>
+<th>Triggering Condition</th>
+<th>可能不安全行为</th>
+</tr></thead><tbody>
+<tr>
+<td>TC-RBT-001</td>
+<td>儿童突然跑入路径</td>
+<td>机器人漏停或急停过晚</td>
+</tr>
+<tr>
+<td>TC-RBT-002</td>
+<td>玻璃反射</td>
+<td>误识别人或障碍物</td>
+</tr>
+<tr>
+<td>TC-RBT-003</td>
+<td>透明门/透明物体</td>
+<td>漏检障碍物</td>
+</tr>
+<tr>
+<td>TC-RBT-004</td>
+<td>人流围堵</td>
+<td>规划失效或异常停滞</td>
+</tr>
+<tr>
+<td>TC-RBT-005</td>
+<td>地面湿滑</td>
+<td>制动距离变化</td>
+</tr>
+<tr>
+<td>TC-RBT-006</td>
+<td>歧义语音指令</td>
+<td>执行错误任务</td>
+</tr>
+</tbody></table></div>
+<h2 id="8.-实践任务">8. 实践任务</h2>
+<h3 id="8.1-aeb-odd边界清单">8.1 AEB ODD边界清单</h3>
+<p>填写：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>ODD维度</th>
+<th>正常范围</th>
+<th>边界条件</th>
+<th>处理策略</th>
+</tr></thead><tbody>
+<tr>
+<td>道路</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>天气</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>光照</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>目标物</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>传感器状态</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h3 id="8.2-aeb触发条件矩阵">8.2 AEB触发条件矩阵</h3>
+<p>要求至少列出20个触发条件，并标注：</p>
+<ul>
+<li>风险来源。</li>
+<li>可能不安全行为。</li>
+<li>数据需求。</li>
+<li>测试方法。</li>
+<li>是否进入回归测试集。</li>
+</ul>
+<h3 id="8.3-机器人操作域与触发条件初版">8.3 机器人操作域与触发条件初版</h3>
+<p>要求：</p>
+<ul>
+<li>定义服务机器人操作域。</li>
+<li>列出至少15个触发条件。</li>
+<li>说明每个触发条件对应的安全后果。</li>
+</ul>
+<h2 id="9.-常见错误">9. 常见错误</h2>
+<ul>
+<li>把ODD当成营销宣传范围。</li>
+<li>只列场景，不分析不安全行为。</li>
+<li>只讲SOTIF概念，不连接数据和测试。</li>
+<li>只关注已知风险，不建立未知风险发现机制。</li>
+<li>忽略HMI、接管和用户误信任。</li>
+</ul>
+<h2 id="10.-验收问答">10. 验收问答</h2>
+<h3 id="10.1-sotif和fusa有什么区别">10.1 SOTIF和FuSa有什么区别？</h3>
+<p>FuSa关注系统失效导致的不合理风险，SOTIF关注系统没有故障但预期功能不足导致的不合理风险。</p>
+<h3 id="10.2-odd为什么重要">10.2 ODD为什么重要？</h3>
+<p>ODD定义系统安全论证边界。超出ODD后，数据、模型、测试和Safety Case证据可能不再成立。</p>
+<h3 id="10.3-triggering-condition有什么价值">10.3 Triggering Condition有什么价值？</h3>
+<p>触发条件把“功能不足”变成可识别、可测试、可补数据、可闭环的工程对象。</p>
+<h3 id="10.4-机器人操作域和ads-odd有什么相似点">10.4 机器人操作域和ADS ODD有什么相似点？</h3>
+<p>两者都定义系统可安全运行边界，都需要识别边界条件、触发条件、降级策略和测试证据。</p>
+<h2 id="11.-本月最终验收标准">11. 本月最终验收标准</h2>
+<p>8月底应达到：</p>
+<ul>
+<li>能定义AEB ODD。</li>
+<li>能列出AEB触发条件矩阵。</li>
+<li>能把触发条件转成数据需求和测试用例。</li>
+<li>能解释FuSa、SOTIF、AI Safety边界。</li>
+<li>能建立机器人操作域和触发条件初版。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个系统“没坏但表现不好”的场景，你能判断它是否属于SOTIF风险，并能把它转成数据、测试和证据链要求。</blockquote>
+<h2 id="12.-端到端模型视角补充">12. 端到端模型视角补充</h2>
+<p>端到端模型让SOTIF更重要。</p>
+<p>原因：</p>
+<ul>
+<li>模型内部逻辑更难解释。</li>
+<li>触发条件更难从模块失效定位。</li>
+<li>很多问题表现为“模型在某类场景下行为不符合预期”。</li>
+<li>场景覆盖和数据分布对安全性影响更大。</li>
+</ul>
+<h3 id="12.1-端到端下的触发条件">12.1 端到端下的触发条件</h3>
+<p>端到端触发条件应从“模块输入异常”扩展为“行为失败条件”。</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Triggering Condition</th>
+<th>端到端风险</th>
+</tr></thead><tbody>
+<tr>
+<td>施工区锥桶摆放异常</td>
+<td>模型输出错误路径</td>
+</tr>
+<tr>
+<td>cut-in后急刹</td>
+<td>模型减速行为不足</td>
+</tr>
+<tr>
+<td>遮挡行人突然出现</td>
+<td>模型未提前保守减速</td>
+</tr>
+<tr>
+<td>车道线缺失</td>
+<td>模型轨迹漂移</td>
+</tr>
+<tr>
+<td>逆光/雨雾</td>
+<td>模型输出不稳定</td>
+</tr>
+<tr>
+<td>ODD边界场景</td>
+<td>模型继续自信驾驶</td>
+</tr>
+</tbody></table></div>
+<h3 id="12.2-端到端sotif验证重点">12.2 端到端SOTIF验证重点</h3>
+<p>需要重点验证：</p>
+<ul>
+<li>行为是否保守。</li>
+<li>输出轨迹是否安全。</li>
+<li>对未知区域是否过度乐观。</li>
+<li>是否能识别ODD边界。</li>
+<li>是否在触发条件下进入fallback或请求接管。</li>
+</ul>
+<h3 id="12.3-新增实践任务">12.3 新增实践任务</h3>
+<p>将AEB触发条件矩阵扩展为“端到端行为风险矩阵”：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Triggering Condition</th>
+<th>传统风险</th>
+<th>端到端行为风险</th>
+<th>验证方法</th>
+</tr></thead><tbody>
+<tr>
+<td>夜间行人</td>
+<td>行人漏检</td>
+<td>未输出及时减速轨迹</td>
+<td>夜间行为回放+封闭场</td>
+</tr>
+<tr>
+<td>cut-in急刹</td>
+<td>TTC估计不足</td>
+<td>减速不及时或轨迹过激</td>
+<td>参数扫描</td>
+</tr>
+<tr>
+<td>反光阴影</td>
+<td>FP误制动</td>
+<td>无风险场景输出急刹</td>
+<td>误触发回归</td>
+</tr>
+</tbody></table></div><div class="footer">Source: 12.4-2026年8月SOTIF与ODD场景工程执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>
