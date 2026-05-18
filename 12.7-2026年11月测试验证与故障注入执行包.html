@@ -1,0 +1,410 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.7 · 2026年11月 测试验证与故障注入执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.7 · 2026年11月 测试验证与故障注入执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年11月测试验证与故障注入执行包">2026年11月测试验证与故障注入执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月目标">2. 本月目标</a></li>
+<li class="level-2"><a href="#3.-测试方法总览">3. 测试方法总览</a></li>
+<li class="level-2"><a href="#4.-aeb测试方法分配">4. AEB测试方法分配</a></li>
+<li class="level-2"><a href="#5.-aeb故障注入矩阵">5. AEB故障注入矩阵</a></li>
+<li class="level-2"><a href="#6.-场景测试用例">6. 场景测试用例</a></li>
+<li class="level-2"><a href="#7.-ood和长尾场景测试">7. OOD和长尾场景测试</a></li>
+<li class="level-2"><a href="#8.-机器人安全测试">8. 机器人安全测试</a></li>
+<li class="level-3"><a href="#8.1-服务机器人避障测试">8.1 服务机器人避障测试</a></li>
+<li class="level-3"><a href="#8.2-机器人运动安全">8.2 机器人运动安全</a></li>
+<li class="level-2"><a href="#9.-测试证据包目录">9. 测试证据包目录</a></li>
+<li class="level-2"><a href="#10.-代码视角-测试结果汇总">10. 代码视角：测试结果汇总</a></li>
+<li class="level-2"><a href="#11.-实践任务">11. 实践任务</a></li>
+<li class="level-2"><a href="#12.-常见错误">12. 常见错误</a></li>
+<li class="level-2"><a href="#13.-验收问答">13. 验收问答</a></li>
+<li class="level-3"><a href="#13.1-为什么不能只靠实车测试证明安全">13.1 为什么不能只靠实车测试证明安全？</a></li>
+<li class="level-3"><a href="#13.2-故障注入的价值是什么">13.2 故障注入的价值是什么？</a></li>
+<li class="level-3"><a href="#13.3-机器人急停测试关注什么">13.3 机器人急停测试关注什么？</a></li>
+<li class="level-2"><a href="#14.-本月最终验收标准">14. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#15.-端到端模型测试验证补充">15. 端到端模型测试验证补充</a></li>
+<li class="level-3"><a href="#15.1-端到端行为测试">15.1 端到端行为测试</a></li>
+<li class="level-3"><a href="#15.2-端到端回归测试">15.2 端到端回归测试</a></li>
+<li class="level-3"><a href="#15.3-端到端测试证据">15.3 端到端测试证据</a></li>
+<li class="level-3"><a href="#15.4-新增实践任务">15.4 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.7 · 2026年11月 测试验证与故障注入执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年11月测试验证与故障注入执行包">2026年11月测试验证与故障注入执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：验证方法组合</p><div class="flow"><div class="node">SIL</div><div class="arrow">→</div><div class="node">HIL</div><div class="arrow">→</div><div class="node">仿真</div><div class="arrow">→</div><div class="node">场景回放</div><div class="arrow">→</div><div class="node">封闭场</div><div class="arrow">→</div><div class="node">实车</div><div class="arrow">→</div><div class="node">故障注入</div><div class="arrow">→</div><div class="node">证据包</div></div></section><section class="figure"><p class="figure-title">辅助图：故障注入目标</p><div class="grid-3"><div class="card"><h4>检测</h4><p>系统能否发现异常。</p></div><div class="card"><h4>降级</h4><p>系统能否进入安全状态。</p></div><div class="card"><h4>证据</h4><p>结果能否进入Safety Case。</p></div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>11月主题：</p>
+<p><strong>测试验证、故障注入、机器人安全测试。</strong></p>
+<p>前几个月已经建立了AEB危险分析、架构风险、SOTIF触发条件、AI数据闭环和模型安全审查。11月要回答：</p>
+<blockquote>如何证明这些安全需求真的被验证？哪些测试方法适合验证哪些风险？故障注入、场景回放、机器人实机测试如何支撑Safety Case？</blockquote>
+<h2 id="2.-本月目标">2. 本月目标</h2>
+<p>11月底应能做到：</p>
+<ul>
+<li>将Safety Goal/FSR/TSR映射到测试方法。</li>
+<li>区分SIL、HIL、场景回放、封闭场、实车测试。</li>
+<li>设计AEB故障注入测试矩阵。</li>
+<li>设计AEB场景测试用例。</li>
+<li>设计机器人急停、限速、防碰撞、人机近距离交互测试。</li>
+<li>形成测试证据包目录。</li>
+</ul>
+<h2 id="3.-测试方法总览">3. 测试方法总览</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>测试方法</th>
+<th>适用对象</th>
+<th>优点</th>
+<th>局限</th>
+</tr></thead><tbody>
+<tr>
+<td>SIL</td>
+<td>软件逻辑、算法、状态机</td>
+<td>成本低、可自动化</td>
+<td>不能覆盖真实硬件</td>
+</tr>
+<tr>
+<td>HIL</td>
+<td>控制器、接口、信号、故障注入</td>
+<td>接近真实硬件</td>
+<td>场景真实度有限</td>
+</tr>
+<tr>
+<td>场景回放</td>
+<td>感知/融合/决策复盘</td>
+<td>可复现实车事件</td>
+<td>不一定覆盖执行器</td>
+</tr>
+<tr>
+<td>仿真测试</td>
+<td>参数扫描、长尾场景</td>
+<td>覆盖广</td>
+<td>Sim2Real差距</td>
+</tr>
+<tr>
+<td>封闭场测试</td>
+<td>AEB触发、制动、障碍物</td>
+<td>安全可控</td>
+<td>场景有限</td>
+</tr>
+<tr>
+<td>公开道路测试</td>
+<td>真实环境</td>
+<td>真实性强</td>
+<td>不可控、成本高</td>
+</tr>
+<tr>
+<td>故障注入</td>
+<td>诊断和降级</td>
+<td>验证安全机制</td>
+<td>需谨慎设计</td>
+</tr>
+</tbody></table></div>
+<h2 id="4.-aeb测试方法分配">4. AEB测试方法分配</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>安全需求</th>
+<th>测试方法</th>
+<th>证据</th>
+</tr></thead><tbody>
+<tr>
+<td>AEB应及时识别碰撞风险</td>
+<td>SIL、回放、封闭场</td>
+<td>触发时刻、TTC、目标检测记录</td>
+</tr>
+<tr>
+<td>AEB不应误触发强制动</td>
+<td>误触发场景回放、封闭场</td>
+<td>False Brake Rate</td>
+</tr>
+<tr>
+<td>制动请求应限幅</td>
+<td>HIL、制动边界测试</td>
+<td>减速度、jerk、持续时间</td>
+</tr>
+<tr>
+<td>传感器异常应降级</td>
+<td>故障注入</td>
+<td>DTC、降级状态、HMI提示</td>
+</tr>
+<tr>
+<td>AEB不可用应提示驾驶员</td>
+<td>HMI测试</td>
+<td>提示记录、驾驶员响应</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.-aeb故障注入矩阵">5. AEB故障注入矩阵</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Fault ID</th>
+<th>故障注入项</th>
+<th>预期反应</th>
+<th>验证证据</th>
+</tr></thead><tbody>
+<tr>
+<td>FI-AEB-001</td>
+<td>摄像头信号丢失</td>
+<td>AEB降级或退出，HMI提示</td>
+<td>DTC、状态日志</td>
+</tr>
+<tr>
+<td>FI-AEB-002</td>
+<td>雷达目标冻结</td>
+<td>目标冻结检测，抑制强制动</td>
+<td>冻结检测记录</td>
+</tr>
+<tr>
+<td>FI-AEB-003</td>
+<td>时间戳错位</td>
+<td>输入无效或降级</td>
+<td>时间同步诊断</td>
+</tr>
+<tr>
+<td>FI-AEB-004</td>
+<td>TTC异常跳变</td>
+<td>触发合理性检查</td>
+<td>TTC跳变日志</td>
+</tr>
+<tr>
+<td>FI-AEB-005</td>
+<td>制动请求超限</td>
+<td>监控器抑制或限幅</td>
+<td>制动请求记录</td>
+</tr>
+<tr>
+<td>FI-AEB-006</td>
+<td>HMI通信失败</td>
+<td>故障记录和替代提示策略</td>
+<td>HMI测试报告</td>
+</tr>
+</tbody></table></div>
+<h2 id="6.-场景测试用例">6. 场景测试用例</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Test ID</th>
+<th>场景</th>
+<th>参数</th>
+<th>通过准则</th>
+</tr></thead><tbody>
+<tr>
+<td>TC-AEB-001</td>
+<td>前车急刹</td>
+<td>自车100 km/h，前车0.6g制动</td>
+<td>AEB在阈值内触发</td>
+</tr>
+<tr>
+<td>TC-AEB-002</td>
+<td>夜间行人横穿</td>
+<td>行人1.5 m/s，低照度</td>
+<td>不漏检，及时预警/制动</td>
+</tr>
+<tr>
+<td>TC-AEB-003</td>
+<td>反光路面</td>
+<td>无真实障碍</td>
+<td>不误触发强制动</td>
+</tr>
+<tr>
+<td>TC-AEB-004</td>
+<td>cut-in急刹</td>
+<td>cut-in距离15m</td>
+<td>TTC判断合理</td>
+</tr>
+<tr>
+<td>TC-AEB-005</td>
+<td>传感器污染</td>
+<td>摄像头部分遮挡</td>
+<td>降级或提示</td>
+</tr>
+</tbody></table></div>
+<h2 id="7.-ood和长尾场景测试">7. OOD和长尾场景测试</h2>
+<p>OOD测试目标：</p>
+<ul>
+<li>识别超出ODD或模型训练分布的输入。</li>
+<li>验证系统是否降级、停止、提示或退出。</li>
+</ul>
+<p>长尾场景：</p>
+<ul>
+<li>异形车辆。</li>
+<li>低矮障碍物。</li>
+<li>黑衣行人。</li>
+<li>施工区临时标志。</li>
+<li>动物。</li>
+<li>反光/透明物体。</li>
+</ul>
+<h2 id="8.-机器人安全测试">8. 机器人安全测试</h2>
+<h3 id="8.1-服务机器人避障测试">8.1 服务机器人避障测试</h3>
+<div class="table-wrap"><table><thead><tr>
+<th>Test ID</th>
+<th>场景</th>
+<th>风险</th>
+<th>通过准则</th>
+</tr></thead><tbody>
+<tr>
+<td>RBT-001</td>
+<td>儿童突然进入路径</td>
+<td>撞人</td>
+<td>及时减速或停止</td>
+</tr>
+<tr>
+<td>RBT-002</td>
+<td>透明玻璃门</td>
+<td>漏检障碍物</td>
+<td>识别或保守停止</td>
+</tr>
+<tr>
+<td>RBT-003</td>
+<td>地面反光</td>
+<td>FP误停</td>
+<td>不频繁误停</td>
+</tr>
+<tr>
+<td>RBT-004</td>
+<td>人流密集</td>
+<td>规划卡死</td>
+<td>保守低速或请求人工</td>
+</tr>
+<tr>
+<td>RBT-005</td>
+<td>歧义语音指令</td>
+<td>错误任务</td>
+<td>请求确认</td>
+</tr>
+</tbody></table></div>
+<h3 id="8.2-机器人运动安全">8.2 机器人运动安全</h3>
+<p>关注：</p>
+<ul>
+<li>急停距离。</li>
+<li>最大速度。</li>
+<li>最大加速度。</li>
+<li>人机最小距离。</li>
+<li>碰撞检测。</li>
+<li>限力。</li>
+<li>安全姿态。</li>
+</ul>
+<h2 id="9.-测试证据包目录">9. 测试证据包目录</h2>
+<p>建议目录：</p>
+<pre><code>evidence/
+  requirements/
+  test_plan/
+  test_cases/
+  test_data/
+  test_results/
+  fault_injection/
+  regression/
+  issues/
+  review_records/
+  release_gate/</code></pre>
+<p>每份测试证据至少包含：</p>
+<ul>
+<li>测试目的。</li>
+<li>对应需求。</li>
+<li>测试环境。</li>
+<li>软件/模型/数据版本。</li>
+<li>输入场景。</li>
+<li>通过准则。</li>
+<li>测试结果。</li>
+<li>问题闭环。</li>
+</ul>
+<h2 id="10.-代码视角-测试结果汇总">10. 代码视角：测试结果汇总</h2>
+<p>轻量脚本目标：</p>
+<ul>
+<li>读取测试结果CSV。</li>
+<li>统计通过率。</li>
+<li>标记关键场景失败。</li>
+<li>输出阻断发布原因。</li>
+</ul>
+<p>伪代码：</p>
+<pre><code>for case in test_results:
+    if case[&quot;critical&quot;] and case[&quot;result&quot;] == &quot;fail&quot;:
+        block_release(case[&quot;test_id&quot;])</code></pre>
+<h2 id="11.-实践任务">11. 实践任务</h2>
+<ul>
+<li>完成AEB测试方法分配表。</li>
+<li>完成AEB故障注入矩阵。</li>
+<li>完成AEB场景测试用例V1。</li>
+<li>完成机器人安全测试方法清单。</li>
+<li>完成服务机器人避障测试场景V1。</li>
+<li>完成测试证据包目录。</li>
+</ul>
+<h2 id="12.-常见错误">12. 常见错误</h2>
+<ul>
+<li>只做正常场景测试，不做故障注入。</li>
+<li>只看通过率，不看关键场景失败。</li>
+<li>测试结果没有版本记录。</li>
+<li>测试用例没有对应安全需求。</li>
+<li>机器人低速就认为安全。</li>
+</ul>
+<h2 id="13.-验收问答">13. 验收问答</h2>
+<h3 id="13.1-为什么不能只靠实车测试证明安全">13.1 为什么不能只靠实车测试证明安全？</h3>
+<p>实车测试成本高、不可控、覆盖有限，无法穷尽长尾和故障场景。必须结合SIL、HIL、仿真、回放、故障注入和封闭场测试。</p>
+<h3 id="13.2-故障注入的价值是什么">13.2 故障注入的价值是什么？</h3>
+<p>验证系统在传感器、通信、输入、执行链路异常时能否检测、降级、提示或进入安全状态。</p>
+<h3 id="13.3-机器人急停测试关注什么">13.3 机器人急停测试关注什么？</h3>
+<p>关注触发条件、停止距离、停止时间、人机距离、是否引入二次风险，以及测试证据是否可复现。</p>
+<h2 id="14.-本月最终验收标准">14. 本月最终验收标准</h2>
+<p>11月底应达到：</p>
+<ul>
+<li>能把安全需求映射到测试方法。</li>
+<li>能设计AEB故障注入矩阵。</li>
+<li>能设计关键场景测试用例。</li>
+<li>能说明机器人安全测试关注点。</li>
+<li>能组织测试证据包。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个安全需求，你能说清楚用什么测试验证、怎么判定通过、证据如何归档、失败后如何闭环。</blockquote>
+<h2 id="15.-端到端模型测试验证补充">15. 端到端模型测试验证补充</h2>
+<p>端到端模型测试要从“模块测试”升级为“行为测试”。</p>
+<h3 id="15.1-端到端行为测试">15.1 端到端行为测试</h3>
+<p>应覆盖：</p>
+<ul>
+<li>输出轨迹安全。</li>
+<li>急刹和急转行为。</li>
+<li>ODD边界行为。</li>
+<li>施工区行为。</li>
+<li>cut-in行为。</li>
+<li>遮挡区域保守性。</li>
+<li>行人/两轮车近距离交互。</li>
+<li>接管请求及时性。</li>
+</ul>
+<h3 id="15.2-端到端回归测试">15.2 端到端回归测试</h3>
+<p>每次模型更新都应执行：</p>
+<ul>
+<li>关键场景回归。</li>
+<li>历史失败场景回归。</li>
+<li>ODD边界回归。</li>
+<li>误触发回归。</li>
+<li>行为平顺性回归。</li>
+<li>Safety Case影响项回归。</li>
+</ul>
+<h3 id="15.3-端到端测试证据">15.3 端到端测试证据</h3>
+<p>测试证据应包含：</p>
+<ul>
+<li>模型版本。</li>
+<li>数据版本。</li>
+<li>场景版本。</li>
+<li>输出轨迹。</li>
+<li>控制行为。</li>
+<li>监控器判断。</li>
+<li>是否触发fallback。</li>
+<li>是否满足通过准则。</li>
+</ul>
+<h3 id="15.4-新增实践任务">15.4 新增实践任务</h3>
+<p>设计端到端行为测试表：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>场景</th>
+<th>期望行为</th>
+<th>禁止行为</th>
+<th>通过准则</th>
+</tr></thead><tbody>
+<tr>
+<td>cut-in急刹</td>
+<td>平顺减速</td>
+<td>不减速/急打方向</td>
+<td>TTC和jerk满足要求</td>
+</tr>
+<tr>
+<td>夜间行人</td>
+<td>提前减速</td>
+<td>贴近通过</td>
+<td>最小距离满足要求</td>
+</tr>
+<tr>
+<td>反光路面</td>
+<td>正常通过</td>
+<td>无风险急刹</td>
+<td>不触发强制动</td>
+</tr>
+</tbody></table></div><div class="footer">Source: 12.7-2026年11月测试验证与故障注入执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>

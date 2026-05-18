@@ -1,0 +1,1116 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.3 · 2026年7月 ADS架构与空间感知安全风险执行包</title><style>
+:root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.3 · 2026年7月 ADS架构与空间感知安全风险执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年7月ads架构与空间感知安全风险执行包">2026年7月ADS架构与空间感知安全风险执行包</a></li>
+<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
+<li class="level-2"><a href="#2.-本月应达到的能力">2. 本月应达到的能力</a></li>
+<li class="level-2"><a href="#3.-本月交付物清单">3. 本月交付物清单</a></li>
+<li class="level-2"><a href="#4.-ads系统架构总览">4. ADS系统架构总览</a></li>
+<li class="level-2"><a href="#4.1-ads是什么">4.1 ADS是什么</a></li>
+<li class="level-2"><a href="#4.2-ads主要模块">4.2 ADS主要模块</a></li>
+<li class="level-2"><a href="#5.-aeb系统链路">5. AEB系统链路</a></li>
+<li class="level-2"><a href="#5.1-aeb输入">5.1 AEB输入</a></li>
+<li class="level-2"><a href="#5.2-aeb输出">5.2 AEB输出</a></li>
+<li class="level-2"><a href="#5.3-aeb风险传播路径">5.3 AEB风险传播路径</a></li>
+<li class="level-3"><a href="#路径一-感知漏检---aeb漏触发">路径一：感知漏检 -&gt; AEB漏触发</a></li>
+<li class="level-3"><a href="#路径二-感知误检---aeb误触发">路径二：感知误检 -&gt; AEB误触发</a></li>
+<li class="level-3"><a href="#路径三-距离-速度估计错误---触发时机错误">路径三：距离/速度估计错误 -&gt; 触发时机错误</a></li>
+<li class="level-3"><a href="#路径四-制动请求错误---执行风险">路径四：制动请求错误 -&gt; 执行风险</a></li>
+<li class="level-3"><a href="#路径五-降级未提示---驾驶员误信任">路径五：降级未提示 -&gt; 驾驶员误信任</a></li>
+<li class="level-2"><a href="#6.-pv-bev-occupancy是什么">6. PV、BEV、Occupancy是什么</a></li>
+<li class="level-2"><a href="#6.1-pv-perspective-view">6.1 PV，Perspective View</a></li>
+<li class="level-2"><a href="#6.2-bev-bird-s-eye-view">6.2 BEV，Bird&#x27;s Eye View</a></li>
+<li class="level-2"><a href="#6.3-occupancy">6.3 Occupancy</a></li>
+<li class="level-2"><a href="#7.-pv-bev-occupancy对比">7. PV、BEV、Occupancy对比</a></li>
+<li class="level-2"><a href="#8.-bev错误如何传播为安全风险">8. BEV错误如何传播为安全风险</a></li>
+<li class="level-2"><a href="#8.1-目标位置偏移">8.1 目标位置偏移</a></li>
+<li class="level-2"><a href="#8.2-虚假占用">8.2 虚假占用</a></li>
+<li class="level-2"><a href="#8.3-遮挡区域过度乐观">8.3 遮挡区域过度乐观</a></li>
+<li class="level-2"><a href="#8.4-时间同步错误">8.4 时间同步错误</a></li>
+<li class="level-2"><a href="#9.-aeb-safety-goal到架构模块映射">9. AEB Safety Goal到架构模块映射</a></li>
+<li class="level-2"><a href="#10.-fsr-tsr到架构模块映射">10. FSR/TSR到架构模块映射</a></li>
+<li class="level-2"><a href="#11.-交互安全与hmi在架构中的位置">11. 交互安全与HMI在架构中的位置</a></li>
+<li class="level-2"><a href="#12.-ads架构与机器人架构对比">12. ADS架构与机器人架构对比</a></li>
+<li class="level-2"><a href="#13.-代码视角-架构风险表的结构化管理">13. 代码视角：架构风险表的结构化管理</a></li>
+<li class="level-2"><a href="#14.-7月实践任务">14. 7月实践任务</a></li>
+<li class="level-2"><a href="#14.1-实践任务1-画出aeb系统链路">14.1 实践任务1：画出AEB系统链路</a></li>
+<li class="level-2"><a href="#14.2-实践任务2-完成ads模块风险表">14.2 实践任务2：完成ADS模块风险表</a></li>
+<li class="level-2"><a href="#14.3-实践任务3-写pv-bev-occupancy安全说明">14.3 实践任务3：写PV/BEV/Occupancy安全说明</a></li>
+<li class="level-2"><a href="#14.4-实践任务4-完成aeb-safety-goal到架构映射">14.4 实践任务4：完成AEB Safety Goal到架构映射</a></li>
+<li class="level-2"><a href="#14.5-实践任务5-完成ads与机器人架构对比">14.5 实践任务5：完成ADS与机器人架构对比</a></li>
+<li class="level-2"><a href="#15.-常见错误">15. 常见错误</a></li>
+<li class="level-3"><a href="#15.1-只懂模型-不懂系统链路">15.1 只懂模型，不懂系统链路</a></li>
+<li class="level-3"><a href="#15.2-把bev当成天然安全">15.2 把BEV当成天然安全</a></li>
+<li class="level-3"><a href="#15.3-忽略未知区域">15.3 忽略未知区域</a></li>
+<li class="level-3"><a href="#15.4-忽略hmi和驾驶员理解">15.4 忽略HMI和驾驶员理解</a></li>
+<li class="level-2"><a href="#16.-7月验收问答">16. 7月验收问答</a></li>
+<li class="level-3"><a href="#16.1-ads系统链路包括哪些主要模块">16.1 ADS系统链路包括哪些主要模块？</a></li>
+<li class="level-3"><a href="#16.2-pv和bev有什么区别">16.2 PV和BEV有什么区别？</a></li>
+<li class="level-3"><a href="#16.3-bev为什么不是天然安全">16.3 BEV为什么不是天然安全？</a></li>
+<li class="level-3"><a href="#16.4-occupancy对安全有什么价值">16.4 Occupancy对安全有什么价值？</a></li>
+<li class="level-3"><a href="#16.5-感知错误如何传播到控制风险">16.5 感知错误如何传播到控制风险？</a></li>
+<li class="level-3"><a href="#16.6-hmi为什么是安全链路的一部分">16.6 HMI为什么是安全链路的一部分？</a></li>
+<li class="level-3"><a href="#16.7-ads架构如何迁移到机器人安全">16.7 ADS架构如何迁移到机器人安全？</a></li>
+<li class="level-2"><a href="#17.-与6月成果的衔接">17. 与6月成果的衔接</a></li>
+<li class="level-2"><a href="#18.-与8月学习的衔接">18. 与8月学习的衔接</a></li>
+<li class="level-2"><a href="#19.-7月底复盘模板">19. 7月底复盘模板</a></li>
+<li class="level-2"><a href="#20.-本月最终验收标准">20. 本月最终验收标准</a></li>
+<li class="level-2"><a href="#21.-端到端架构视角补充">21. 端到端架构视角补充</a></li>
+<li class="level-3"><a href="#21.1-pv-bev-occupancy在端到端中的作用">21.1 PV/BEV/Occupancy在端到端中的作用</a></li>
+<li class="level-3"><a href="#21.2-端到端输出安全检查">21.2 端到端输出安全检查</a></li>
+<li class="level-3"><a href="#21.3-新增实践任务">21.3 新增实践任务</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.3 · 2026年7月 ADS架构与空间感知安全风险执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年7月ads架构与空间感知安全风险执行包">2026年7月ADS架构与空间感知安全风险执行包</h1>
+<section class="figure"><p class="figure-title">辅助图：ADS安全链路</p><div class="flow"><div class="node">Sensors</div><div class="arrow">→</div><div class="node">Perception</div><div class="arrow">→</div><div class="node">Fusion</div><div class="arrow">→</div><div class="node">Risk/TTC</div><div class="arrow">→</div><div class="node">Decision</div><div class="arrow">→</div><div class="node">Monitor</div><div class="arrow">→</div><div class="node">Actuator</div><div class="arrow">→</div><div class="node">HMI/Log</div></div></section><section class="figure"><p class="figure-title">辅助图：PV / BEV / Occupancy</p><div class="grid-3"><div class="card"><h4>PV</h4><p>看到了什么：语义丰富，但距离和遮挡风险明显。</p></div><div class="card"><h4>BEV</h4><p>它在哪里：适合规划控制，但依赖标定和同步。</p></div><div class="card"><h4>Occupancy</h4><p>空间是否可通行：适合未知障碍，但需表达不确定性。</p></div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+<p>本文件是 <code>12-2026年度双轨学习与能力建设计划书.md</code> 中“2026年7月计划”的具体实现。</p>
+<p>7月主题：</p>
+<p><strong>ADS系统架构 + PV/BEV/Occupancy安全风险。</strong></p>
+<p>6月已经围绕AEB建立了功能安全基础，包括 <code>Item Definition</code>、<code>Hazard</code>、<code>Hazardous Event</code>、<code>HARA</code>、<code>Safety Goal</code>、<code>FSC</code>、<code>TSC</code> 和 <code>SG-FSR-TSR</code> 追踪。</p>
+<p>7月要解决的问题是：</p>
+<blockquote>这些安全目标和安全需求到底落在ADS系统架构的哪些环节？AI感知错误如何传播到规划、控制、执行器和HMI？PV、BEV、Occupancy这些空间感知表达方式分别有什么安全风险？</blockquote>
+<p>本月目标不是训练感知模型，也不是实现BEV算法，而是建立安全负责人需要的系统架构理解能力。</p>
+<h2 id="2.-本月应达到的能力">2. 本月应达到的能力</h2>
+<p>7月底应具备：</p>
+<ul>
+<li>能画出AEB从传感器到制动执行的基本链路。</li>
+<li>能解释感知、融合、风险判断、制动请求、执行器、HMI、诊断之间的关系。</li>
+<li>能说明PV、BEV、Occupancy分别是什么、用于哪里、有哪些安全风险。</li>
+<li>能解释感知错误如何传播为规划错误、控制错误和执行风险。</li>
+<li>能把6月的 <code>Safety Goal / FSR / TSR</code> 映射到ADS架构模块。</li>
+<li>能初步将ADS架构方法迁移到机器人感知-规划-控制-执行链路。</li>
+</ul>
+<h2 id="3.-本月交付物清单">3. 本月交付物清单</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>编号</th>
+<th>交付物</th>
+<th>目标</th>
+</tr></thead><tbody>
+<tr>
+<td>M07-01</td>
+<td>AEB感知-决策-制动链路图</td>
+<td>理解AEB系统链路</td>
+</tr>
+<tr>
+<td>M07-02</td>
+<td>ADS架构模块与安全风险表</td>
+<td>建立系统架构安全视角</td>
+</tr>
+<tr>
+<td>M07-03</td>
+<td>PV-BEV-Occupancy安全影响说明</td>
+<td>理解空间感知表达风险</td>
+</tr>
+<tr>
+<td>M07-04</td>
+<td>BEV错误到规划控制风险传播说明</td>
+<td>理解风险传播路径</td>
+</tr>
+<tr>
+<td>M07-05</td>
+<td>AEB Safety Goal到架构模块映射表</td>
+<td>将6月成果落到架构</td>
+</tr>
+<tr>
+<td>M07-06</td>
+<td>ADS架构与机器人架构对比表</td>
+<td>支撑机器人/具身智能副线</td>
+</tr>
+<tr>
+<td>M07-07</td>
+<td>7月验收问答</td>
+<td>检查是否真正理解</td>
+</tr>
+</tbody></table></div>
+<h2 id="4.-ads系统架构总览">4. ADS系统架构总览</h2>
+<h2 id="4.1-ads是什么">4.1 ADS是什么</h2>
+<p><code>ADS</code> 是 Automated Driving System，自动驾驶系统。</p>
+<p>从安全分析角度，ADS不是一个单独模块，而是一条从环境感知到车辆执行的链路。</p>
+<p>典型链路如下：</p>
+<div class="mermaid">flowchart LR
+    sensors[&quot;Sensors&lt;br/&gt;Camera/Radar/Lidar/IMU/GNSS&quot;] --&gt; perception[&quot;Perception&lt;br/&gt;Object/Lane/Free Space&quot;]
+    perception --&gt; fusion[&quot;Fusion&lt;br/&gt;Tracking/Consistency&quot;]
+    fusion --&gt; localization[&quot;Localization&lt;br/&gt;Position/Map&quot;]
+    fusion --&gt; prediction[&quot;Prediction&lt;br/&gt;Target Behavior&quot;]
+    localization --&gt; planning[&quot;Planning&lt;br/&gt;Path/Trajectory&quot;]
+    prediction --&gt; planning
+    planning --&gt; control[&quot;Control&lt;br/&gt;Lateral/Longitudinal&quot;]
+    control --&gt; actuators[&quot;Actuators&lt;br/&gt;Brake/Steering/Powertrain&quot;]
+    control --&gt; hmi[&quot;HMI&lt;br/&gt;Warning/Takeover/Status&quot;]
+    sensors --&gt; diagnosis[&quot;Diagnostics&lt;br/&gt;Health/Degradation&quot;]
+    diagnosis --&gt; hmi
+    diagnosis --&gt; planning</div>
+<p>对于AEB而言，链路可以简化为：</p>
+<div class="mermaid">flowchart LR
+    sensors[&quot;Camera/Radar/Lidar&quot;] --&gt; perception[&quot;Target Detection&quot;]
+    perception --&gt; fusion[&quot;Target Fusion &amp; Tracking&quot;]
+    fusion --&gt; risk[&quot;Collision Risk&lt;br/&gt;TTC/Distance/Relative Speed&quot;]
+    risk --&gt; decision[&quot;AEB Decision&quot;]
+    decision --&gt; monitor[&quot;Independent Monitor&quot;]
+    monitor --&gt; brake[&quot;Brake Request&quot;]
+    brake --&gt; esc[&quot;ESC/Brake System&quot;]
+    decision --&gt; hmi[&quot;Warning/HMI&quot;]
+    monitor --&gt; log[&quot;Event Logging&quot;]</div>
+<p>一句话理解：</p>
+<blockquote>AEB不是“感知模型发现障碍物就刹车”，而是传感器、感知、融合、风险评估、制动决策、独立监控、执行器、HMI和诊断共同构成的安全链路。</blockquote>
+<h2 id="4.2-ads主要模块">4.2 ADS主要模块</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>模块</th>
+<th>作用</th>
+<th>常见输入</th>
+<th>常见输出</th>
+<th>安全关注点</th>
+</tr></thead><tbody>
+<tr>
+<td>传感器</td>
+<td>获取外部环境和车辆状态</td>
+<td>图像、点云、雷达目标、IMU、车速</td>
+<td>原始数据或初级目标</td>
+<td>遮挡、污染、失准、冻结、丢帧、时间戳错误</td>
+</tr>
+<tr>
+<td>感知</td>
+<td>识别车辆、行人、车道、障碍物</td>
+<td>传感器数据</td>
+<td>目标、车道线、语义、可行驶区域</td>
+<td>漏检、误检、分类错误、位置误差</td>
+</tr>
+<tr>
+<td>融合</td>
+<td>多传感器目标合并和跟踪</td>
+<td>相机目标、雷达目标、激光雷达目标</td>
+<td>融合目标、轨迹、置信度</td>
+<td>目标关联错误、重复目标、目标丢失</td>
+</tr>
+<tr>
+<td>定位</td>
+<td>确定自车位置</td>
+<td>GNSS、IMU、轮速、地图</td>
+<td>自车位姿</td>
+<td>定位漂移、地图错误、坐标系错误</td>
+</tr>
+<tr>
+<td>预测</td>
+<td>预测其他交通参与者行为</td>
+<td>融合目标、历史轨迹</td>
+<td>目标未来轨迹</td>
+<td>行为预测错误、cut-in预测不足</td>
+</tr>
+<tr>
+<td>规划</td>
+<td>生成路径或轨迹</td>
+<td>目标、地图、车道、ODD</td>
+<td>期望路径/轨迹</td>
+<td>错误避障、轨迹不可行、过于激进</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>将轨迹转成控制命令</td>
+<td>目标轨迹、车辆状态</td>
+<td>转向/制动/加速请求</td>
+<td>控制超限、延迟、振荡</td>
+</tr>
+<tr>
+<td>执行器</td>
+<td>执行控制命令</td>
+<td>制动、转向、动力请求</td>
+<td>车辆运动</td>
+<td>执行失败、响应迟滞、超调</td>
+</tr>
+<tr>
+<td>HMI</td>
+<td>向驾驶员提示状态和风险</td>
+<td>功能状态、故障、接管请求</td>
+<td>声音/视觉/触觉提示</td>
+<td>提示不清、误信任、接管不足</td>
+</tr>
+<tr>
+<td>诊断</td>
+<td>监控系统健康状态</td>
+<td>传感器、通信、模块状态</td>
+<td>故障、降级、DTC</td>
+<td>故障漏诊断、误诊断、降级不及时</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.-aeb系统链路">5. AEB系统链路</h2>
+<h2 id="5.1-aeb输入">5.1 AEB输入</h2>
+<p>AEB通常需要以下输入：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>输入</th>
+<th>来源</th>
+<th>安全关注点</th>
+</tr></thead><tbody>
+<tr>
+<td>前方目标</td>
+<td>摄像头/雷达/激光雷达</td>
+<td>漏检、误检、分类错误</td>
+</tr>
+<tr>
+<td>目标距离</td>
+<td>感知/融合</td>
+<td>距离误差会影响TTC</td>
+</tr>
+<tr>
+<td>相对速度</td>
+<td>雷达/融合</td>
+<td>相对速度错误会导致触发过早或过晚</td>
+</tr>
+<tr>
+<td>目标类别</td>
+<td>感知模型</td>
+<td>行人/车辆/两轮车分类错误影响风险策略</td>
+</tr>
+<tr>
+<td>目标置信度</td>
+<td>感知模型</td>
+<td>置信度不可靠会影响决策</td>
+</tr>
+<tr>
+<td>自车速度</td>
+<td>车辆信号</td>
+<td>速度错误影响制动距离判断</td>
+</tr>
+<tr>
+<td>横摆率/方向盘角</td>
+<td>车辆信号</td>
+<td>用于判断自车路径相关目标</td>
+</tr>
+<tr>
+<td>制动踏板</td>
+<td>底盘信号</td>
+<td>判断驾驶员是否已响应</td>
+</tr>
+<tr>
+<td>油门踏板</td>
+<td>底盘信号</td>
+<td>判断驾驶员意图</td>
+</tr>
+<tr>
+<td>AEB功能状态</td>
+<td>状态机</td>
+<td>决定功能是否可用</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.2-aeb输出">5.2 AEB输出</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>输出</th>
+<th>接收方</th>
+<th>安全关注点</th>
+</tr></thead><tbody>
+<tr>
+<td>FCW预警请求</td>
+<td>HMI</td>
+<td>提示是否及时、清晰</td>
+</tr>
+<tr>
+<td>AEB制动请求</td>
+<td>制动系统/ESC</td>
+<td>是否合理、限幅、及时</td>
+</tr>
+<tr>
+<td>目标减速度</td>
+<td>制动执行器</td>
+<td>是否过大、过小、jerk是否过高</td>
+</tr>
+<tr>
+<td>功能降级状态</td>
+<td>HMI/诊断</td>
+<td>是否及时提示驾驶员</td>
+</tr>
+<tr>
+<td>故障状态</td>
+<td>诊断系统</td>
+<td>是否记录和闭环</td>
+</tr>
+<tr>
+<td>事件记录</td>
+<td>数据记录模块</td>
+<td>是否支持复盘和证据链</td>
+</tr>
+</tbody></table></div>
+<h2 id="5.3-aeb风险传播路径">5.3 AEB风险传播路径</h2>
+<h3 id="路径一-感知漏检---aeb漏触发">路径一：感知漏检 -&gt; AEB漏触发</h3>
+<div class="mermaid">flowchart LR
+    miss[&quot;Pedestrian missed by perception&quot;] --&gt; fusion[&quot;No valid target in fusion&quot;]
+    fusion --&gt; risk[&quot;Collision risk not calculated&quot;]
+    risk --&gt; decision[&quot;AEB does not trigger&quot;]
+    decision --&gt; collision[&quot;Collision or late braking&quot;]</div>
+<p>安全解释：</p>
+<ul>
+<li>感知漏检对应 <code>FN / False Negative</code>。</li>
+<li>如果没有其他传感器或监控机制补偿，AEB可能完全不触发。</li>
+<li>这会进入HARA中的“前方真实目标存在，AEB未触发或触发过晚”危险事件。</li>
+</ul>
+<h3 id="路径二-感知误检---aeb误触发">路径二：感知误检 -&gt; AEB误触发</h3>
+<div class="mermaid">flowchart LR
+    fp[&quot;Shadow/reflection detected as obstacle&quot;] --&gt; fusion[&quot;False fused target&quot;]
+    fusion --&gt; risk[&quot;TTC appears dangerous&quot;]
+    risk --&gt; decision[&quot;AEB triggers braking&quot;]
+    decision --&gt; rear[&quot;Rear-end or passenger injury risk&quot;]</div>
+<p>安全解释：</p>
+<ul>
+<li>感知误检对应 <code>FP / False Positive</code>。</li>
+<li>如果没有目标持续性、TTC合理性、多传感器一致性和独立监控，可能导致误制动。</li>
+</ul>
+<h3 id="路径三-距离-速度估计错误---触发时机错误">路径三：距离/速度估计错误 -&gt; 触发时机错误</h3>
+<div class="mermaid">flowchart LR
+    error[&quot;Distance/relative speed error&quot;] --&gt; ttc[&quot;Wrong TTC&quot;]
+    ttc --&gt; trigger[&quot;Trigger too early or too late&quot;]
+    trigger --&gt; risk[&quot;False braking or insufficient braking&quot;]</div>
+<p>安全解释：</p>
+<ul>
+<li>即使目标被正确检测，如果距离或相对速度错误，AEB仍可能触发过早或过晚。</li>
+<li>所以AEB不仅需要分类正确，还需要空间位置、速度和时间同步可靠。</li>
+</ul>
+<h3 id="路径四-制动请求错误---执行风险">路径四：制动请求错误 -&gt; 执行风险</h3>
+<div class="mermaid">flowchart LR
+    decision[&quot;AEB decision&quot;] --&gt; request[&quot;Brake request&quot;]
+    request --&gt; limiter[&quot;Limiter/Monitor missing or failed&quot;]
+    limiter --&gt; brake[&quot;Excessive braking&quot;]
+    brake --&gt; risk[&quot;Instability/rear-end/passenger discomfort&quot;]</div>
+<p>安全解释：</p>
+<ul>
+<li>即使感知正确，错误制动请求也可能引入新风险。</li>
+<li>因此需要制动请求限幅、jerk限制、持续时间限制和独立监控。</li>
+</ul>
+<h3 id="路径五-降级未提示---驾驶员误信任">路径五：降级未提示 -&gt; 驾驶员误信任</h3>
+<div class="mermaid">flowchart LR
+    sensor[&quot;Sensor degraded&quot;] --&gt; diag[&quot;Diagnostic detects or misses degradation&quot;]
+    diag --&gt; hmi[&quot;No clear HMI warning&quot;]
+    hmi --&gt; driver[&quot;Driver believes AEB is available&quot;]
+    driver --&gt; risk[&quot;Delayed manual response&quot;]</div>
+<p>安全解释：</p>
+<ul>
+<li>这是交互安全问题。</li>
+<li>功能不可用、降级、退出或ODD边界条件必须通过HMI清晰提示。</li>
+</ul>
+<h2 id="6.-pv-bev-occupancy是什么">6. PV、BEV、Occupancy是什么</h2>
+<h2 id="6.1-pv-perspective-view">6.1 PV，Perspective View</h2>
+<p><code>PV</code> 是 Perspective View，即相机透视视角。</p>
+<p>它接近人眼或相机看到的原始图像视角。</p>
+<p>示例：</p>
+<ul>
+<li>前视相机看到前方车辆、行人、车道线。</li>
+<li>环视相机看到车辆周围环境。</li>
+<li>目标检测模型在图像上输出2D框。</li>
+</ul>
+<p>PV的优点：</p>
+<ul>
+<li>接近原始感知输入。</li>
+<li>适合图像特征提取。</li>
+<li>对语义信息较友好，例如识别车辆、行人、标志牌、车道线。</li>
+</ul>
+<p>PV的安全风险：</p>
+<ul>
+<li>远距离目标像素小，容易漏检。</li>
+<li>透视关系导致距离估计困难。</li>
+<li>遮挡和重叠目标难以判断。</li>
+<li>强光、雨雾、夜间、反光会影响图像质量。</li>
+<li>多相机之间视角和标定误差会影响融合。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>相机标定是否可靠？</li>
+<li>图像质量异常如何检测？</li>
+<li>夜间、逆光、雨雾是否单独验证？</li>
+<li>PV检测结果如何转入3D空间或BEV空间？</li>
+<li>距离估计是否有雷达或其他传感器校验？</li>
+</ul>
+<h2 id="6.2-bev-bird-s-eye-view">6.2 BEV，Bird&#x27;s Eye View</h2>
+<p><code>BEV</code> 是 Bird&#x27;s Eye View，即鸟瞰视角。</p>
+<p>它把周围环境转换到俯视坐标系中，更接近规划和控制需要的空间表达。</p>
+<p>BEV常用于：</p>
+<ul>
+<li>多摄像头融合。</li>
+<li>目标位置表达。</li>
+<li>可行驶区域识别。</li>
+<li>轨迹预测。</li>
+<li>规划避障。</li>
+<li>Occupancy表达。</li>
+</ul>
+<p>BEV的优点：</p>
+<ul>
+<li>适合表达目标相对自车的位置。</li>
+<li>适合规划和控制使用。</li>
+<li>便于融合多传感器、多相机信息。</li>
+<li>对路径、障碍物、车道和可行驶区域更直观。</li>
+</ul>
+<p>BEV的安全风险：</p>
+<ul>
+<li>PV到BEV转换依赖标定和深度估计。</li>
+<li>标定错误会导致目标位置偏移。</li>
+<li>时间同步错误会导致动态目标位置错误。</li>
+<li>遮挡区域可能被错误表达为可通行。</li>
+<li>BEV中的小位置误差可能导致规划错误。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>BEV坐标误差如何评估？</li>
+<li>多相机外参标定是否有监控？</li>
+<li>动态目标时间同步如何保证？</li>
+<li>遮挡和未知区域如何表达？</li>
+<li>BEV不确定性是否传递给规划？</li>
+</ul>
+<h2 id="6.3-occupancy">6.3 Occupancy</h2>
+<p><code>Occupancy</code> 表示空间是否被占用。</p>
+<p>相比传统目标框，Occupancy更关注：</p>
+<ul>
+<li>某个空间格子是否有障碍物。</li>
+<li>某个区域是否可通行。</li>
+<li>是否存在未知或不规则障碍物。</li>
+</ul>
+<p>Occupancy常用于：</p>
+<ul>
+<li>自动驾驶可通行空间判断。</li>
+<li>低矮障碍物识别。</li>
+<li>不规则物体表达。</li>
+<li>机器人避障。</li>
+<li>人形机器人周围空间理解。</li>
+</ul>
+<p>Occupancy的优点：</p>
+<ul>
+<li>不依赖目标类别一定被识别出来。</li>
+<li>可以表达不规则障碍物。</li>
+<li>对未知物体和可行驶空间有价值。</li>
+<li>更适合机器人和自动驾驶的避障场景。</li>
+</ul>
+<p>Occupancy的安全风险：</p>
+<ul>
+<li>低矮障碍物、透明物体、悬空物体可能被漏掉。</li>
+<li>未知区域如果被错误认为可通行，会导致碰撞。</li>
+<li>占用空间误差会影响路径规划。</li>
+<li>动态物体占用变化如果更新不及时，会导致规划滞后。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>未知空间如何表达？</li>
+<li>不确定性是否传递给规划？</li>
+<li>可通行区域是否过度乐观？</li>
+<li>低矮、透明、反光物体是否专项测试？</li>
+<li>Occupancy失败时是否降级或保守规划？</li>
+</ul>
+<h2 id="7.-pv-bev-occupancy对比">7. PV、BEV、Occupancy对比</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>维度</th>
+<th>PV</th>
+<th>BEV</th>
+<th>Occupancy</th>
+</tr></thead><tbody>
+<tr>
+<td>全称</td>
+<td>Perspective View</td>
+<td>Bird&#x27;s Eye View</td>
+<td>Occupancy Representation</td>
+</tr>
+<tr>
+<td>中文</td>
+<td>透视视角</td>
+<td>鸟瞰视角</td>
+<td>空间占用表达</td>
+</tr>
+<tr>
+<td>主要输入</td>
+<td>相机图像</td>
+<td>多相机/雷达/激光雷达/深度估计</td>
+<td>多传感器或空间感知结果</td>
+</tr>
+<tr>
+<td>主要用途</td>
+<td>目标识别、语义理解</td>
+<td>空间位置、路径规划</td>
+<td>可通行空间、障碍物占用</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>语义丰富</td>
+<td>适合规划控制</td>
+<td>适合未知障碍和空间安全</td>
+</tr>
+<tr>
+<td>主要风险</td>
+<td>距离估计、遮挡、光照</td>
+<td>标定、同步、位置误差</td>
+<td>未知空间、低矮/透明物体</td>
+</tr>
+<tr>
+<td>安全关注</td>
+<td>是否看见目标</td>
+<td>目标在哪里</td>
+<td>空间是否可通行</td>
+</tr>
+</tbody></table></div>
+<p>一句话理解：</p>
+<ul>
+<li><code>PV</code> 关注“看到了什么”。</li>
+<li><code>BEV</code> 关注“它在自车周围哪里”。</li>
+<li><code>Occupancy</code> 关注“哪些空间被占用或不可通行”。</li>
+</ul>
+<h2 id="8.-bev错误如何传播为安全风险">8. BEV错误如何传播为安全风险</h2>
+<h2 id="8.1-目标位置偏移">8.1 目标位置偏移</h2>
+<p>场景：</p>
+<p>BEV中前方车辆位置被估计得比真实位置更远。</p>
+<p>风险传播：</p>
+<div class="mermaid">flowchart LR
+    bev[&quot;BEV target position too far&quot;] --&gt; ttc[&quot;TTC overestimated&quot;]
+    ttc --&gt; aeb[&quot;AEB triggers late&quot;]
+    aeb --&gt; collision[&quot;Rear-end collision risk&quot;]</div>
+<p>安全影响：</p>
+<ul>
+<li>AEB认为碰撞风险较低。</li>
+<li>制动触发延迟。</li>
+<li>制动距离不足。</li>
+</ul>
+<h2 id="8.2-虚假占用">8.2 虚假占用</h2>
+<p>场景：</p>
+<p>BEV中将路面反光错误表达为障碍物。</p>
+<p>风险传播：</p>
+<div class="mermaid">flowchart LR
+    false[&quot;False BEV obstacle&quot;] --&gt; plan[&quot;Planning avoids or brakes&quot;]
+    plan --&gt; control[&quot;Unnecessary braking/steering&quot;]
+    control --&gt; risk[&quot;Rear-end or instability risk&quot;]</div>
+<p>安全影响：</p>
+<ul>
+<li>AEB可能误触发。</li>
+<li>NOA可能异常绕行。</li>
+<li>机器人可能误停。</li>
+</ul>
+<h2 id="8.3-遮挡区域过度乐观">8.3 遮挡区域过度乐观</h2>
+<p>场景：</p>
+<p>BEV或Occupancy将遮挡区域错误表达为可通行。</p>
+<p>风险传播：</p>
+<div class="mermaid">flowchart LR
+    unknown[&quot;Occluded area treated as free&quot;] --&gt; plan[&quot;Planner chooses path&quot;]
+    plan --&gt; hidden[&quot;Hidden pedestrian appears&quot;]
+    hidden --&gt; risk[&quot;Late braking or collision&quot;]</div>
+<p>安全影响：</p>
+<ul>
+<li>系统未对遮挡区域保持保守。</li>
+<li>行人、两轮车、障碍物突然出现时反应不足。</li>
+</ul>
+<h2 id="8.4-时间同步错误">8.4 时间同步错误</h2>
+<p>场景：</p>
+<p>多摄像头或雷达数据时间戳不同步，导致动态目标在BEV中位置错误。</p>
+<p>安全影响：</p>
+<ul>
+<li>目标轨迹不稳定。</li>
+<li>TTC计算错误。</li>
+<li>AEB触发过早或过晚。</li>
+<li>规划轨迹不合理。</li>
+</ul>
+<h2 id="9.-aeb-safety-goal到架构模块映射">9. AEB Safety Goal到架构模块映射</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>Safety Goal</th>
+<th>相关架构模块</th>
+<th>架构层安全机制</th>
+</tr></thead><tbody>
+<tr>
+<td>AEB应及时识别碰撞风险并触发预警或制动</td>
+<td>传感器、感知、融合、风险评估、AEB决策、制动执行</td>
+<td>目标检测、融合跟踪、TTC计算、触发时机验证</td>
+</tr>
+<tr>
+<td>AEB不应在无合理碰撞风险时发出强制动请求</td>
+<td>感知、融合、AEB决策、独立监控、制动请求管理</td>
+<td>目标持续性检查、多传感器一致性、TTC合理性、监控器抑制</td>
+</tr>
+<tr>
+<td>AEB制动请求应受减速度、jerk、持续时间约束</td>
+<td>AEB决策、控制、制动执行</td>
+<td>制动请求限幅、jerk限制、持续时间限制</td>
+</tr>
+<tr>
+<td>关键传感器或感知链路不可用时应降级或提示</td>
+<td>传感器、诊断、状态机、HMI</td>
+<td>传感器健康监控、故障诊断、降级策略、HMI提示</td>
+</tr>
+<tr>
+<td>AEB不可用、降级或退出时应提示驾驶员</td>
+<td>状态机、HMI、诊断</td>
+<td>功能状态显示、声音/视觉提示、事件记录</td>
+</tr>
+</tbody></table></div>
+<h2 id="10.-fsr-tsr到架构模块映射">10. FSR/TSR到架构模块映射</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>FSR/TSR</th>
+<th>架构模块</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>输入信号应检查时间戳、有效位、更新周期和范围</td>
+<td>传感器、通信、诊断</td>
+<td>防止旧数据、冻结数据、异常值进入决策</td>
+</tr>
+<tr>
+<td>摄像头、雷达目标应进行一致性检查</td>
+<td>感知、融合</td>
+<td>降低单传感器误检/漏检风险</td>
+</tr>
+<tr>
+<td>TTC计算应进行范围和跳变检查</td>
+<td>风险评估模块</td>
+<td>防止TTC异常导致误触发或漏触发</td>
+</tr>
+<tr>
+<td>制动请求应由独立监控器检查</td>
+<td>AEB决策、监控器</td>
+<td>防止单点错误导致误制动</td>
+</tr>
+<tr>
+<td>制动请求应限制最大减速度、jerk和持续时间</td>
+<td>控制、制动执行</td>
+<td>防止过度制动引入新风险</td>
+</tr>
+<tr>
+<td>关键故障应触发DTC、HMI提示和降级</td>
+<td>诊断、HMI、状态机</td>
+<td>支撑驾驶员理解功能状态</td>
+</tr>
+<tr>
+<td>AEB事件应记录时间、版本、输入和输出状态</td>
+<td>数据记录、诊断</td>
+<td>支撑问题复盘和Safety Case证据</td>
+</tr>
+</tbody></table></div>
+<h2 id="11.-交互安全与hmi在架构中的位置">11. 交互安全与HMI在架构中的位置</h2>
+<p>交互安全不是附属功能，而是ADS安全链路的一部分。</p>
+<p>典型交互安全风险：</p>
+<ul>
+<li>功能已经退出，但驾驶员以为仍可用。</li>
+<li>AEB不可用，但没有明显提示。</li>
+<li>接管请求不清晰。</li>
+<li>功能降级状态没有被驾驶员理解。</li>
+<li>驾驶员对系统能力产生过度信任。</li>
+<li>不同自动驾驶模式之间切换提示不清。</li>
+</ul>
+<p>HMI应支持：</p>
+<ul>
+<li>功能可用状态提示。</li>
+<li>功能不可用提示。</li>
+<li>降级提示。</li>
+<li>故障提示。</li>
+<li>接管请求。</li>
+<li>风险预警。</li>
+<li>驾驶员响应确认。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>驾驶员是否能及时理解系统状态？</li>
+<li>提示是否足够清晰？</li>
+<li>声音、视觉、触觉是否组合使用？</li>
+<li>接管请求是否有足够提前量？</li>
+<li>功能退出后是否仍可能让驾驶员误信任？</li>
+</ul>
+<h2 id="12.-ads架构与机器人架构对比">12. ADS架构与机器人架构对比</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>智能驾驶ADS</th>
+<th>服务机器人/具身智能</th>
+<th>安全迁移关系</th>
+</tr></thead><tbody>
+<tr>
+<td>ODD</td>
+<td>机器人操作域</td>
+<td>都定义系统可安全运行边界</td>
+</tr>
+<tr>
+<td>相机/雷达/激光雷达</td>
+<td>RGB-D/激光雷达/深度相机/触觉传感器</td>
+<td>都存在遮挡、污染、误检、漏检</td>
+</tr>
+<tr>
+<td>感知</td>
+<td>环境理解/物体识别/人体检测</td>
+<td>都需要识别目标和可通行空间</td>
+</tr>
+<tr>
+<td>BEV/Occupancy</td>
+<td>局部地图/占用栅格/空间理解</td>
+<td>都用于规划避障</td>
+</tr>
+<tr>
+<td>规划</td>
+<td>路径规划/任务规划</td>
+<td>都可能因环境理解错误产生危险动作</td>
+</tr>
+<tr>
+<td>控制</td>
+<td>运动控制/机械臂控制</td>
+<td>都需要限速、限力、限加速度</td>
+</tr>
+<tr>
+<td>执行器</td>
+<td>制动/转向/动力</td>
+<td>轮式底盘/关节/机械臂</td>
+</tr>
+<tr>
+<td>HMI</td>
+<td>语音/屏幕/灯光/动作反馈</td>
+<td>都需要向人表达状态和风险</td>
+</tr>
+<tr>
+<td>MRC/fallback</td>
+<td>停止、退回、安全姿态</td>
+<td>都需要失败后的安全状态</td>
+</tr>
+</tbody></table></div>
+<p>一句话：</p>
+<blockquote>ADS和机器人都遵循“感知-理解-规划-控制-执行-交互”的安全链路，只是执行对象从车辆变成了机器人本体、轮式底盘或机械臂。</blockquote>
+<h2 id="13.-代码视角-架构风险表的结构化管理">13. 代码视角：架构风险表的结构化管理</h2>
+<p>7月可以继续保持轻量代码实践。</p>
+<p>目标不是写ADS软件，而是把架构风险结构化。</p>
+<p>建议用CSV/YAML维护架构风险表：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>field</th>
+<th>meaning</th>
+</tr></thead><tbody>
+<tr>
+<td>module</td>
+<td>模块名称</td>
+</tr>
+<tr>
+<td>input</td>
+<td>输入</td>
+</tr>
+<tr>
+<td>output</td>
+<td>输出</td>
+</tr>
+<tr>
+<td>failure_mode</td>
+<td>失效模式</td>
+</tr>
+<tr>
+<td>safety_effect</td>
+<td>安全后果</td>
+</tr>
+<tr>
+<td>detection</td>
+<td>检测方式</td>
+</tr>
+<tr>
+<td>mitigation</td>
+<td>缓解措施</td>
+</tr>
+<tr>
+<td>evidence</td>
+<td>证据</td>
+</tr>
+</tbody></table></div>
+<p>可检查规则：</p>
+<ul>
+<li>每个关键模块是否至少有一个失效模式。</li>
+<li>每个失效模式是否有安全后果。</li>
+<li>每个安全后果是否有检测方式。</li>
+<li>每个检测方式是否有缓解措施。</li>
+<li>每个缓解措施是否有验证证据。</li>
+</ul>
+<p>伪代码：</p>
+<pre><code>for row in architecture_risks:
+    assert row[&quot;module&quot;]
+    assert row[&quot;failure_mode&quot;]
+    assert row[&quot;safety_effect&quot;]
+    assert row[&quot;detection&quot;]
+    assert row[&quot;mitigation&quot;]</code></pre>
+<p>输出：</p>
+<ul>
+<li>架构风险缺口清单。</li>
+<li>缺少检测机制的失效模式。</li>
+<li>缺少验证证据的缓解措施。</li>
+</ul>
+<h2 id="14.-7月实践任务">14. 7月实践任务</h2>
+<h2 id="14.1-实践任务1-画出aeb系统链路">14.1 实践任务1：画出AEB系统链路</h2>
+<p>要求至少包含：</p>
+<ul>
+<li>传感器。</li>
+<li>感知。</li>
+<li>融合。</li>
+<li>TTC/风险评估。</li>
+<li>AEB决策。</li>
+<li>独立监控器。</li>
+<li>制动请求。</li>
+<li>制动执行。</li>
+<li>HMI。</li>
+<li>诊断和事件记录。</li>
+</ul>
+<h2 id="14.2-实践任务2-完成ads模块风险表">14.2 实践任务2：完成ADS模块风险表</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>模块</th>
+<th>失效模式</th>
+<th>安全后果</th>
+<th>检测方式</th>
+<th>缓解措施</th>
+</tr></thead><tbody>
+<tr>
+<td>传感器</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>感知</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>融合</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>风险评估</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AEB决策</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>制动执行</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMI</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="14.3-实践任务3-写pv-bev-occupancy安全说明">14.3 实践任务3：写PV/BEV/Occupancy安全说明</h2>
+<p>要求：</p>
+<ul>
+<li>每个概念用一句话解释。</li>
+<li>每个概念列出至少3个安全风险。</li>
+<li>每个概念列出至少3个安全追问。</li>
+</ul>
+<h2 id="14.4-实践任务4-完成aeb-safety-goal到架构映射">14.4 实践任务4：完成AEB Safety Goal到架构映射</h2>
+<p>填写模板：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Safety Goal</th>
+<th>架构模块</th>
+<th>安全机制</th>
+<th>验证方法</th>
+</tr></thead><tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="14.5-实践任务5-完成ads与机器人架构对比">14.5 实践任务5：完成ADS与机器人架构对比</h2>
+<p>要求：</p>
+<ul>
+<li>至少列出8组对应关系。</li>
+<li>每组说明安全迁移逻辑。</li>
+<li>重点关注感知、空间理解、规划、控制、执行和交互。</li>
+</ul>
+<h2 id="15.-常见错误">15. 常见错误</h2>
+<h3 id="15.1-只懂模型-不懂系统链路">15.1 只懂模型，不懂系统链路</h3>
+<p>错误：</p>
+<blockquote>感知模型Recall提升，所以系统一定更安全。</blockquote>
+<p>正确：</p>
+<blockquote>感知只是链路一部分。还需要看融合、TTC、决策、监控、制动执行、HMI和诊断。</blockquote>
+<h3 id="15.2-把bev当成天然安全">15.2 把BEV当成天然安全</h3>
+<p>错误：</p>
+<blockquote>BEV能看全局，所以更安全。</blockquote>
+<p>正确：</p>
+<blockquote>BEV依赖标定、深度估计、时间同步和数据覆盖。BEV错误会直接影响规划和控制。</blockquote>
+<h3 id="15.3-忽略未知区域">15.3 忽略未知区域</h3>
+<p>错误：</p>
+<blockquote>没检测到障碍物，所以可通行。</blockquote>
+<p>正确：</p>
+<blockquote>未检测到不等于没有障碍物。遮挡和未知区域应保守处理。</blockquote>
+<h3 id="15.4-忽略hmi和驾驶员理解">15.4 忽略HMI和驾驶员理解</h3>
+<p>错误：</p>
+<blockquote>系统内部已经降级，所以安全。</blockquote>
+<p>正确：</p>
+<blockquote>如果驾驶员不知道系统降级，仍可能产生误信任和延迟接管风险。</blockquote>
+<h2 id="16.-7月验收问答">16. 7月验收问答</h2>
+<h3 id="16.1-ads系统链路包括哪些主要模块">16.1 ADS系统链路包括哪些主要模块？</h3>
+<p>回答：</p>
+<p>典型ADS链路包括传感器、感知、融合、定位、预测、规划、控制、执行器、HMI和诊断。AEB可简化为传感器、目标检测、融合跟踪、TTC/风险评估、AEB决策、独立监控器、制动请求、制动执行、HMI和事件记录。</p>
+<h3 id="16.2-pv和bev有什么区别">16.2 PV和BEV有什么区别？</h3>
+<p>回答：</p>
+<p>PV是相机透视视角，接近原始图像，适合目标识别和语义理解；BEV是鸟瞰视角，把环境转换到俯视空间，更适合目标位置表达、规划和控制。PV关注“看到了什么”，BEV关注“它在自车周围哪里”。</p>
+<h3 id="16.3-bev为什么不是天然安全">16.3 BEV为什么不是天然安全？</h3>
+<p>回答：</p>
+<p>BEV依赖相机标定、深度估计、多传感器融合和时间同步。标定错误、深度错误、动态目标时间不同步或遮挡区域表达错误，都可能导致目标位置偏移、虚假障碍或过度乐观的可通行区域，从而影响规划和控制。</p>
+<h3 id="16.4-occupancy对安全有什么价值">16.4 Occupancy对安全有什么价值？</h3>
+<p>回答：</p>
+<p>Occupancy关注空间是否被占用，能够表达未知物体、不规则障碍物和可通行区域。它对自动驾驶和机器人避障都有价值，尤其适合处理不容易分类的障碍物。但Occupancy也需要处理低矮、透明、悬空、动态物体和未知空间的不确定性。</p>
+<h3 id="16.5-感知错误如何传播到控制风险">16.5 感知错误如何传播到控制风险？</h3>
+<p>回答：</p>
+<p>感知漏检会导致融合目标缺失，风险评估无法计算碰撞风险，AEB可能不触发；感知误检会生成虚假目标，TTC可能被错误计算为危险，AEB可能误制动；目标位置或速度估计错误会导致触发过早或过晚，最终影响制动执行和车辆安全。</p>
+<h3 id="16.6-hmi为什么是安全链路的一部分">16.6 HMI为什么是安全链路的一部分？</h3>
+<p>回答：</p>
+<p>HMI负责向驾驶员表达功能状态、风险预警、降级、退出、故障和接管请求。如果提示不清晰或不及时，驾驶员可能误信任系统或延迟接管。因此HMI不仅是用户体验问题，也是交互安全问题。</p>
+<h3 id="16.7-ads架构如何迁移到机器人安全">16.7 ADS架构如何迁移到机器人安全？</h3>
+<p>回答：</p>
+<p>ADS和机器人都遵循感知、理解、规划、控制、执行和交互的链路。ADS中的ODD可迁移为机器人操作域，BEV/Occupancy可迁移为机器人局部地图或占用栅格，MRC/fallback可迁移为机器人停止、退回或安全姿态，HMI可迁移为语音、屏幕、灯光或动作反馈。</p>
+<h2 id="17.-与6月成果的衔接">17. 与6月成果的衔接</h2>
+<p>6月成果 | 7月用途</p>
+<p>--- | ---</p>
+<p>AEB Safety Goal | 映射到传感器、感知、融合、决策、执行、HMI模块</p>
+<p>FSR | 确定功能层安全能力由哪个模块承担</p>
+<p>TSR | 分配到具体技术机制，如输入检查、TTC检查、制动限幅</p>
+<p>追踪矩阵 | 继续扩展到架构模块和验证证据</p>
+<h2 id="18.-与8月学习的衔接">18. 与8月学习的衔接</h2>
+<p>8月会进入：</p>
+<p><strong>SOTIF、ODD、触发条件和机器人操作域。</strong></p>
+<p>7月成果将用于8月：</p>
+<ul>
+<li>ADS架构帮助判断触发条件影响哪个模块。</li>
+<li>PV/BEV/Occupancy风险帮助识别SOTIF功能不足。</li>
+<li>HMI和交互安全帮助分析驾驶员误信任、接管和功能退出风险。</li>
+<li>ADS与机器人架构对比帮助后续定义机器人操作域。</li>
+</ul>
+<h2 id="19.-7月底复盘模板">19. 7月底复盘模板</h2>
+<div class="table-wrap"><table><thead><tr>
+<th>问题</th>
+<th>复盘内容</th>
+</tr></thead><tbody>
+<tr>
+<td>是否能画出AEB系统链路？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能解释PV、BEV、Occupancy？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能说明BEV错误如何传播到规划控制？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能把Safety Goal映射到架构模块？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否能解释HMI为什么是安全链路一部分？</td>
+<td></td>
+</tr>
+<tr>
+<td>是否完成ADS与机器人架构对比？</td>
+<td></td>
+</tr>
+<tr>
+<td>哪些架构模块还不熟？</td>
+<td></td>
+</tr>
+<tr>
+<td>8月学习SOTIF和ODD前还需要补什么？</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2 id="20.-本月最终验收标准">20. 本月最终验收标准</h2>
+<p>7月底应达到：</p>
+<ul>
+<li>能画出AEB感知-决策-制动链路。</li>
+<li>能解释ADS主要模块和安全风险。</li>
+<li>能说清PV、BEV、Occupancy的区别和安全影响。</li>
+<li>能解释BEV错误如何影响AEB、NOA或机器人避障。</li>
+<li>能把AEB Safety Goal映射到架构模块。</li>
+<li>能说清HMI、降级、退出和接管提示为什么属于安全问题。</li>
+<li>能完成ADS架构与机器人架构对比。</li>
+</ul>
+<p>一句话验收：</p>
+<blockquote>看到一个感知或空间理解错误，你能说明它如何沿ADS链路传播到规划、控制、执行器和HMI，并能提出检测、缓解和验证证据。</blockquote>
+<h2 id="21.-端到端架构视角补充">21. 端到端架构视角补充</h2>
+<p>端到端模型会弱化传统模块边界，但不会消除系统架构安全分析。</p>
+<p>传统模块化ADS：</p>
+<pre><code>Sensor -&gt; Perception -&gt; Fusion -&gt; Prediction -&gt; Planning -&gt; Control</code></pre>
+<p>端到端ADS：</p>
+<pre><code>Sensor / History / Map / Navigation -&gt; End-to-End Model -&gt; Trajectory / Control</code></pre>
+<p>表面上链路缩短了，但安全负责人仍需理解：</p>
+<ul>
+<li>输入来自哪些传感器。</li>
+<li>模型内部可能隐式学习了哪些空间表达。</li>
+<li>输出是轨迹、控制还是高层动作。</li>
+<li>输出是否经过独立安全检查。</li>
+<li>执行器是否有约束和限幅。</li>
+<li>HMI是否能表达模型能力边界。</li>
+</ul>
+<h3 id="21.1-pv-bev-occupancy在端到端中的作用">21.1 PV/BEV/Occupancy在端到端中的作用</h3>
+<p>端到端不代表没有PV、BEV、Occupancy。</p>
+<p>它们可能变成：</p>
+<ul>
+<li>模型内部隐式表征。</li>
+<li>中间特征。</li>
+<li>训练监督信号。</li>
+<li>可解释性分析工具。</li>
+<li>安全监控器输入。</li>
+</ul>
+<p>安全追问：</p>
+<ul>
+<li>模型是否显式或隐式使用BEV/Occupancy？</li>
+<li>如果没有显式中间结果，如何解释空间理解错误？</li>
+<li>是否有独立Occupancy或碰撞监控兜底？</li>
+<li>输出轨迹是否与可通行空间一致？</li>
+</ul>
+<h3 id="21.2-端到端输出安全检查">21.2 端到端输出安全检查</h3>
+<p>端到端输出必须经过安全约束：</p>
+<ul>
+<li>轨迹碰撞检查。</li>
+<li>速度/加速度/jerk限制。</li>
+<li>车道边界和道路边界检查。</li>
+<li>与动态目标的时空冲突检查。</li>
+<li>ODD边界检查。</li>
+<li>fallback/MRC检查。</li>
+</ul>
+<h3 id="21.3-新增实践任务">21.3 新增实践任务</h3>
+<p>将AEB链路改写为端到端安全链路：</p>
+<pre><code>Camera/Radar/History -&gt; E2E Model -&gt; Longitudinal Trajectory / Brake Intent -&gt; Safety Monitor -&gt; Brake System</code></pre>
+<p>输出一张表：</p>
+<div class="table-wrap"><table><thead><tr>
+<th>环节</th>
+<th>端到端视角</th>
+<th>安全关注点</th>
+</tr></thead><tbody>
+<tr>
+<td>输入</td>
+<td>多传感器和历史帧</td>
+<td>OOD、污染、时间同步</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>端到端行为生成</td>
+<td>泛化、长尾、不可解释</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>轨迹/制动意图</td>
+<td>是否碰撞、是否过激</td>
+</tr>
+<tr>
+<td>监控</td>
+<td>独立安全检查</td>
+<td>轨迹合理性、限速、fallback</td>
+</tr>
+<tr>
+<td>执行</td>
+<td>制动系统</td>
+<td>限幅、响应、事件记录</td>
+</tr>
+</tbody></table></div><div class="footer">Source: 12.3-2026年7月ADS架构与空间感知安全风险执行包.md · Generated into html/</div></article></main></div>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
+</script>
+</body></html>
