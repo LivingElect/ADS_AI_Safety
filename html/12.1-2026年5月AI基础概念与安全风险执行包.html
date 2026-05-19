@@ -1,63 +1,7 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>12.1 · 2026年5月 AI基础概念与安全风险执行包</title><style>
 :root{--bg:#f5f7fb;--paper:#fff;--ink:#172033;--muted:#64748b;--line:#dbe3ef;--primary:#2454d6;--primary2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#059669;--code-bg:#0f172a;--code-ink:#e5e7eb;--shadow:0 18px 45px rgba(15,23,42,.09);--radius:18px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,#e8efff 0,transparent 34rem),var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:28px;max-width:1540px;margin:0 auto;padding:28px}.sidebar{position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;padding:22px;border:1px solid var(--line);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-radius:var(--radius);box-shadow:var(--shadow)}.sidebar h2{margin:0 0 8px;font-size:18px}.sidebar .meta{color:var(--muted);font-size:13px;margin-bottom:16px}.toc{list-style:none;padding:0;margin:0}.toc li{margin:4px 0}.toc a{display:block;padding:6px 8px;border-radius:9px;color:#334155;font-size:13px;line-height:1.35}.toc a:hover{background:#eef4ff;text-decoration:none;color:var(--primary)}.toc .level-1 a{font-weight:800;font-size:14px}.toc .level-2{padding-left:8px}.toc .level-3{padding-left:18px}.toc .level-4{padding-left:28px}main{min-width:0}.article{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 58px}.hero{margin-bottom:34px;padding:32px;border-radius:22px;background:linear-gradient(135deg,#153eaa,#0f766e);color:#fff}.hero h1{margin:0 0 10px;color:#fff;border:0;font-size:32px;line-height:1.25}.hero p{margin:0;color:rgba(255,255,255,.88)}h1,h2,h3,h4{line-height:1.35;color:#0f172a}h1{font-size:32px;margin:0 0 24px;padding-bottom:14px;border-bottom:2px solid var(--line)}h2{margin-top:42px;padding-top:20px;font-size:25px;border-top:1px solid #edf2f7}h3{margin-top:28px;font-size:20px}h4{margin-top:22px;font-size:17px;color:#1e3a8a}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:5px 0}strong{color:#0f172a}blockquote{margin:18px 0;padding:14px 18px;border-left:5px solid var(--primary);background:#f1f6ff;border-radius:12px;color:#1e3a8a}code{padding:2px 6px;border-radius:6px;background:#eef2ff;color:#3730a3;font-family:"Cascadia Code",Consolas,monospace;font-size:.92em}pre{overflow:auto;padding:18px;border-radius:14px;background:var(--code-bg);color:var(--code-ink)}pre code{padding:0;background:transparent;color:inherit}.table-wrap{overflow:auto;margin:18px 0 26px;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 22px rgba(15,23,42,.04)}table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}th{background:#eef4ff;color:#1e3a8a;font-weight:800;text-align:left}th,td{border-bottom:1px solid #e6edf7;padding:11px 13px;vertical-align:top}tr:nth-child(even) td{background:#fbfdff}tr:hover td{background:#f8fbff}.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e0f2fe;color:#075985;font-size:12px;font-weight:800}.figure{margin:24px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.figure-title{margin:0 0 14px;font-weight:900;color:#0f172a}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.card h4{margin:0 0 8px}.metric{font-family:"Cascadia Code",Consolas,monospace;font-weight:900;color:var(--primary)}.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .cell{padding:16px;border-radius:16px;color:#fff;min-height:118px}.matrix .tp{background:linear-gradient(135deg,#059669,#34d399)}.matrix .fp{background:linear-gradient(135deg,#d97706,#f59e0b)}.matrix .fn{background:linear-gradient(135deg,#dc2626,#f87171)}.matrix .tn{background:linear-gradient(135deg,#2563eb,#60a5fa)}.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.flow .node{padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:14px;font-weight:800}.flow .arrow{color:var(--muted);font-weight:900}.mermaid{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:18px 0}.footer{color:var(--muted);font-size:13px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}@media(max-width:980px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto;top:0}.article{padding:28px 22px}.grid-2,.grid-3,.matrix{grid-template-columns:1fr}table{min-width:640px}}@media print{body{background:#fff}.layout{display:block;padding:0}.sidebar{display:none}.article{box-shadow:none;border:0;padding:0}a{color:inherit}}
-</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.1 · 2026年5月 AI基础概念与安全风险执行包<br>保留完整内容 · 增加辅助理解图</div><ul class="toc"><li class="level-1"><a href="#2026年5月ai基础概念与安全风险执行包">2026年5月AI基础概念与安全风险执行包</a></li>
-<li class="level-2"><a href="#1.-本月定位">1. 本月定位</a></li>
-<li class="level-2"><a href="#2.-本月交付物清单">2. 本月交付物清单</a></li>
-<li class="level-2"><a href="#3.-ai模型基础概念与安全风险对照表">3. AI模型基础概念与安全风险对照表</a></li>
-<li class="level-3"><a href="#3.1-数据集相关概念">3.1 数据集相关概念</a></li>
-<li class="level-3"><a href="#3.2-数据质量相关概念">3.2 数据质量相关概念</a></li>
-<li class="level-3"><a href="#3.3-模型泛化相关概念">3.3 模型泛化相关概念</a></li>
-<li class="level-3"><a href="#3.4-指标相关概念">3.4 指标相关概念</a></li>
-<li class="level-3"><a href="#3.5-precision和recall如何计算">3.5 Precision和Recall如何计算</a></li>
-<li class="level-2"><a href="#4.-模型指标到安全证据映射表">4. 模型指标到安全证据映射表</a></li>
-<li class="level-2"><a href="#5.-aeb-fn-fp安全风险说明">5. AEB FN/FP安全风险说明</a></li>
-<li class="level-2"><a href="#5.1-aeb中的fn">5.1 AEB中的FN</a></li>
-<li class="level-2"><a href="#5.2-aeb中的fp">5.2 AEB中的FP</a></li>
-<li class="level-2"><a href="#5.3-aeb-fn-fp风险对比">5.3 AEB FN/FP风险对比</a></li>
-<li class="level-2"><a href="#6.-为什么map提升不等于aeb更安全">6. 为什么mAP提升不等于AEB更安全</a></li>
-<li class="level-3"><a href="#6.1-map是什么">6.1 mAP是什么</a></li>
-<li class="level-3"><a href="#6.2-map的局限">6.2 mAP的局限</a></li>
-<li class="level-3"><a href="#6.3-例子">6.3 例子</a></li>
-<li class="level-3"><a href="#6.4-aeb应补充哪些指标">6.4 AEB应补充哪些指标</a></li>
-<li class="level-3"><a href="#6.5-面试表达">6.5 面试表达</a></li>
-<li class="level-2"><a href="#7.-机器人避障fn-fp安全风险说明">7. 机器人避障FN/FP安全风险说明</a></li>
-<li class="level-2"><a href="#7.1-机器人避障中的fn">7.1 机器人避障中的FN</a></li>
-<li class="level-2"><a href="#7.2-机器人避障中的fp">7.2 机器人避障中的FP</a></li>
-<li class="level-2"><a href="#7.3-机器人避障fn-fp风险对比">7.3 机器人避障FN/FP风险对比</a></li>
-<li class="level-2"><a href="#8.-数据泄漏为什么会导致安全证据失效">8. 数据泄漏为什么会导致安全证据失效</a></li>
-<li class="level-2"><a href="#9.-ood输入为什么需要降级或人工确认">9. OOD输入为什么需要降级或人工确认</a></li>
-<li class="level-2"><a href="#10.-5月验收问答">10. 5月验收问答</a></li>
-<li class="level-3"><a href="#10.1-aeb中fn和fp分别对应什么风险">10.1 AEB中FN和FP分别对应什么风险？</a></li>
-<li class="level-3"><a href="#10.2-为什么map不能替代关键场景recall">10.2 为什么mAP不能替代关键场景Recall？</a></li>
-<li class="level-3"><a href="#10.3-数据泄漏为什么会导致安全证据失效">10.3 数据泄漏为什么会导致安全证据失效？</a></li>
-<li class="level-3"><a href="#10.4-ood输入为什么需要降级或触发人工确认">10.4 OOD输入为什么需要降级或触发人工确认？</a></li>
-<li class="level-3"><a href="#10.5-机器人避障中的fn和fp有什么安全后果">10.5 机器人避障中的FN和FP有什么安全后果？</a></li>
-<li class="level-2"><a href="#11.-本月复盘模板">11. 本月复盘模板</a></li>
-<li class="level-2"><a href="#12.-下月衔接">12. 下月衔接</a></li>
-<li class="level-2"><a href="#13.-这些基础概念对后续有什么作用">13. 这些基础概念对后续有什么作用</a></li>
-<li class="level-3"><a href="#13.1-对aeb-hara的作用">13.1 对AEB HARA的作用</a></li>
-<li class="level-3"><a href="#13.2-对sotif的作用">13.2 对SOTIF的作用</a></li>
-<li class="level-3"><a href="#13.3-对ai-safety和iso-pas-8800的作用">13.3 对AI Safety和ISO/PAS 8800的作用</a></li>
-<li class="level-3"><a href="#13.4-对测试验证的作用">13.4 对测试验证的作用</a></li>
-<li class="level-3"><a href="#13.5-对safety-case的作用">13.5 对Safety Case的作用</a></li>
-<li class="level-3"><a href="#13.6-对机器人-具身智能副线的作用">13.6 对机器人/具身智能副线的作用</a></li>
-<li class="level-2"><a href="#14.-当前12.1的不足">14. 当前12.1的不足</a></li>
-<li class="level-3"><a href="#14.1-偏概念-缺少真实数据练习">14.1 偏概念，缺少真实数据练习</a></li>
-<li class="level-3"><a href="#14.2-缺少公开案例分析">14.2 缺少公开案例分析</a></li>
-<li class="level-3"><a href="#14.3-缺少小型实践任务">14.3 缺少小型实践任务</a></li>
-<li class="level-3"><a href="#14.4-缺少面向认证的证据格式">14.4 缺少面向认证的证据格式</a></li>
-<li class="level-3"><a href="#14.5-缺少与6月hara的直接输入">14.5 缺少与6月HARA的直接输入</a></li>
-<li class="level-2"><a href="#15.-5月应补充的真实实践任务">15. 5月应补充的真实实践任务</a></li>
-<li class="level-3"><a href="#15.1-实践任务1-手工计算aeb检测指标">15.1 实践任务1：手工计算AEB检测指标</a></li>
-<li class="level-3"><a href="#15.2-实践任务2-按场景分层分析">15.2 实践任务2：按场景分层分析</a></li>
-<li class="level-3"><a href="#15.3-实践任务3-模型版本对比">15.3 实践任务3：模型版本对比</a></li>
-<li class="level-3"><a href="#15.4-实践任务4-写一个发布门禁判断">15.4 实践任务4：写一个发布门禁判断</a></li>
-<li class="level-3"><a href="#15.5-实践任务5-用轻量python实现指标计算">15.5 实践任务5：用轻量Python实现指标计算</a></li>
-<li class="level-3"><a href="#15.6-实践任务6-转成6月hara输入">15.6 实践任务6：转成6月HARA输入</a></li>
-<li class="level-2"><a href="#16.-5月补强后的验收标准">16. 5月补强后的验收标准</a></li>
-<li class="level-2"><a href="#17.-对后续的关键提醒">17. 对后续的关键提醒</a></li>
-<li class="level-2"><a href="#18.-端到端模型视角补充">18. 端到端模型视角补充</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.1 · 2026年5月 AI基础概念与安全风险执行包</h1><p>精美HTML阅读版 · 保留完整内容 · 主题化辅助图</p></section><h1 id="2026年5月ai基础概念与安全风险执行包">2026年5月AI基础概念与安全风险执行包</h1>
-<section class="figure"><p class="figure-title">辅助图：混淆矩阵与AEB安全含义</p><div class="matrix"><div class="cell tp"><strong>TP · True Positive</strong><br>真实有危险目标，模型正确检出。<br><span class="badge">正确识别碰撞风险</span></div><div class="cell fn"><strong>FN · False Negative</strong><br>真实有危险目标，模型漏检。<br><span class="badge">AEB漏触发风险</span></div><div class="cell fp"><strong>FP · False Positive</strong><br>真实无危险目标，模型误检。<br><span class="badge">AEB误制动风险</span></div><div class="cell tn"><strong>TN · True Negative</strong><br>真实无危险目标，模型也未检出。<br><span class="badge">正确抑制无风险场景</span></div></div></section><section class="figure"><p class="figure-title">辅助图：Precision 与 Recall</p><div class="grid-2"><div class="card"><h4>Precision</h4><p class="metric">TP / (TP + FP)</p><p>模型报出来的目标里，有多少是真的。</p></div><div class="card"><h4>Recall</h4><p class="metric">TP / (TP + FN)</p><p>所有真实目标里，有多少被模型检出来。</p></div></div></section><section class="figure"><p class="figure-title">辅助图：AI安全证据链</p><div class="flow"><div class="node">模型失败事件</div><div class="arrow">→</div><div class="node">数据gap</div><div class="arrow">→</div><div class="node">增训/补数据</div><div class="arrow">→</div><div class="node">关键场景回归</div><div class="arrow">→</div><div class="node">发布门禁</div><div class="arrow">→</div><div class="node">Safety Case证据</div></div></section><h2 id="1.-本月定位">1. 本月定位</h2>
+</style></head><body><div class="layout"><aside class="sidebar"><h2>目录</h2><div class="meta">12.1 · 2026年5月 AI基础概念与安全风险执行包</div><ul class="toc"><li class="level-2"><a href="#1-本月定位">1. 本月定位</a></li><li class="level-2"><a href="#2-本月交付物清单">2. 本月交付物清单</a></li><li class="level-2"><a href="#3-ai模型基础概念与安全风险对照表">3. AI模型基础概念与安全风险对照表</a></li><li class="level-3"><a href="#31-数据集相关概念">3.1 数据集相关概念</a></li><li class="level-3"><a href="#32-数据质量相关概念">3.2 数据质量相关概念</a></li><li class="level-3"><a href="#33-模型泛化相关概念">3.3 模型泛化相关概念</a></li><li class="level-3"><a href="#34-指标相关概念">3.4 指标相关概念</a></li><li class="level-3"><a href="#35-precision和recall如何计算">3.5 Precision和Recall如何计算</a></li><li class="level-2"><a href="#4-模型指标到安全证据映射表">4. 模型指标到安全证据映射表</a></li><li class="level-2"><a href="#5-aeb-fnfp安全风险说明">5. AEB FN/FP安全风险说明</a></li><li class="level-2"><a href="#51-aeb中的fn">5.1 AEB中的FN</a></li><li class="level-2"><a href="#52-aeb中的fp">5.2 AEB中的FP</a></li><li class="level-2"><a href="#53-aeb-fnfp风险对比">5.3 AEB FN/FP风险对比</a></li><li class="level-2"><a href="#6-为什么map提升不等于aeb更安全">6. 为什么mAP提升不等于AEB更安全</a></li><li class="level-3"><a href="#61-map是什么">6.1 mAP是什么</a></li><li class="level-3"><a href="#62-map的局限">6.2 mAP的局限</a></li><li class="level-3"><a href="#63-例子">6.3 例子</a></li><li class="level-3"><a href="#64-aeb应补充哪些指标">6.4 AEB应补充哪些指标</a></li><li class="level-3"><a href="#65-面试表达">6.5 面试表达</a></li><li class="level-2"><a href="#7-机器人避障fnfp安全风险说明">7. 机器人避障FN/FP安全风险说明</a></li><li class="level-2"><a href="#71-机器人避障中的fn">7.1 机器人避障中的FN</a></li><li class="level-2"><a href="#72-机器人避障中的fp">7.2 机器人避障中的FP</a></li><li class="level-2"><a href="#73-机器人避障fnfp风险对比">7.3 机器人避障FN/FP风险对比</a></li><li class="level-2"><a href="#8-数据泄漏为什么会导致安全证据失效">8. 数据泄漏为什么会导致安全证据失效</a></li><li class="level-2"><a href="#9-ood输入为什么需要降级或人工确认">9. OOD输入为什么需要降级或人工确认</a></li><li class="level-2"><a href="#10-5月验收问答">10. 5月验收问答</a></li><li class="level-3"><a href="#101-aeb中fn和fp分别对应什么风险">10.1 AEB中FN和FP分别对应什么风险？</a></li><li class="level-3"><a href="#102-为什么map不能替代关键场景recall">10.2 为什么mAP不能替代关键场景Recall？</a></li><li class="level-3"><a href="#103-数据泄漏为什么会导致安全证据失效">10.3 数据泄漏为什么会导致安全证据失效？</a></li><li class="level-3"><a href="#104-ood输入为什么需要降级或触发人工确认">10.4 OOD输入为什么需要降级或触发人工确认？</a></li><li class="level-3"><a href="#105-机器人避障中的fn和fp有什么安全后果">10.5 机器人避障中的FN和FP有什么安全后果？</a></li><li class="level-2"><a href="#11-本月复盘模板">11. 本月复盘模板</a></li><li class="level-2"><a href="#12-下月衔接">12. 下月衔接</a></li><li class="level-2"><a href="#13-这些基础概念对后续有什么作用">13. 这些基础概念对后续有什么作用</a></li><li class="level-3"><a href="#131-对aeb-hara的作用">13.1 对AEB HARA的作用</a></li><li class="level-3"><a href="#132-对sotif的作用">13.2 对SOTIF的作用</a></li><li class="level-3"><a href="#133-对ai-safety和isopas-8800的作用">13.3 对AI Safety和ISO/PAS 8800的作用</a></li><li class="level-3"><a href="#134-对测试验证的作用">13.4 对测试验证的作用</a></li><li class="level-3"><a href="#135-对safety-case的作用">13.5 对Safety Case的作用</a></li><li class="level-3"><a href="#136-对机器人具身智能副线的作用">13.6 对机器人/具身智能副线的作用</a></li><li class="level-3"><a href="#137-按场景分层解释模型风险能力说明">13.7 按场景分层解释模型风险（能力说明）</a></li><li class="level-2"><a href="#14-当前121的不足">14. 当前12.1的不足</a></li><li class="level-3"><a href="#141-偏概念缺少真实数据练习">14.1 偏概念，缺少真实数据练习</a></li><li class="level-3"><a href="#142-缺少公开案例分析">14.2 缺少公开案例分析</a></li><li class="level-3"><a href="#143-缺少小型实践任务">14.3 缺少小型实践任务</a></li><li class="level-3"><a href="#144-缺少面向认证的证据格式">14.4 缺少面向认证的证据格式</a></li><li class="level-3"><a href="#145-缺少与6月hara的直接输入">14.5 缺少与6月HARA的直接输入</a></li><li class="level-2"><a href="#15-5月应补充的真实实践任务">15. 5月应补充的真实实践任务</a></li><li class="level-3"><a href="#151-实践任务1手工计算aeb检测指标">15.1 实践任务1：手工计算AEB检测指标</a></li><li class="level-3"><a href="#152-实践任务2按场景分层分析">15.2 实践任务2：按场景分层分析</a></li><li class="level-3"><a href="#153-实践任务3模型版本对比">15.3 实践任务3：模型版本对比</a></li><li class="level-3"><a href="#154-实践任务4写一个发布门禁判断">15.4 实践任务4：写一个发布门禁判断</a></li><li class="level-3"><a href="#155-实践任务5用轻量python实现指标计算">15.5 实践任务5：用轻量Python实现指标计算</a></li><li class="level-3"><a href="#156-实践任务6转成6月hara输入">15.6 实践任务6：转成6月HARA输入</a></li><li class="level-2"><a href="#16-5月补强后的验收标准">16. 5月补强后的验收标准</a></li><li class="level-2"><a href="#17-对后续的关键提醒">17. 对后续的关键提醒</a></li><li class="level-2"><a href="#18-端到端模型视角补充">18. 端到端模型视角补充</a></li></ul></aside><main><article class="article"><section class="hero"><h1>12.1 · 2026年5月 AI基础概念与安全风险执行包</h1></section><section class="figure"><p class="figure-title">辅助图：混淆矩阵与AEB安全含义</p><div class="matrix"><div class="cell tp"><strong>TP · True Positive</strong><br>真实有危险目标，模型正确检出。<br><span class="badge">正确识别碰撞风险</span></div><div class="cell fn"><strong>FN · False Negative</strong><br>真实有危险目标，模型漏检。<br><span class="badge">AEB漏触发风险</span></div><div class="cell fp"><strong>FP · False Positive</strong><br>真实无危险目标，模型误检。<br><span class="badge">AEB误制动风险</span></div><div class="cell tn"><strong>TN · True Negative</strong><br>真实无危险目标，模型也未检出。<br><span class="badge">正确抑制无风险场景</span></div></div></section><section class="figure"><p class="figure-title">辅助图：Precision 与 Recall</p><div class="grid-2"><div class="card"><h4>Precision</h4><p class="metric">TP / (TP + FP)</p><p>模型报出来的目标里，有多少是真的。</p></div><div class="card"><h4>Recall</h4><p class="metric">TP / (TP + FN)</p><p>所有真实目标里，有多少被模型检出来。</p></div></div></section><section class="figure"><p class="figure-title">辅助图：AI安全证据链</p><div class="flow"><div class="node">模型失败事件</div><div class="arrow">→</div><div class="node">数据gap</div><div class="arrow">→</div><div class="node">增训/补数据</div><div class="arrow">→</div><div class="node">关键场景回归</div><div class="arrow">→</div><div class="node">发布门禁</div><div class="arrow">→</div><div class="node">Safety Case证据</div></div></section><h1 id="2026年5月ai基础概念与安全风险执行包">2026年5月AI基础概念与安全风险执行包</h1>
+<h2 id="1-本月定位">1. 本月定位</h2>
 <p>本文件是 <code>12-2026年度双轨学习与能力建设计划书.md</code> 中“2026年5月计划”的具体实现。</p>
 <p>5月主题：</p>
 <p><strong>双轨路线校准 + AI基础概念补齐。</strong></p>
@@ -70,13 +14,18 @@
 <li>能把AEB漏触发/误触发映射到 <code>FN/FP</code>，并理解 <code>TP/FP/FN/TN</code> 的完整含义。</li>
 <li>能把机器人避障失败映射到 <code>FN/FP</code>，同时知道 <code>TN</code> 在安全分析中的作用。</li>
 <li>能初步判断数据泄漏、OOD、分布偏移为什么会破坏安全证据。</li>
+<li>能按场景分层解释模型风险（不只报总体 mAP/Recall，能指出关键场景的 FN/FP 与发布结论，见 <strong>§13.7</strong>）。</li>
 </ul>
-<h2 id="2.-本月交付物清单">2. 本月交付物清单</h2>
-<div class="table-wrap"><table><thead><tr>
+<h2 id="2-本月交付物清单">2. 本月交付物清单</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>编号</th>
 <th>交付物</th>
 <th>状态</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>M05-01</td>
 <td>AI模型基础概念与安全风险对照表</td>
@@ -107,15 +56,20 @@
 <td>5月验收问答</td>
 <td>已在本文建立</td>
 </tr>
-</tbody></table></div>
-<h2 id="3.-ai模型基础概念与安全风险对照表">3. AI模型基础概念与安全风险对照表</h2>
-<h3 id="3.1-数据集相关概念">3.1 数据集相关概念</h3>
-<div class="table-wrap"><table><thead><tr>
+</tbody>
+</table></div>
+<h2 id="3-ai模型基础概念与安全风险对照表">3. AI模型基础概念与安全风险对照表</h2>
+<h3 id="31-数据集相关概念">3.1 数据集相关概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>概念</th>
 <th>含义</th>
 <th>安全风险</th>
 <th>需要追问的问题</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>训练集</td>
 <td>用于训练模型参数的数据</td>
@@ -152,14 +106,19 @@
 <td>模型在少见场景下失效</td>
 <td>长尾目标、异形目标、特殊交通参与者是否覆盖？</td>
 </tr>
-</tbody></table></div>
-<h3 id="3.2-数据质量相关概念">3.2 数据质量相关概念</h3>
-<div class="table-wrap"><table><thead><tr>
+</tbody>
+</table></div>
+<h3 id="32-数据质量相关概念">3.2 数据质量相关概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>概念</th>
 <th>含义</th>
 <th>安全风险</th>
 <th>需要追问的问题</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>数据准确性</td>
 <td>数据内容和标注是否正确</td>
@@ -190,14 +149,19 @@
 <td>出现事故后无法证明模型依据和验证过程</td>
 <td>数据是否能追溯到采集来源和模型版本？</td>
 </tr>
-</tbody></table></div>
-<h3 id="3.3-模型泛化相关概念">3.3 模型泛化相关概念</h3>
-<div class="table-wrap"><table><thead><tr>
+</tbody>
+</table></div>
+<h3 id="33-模型泛化相关概念">3.3 模型泛化相关概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>概念</th>
 <th>含义</th>
 <th>安全风险</th>
 <th>需要追问的问题</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>过拟合</td>
 <td>模型在训练集表现好，在新数据上表现差</td>
@@ -228,14 +192,19 @@
 <td>模型自信输出错误结果</td>
 <td>OOD是否能识别？识别后是否降级或请求确认？</td>
 </tr>
-</tbody></table></div>
-<h3 id="3.4-指标相关概念">3.4 指标相关概念</h3>
-<div class="table-wrap"><table><thead><tr>
+</tbody>
+</table></div>
+<h3 id="34-指标相关概念">3.4 指标相关概念</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>概念</th>
 <th>含义</th>
 <th>安全风险</th>
 <th>安全关注点</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>TP，True Positive</td>
 <td>真实目标存在，模型正确检出</td>
@@ -296,15 +265,20 @@
 <td>置信度不可靠导致错误决策</td>
 <td>是否分析过高置信度错误样本？</td>
 </tr>
-</tbody></table></div>
-<h3 id="3.5-precision和recall如何计算">3.5 Precision和Recall如何计算</h3>
+</tbody>
+</table></div>
+<h3 id="35-precision和recall如何计算">3.5 Precision和Recall如何计算</h3>
 <p>Precision和Recall都基于 <code>TP/FP/FN/TN</code>，但关注的问题不同。</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>指标</th>
 <th>公式</th>
 <th>它回答的问题</th>
 <th>AEB安全含义</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>Precision</td>
 <td><code>TP / (TP + FP)</code></td>
@@ -317,7 +291,8 @@
 <td>所有真实目标里，有多少被模型检出来？</td>
 <td>Recall低，说明漏检多，可能导致AEB漏触发</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>直观理解：</p>
 <ul>
 <li><code>Precision</code> 关注“报出来的结果准不准”。</li>
@@ -330,14 +305,18 @@
 </ul>
 <p>注意：</p>
 <p><code>TN</code> 不直接进入Precision和Recall公式，但它仍然有意义。<code>TN</code> 说明真实无危险时模型也没有误报，可用于理解系统对无风险场景的抑制能力。但在AEB安全分析中，不能用大量 <code>TN</code> 掩盖少量高风险 <code>FN</code> 或 <code>FP</code>。</p>
-<h2 id="4.-模型指标到安全证据映射表">4. 模型指标到安全证据映射表</h2>
-<div class="table-wrap"><table><thead><tr>
+<h2 id="4-模型指标到安全证据映射表">4. 模型指标到安全证据映射表</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>模型指标/现象</th>
 <th>对应安全含义</th>
 <th>智驾AEB风险</th>
 <th>机器人避障风险</th>
 <th>应形成的证据</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>行人Recall下降</td>
 <td>真实行人漏检概率上升</td>
@@ -408,9 +387,10 @@
 <td>儿童、宠物、透明物体识别失败</td>
 <td>长尾场景覆盖矩阵</td>
 </tr>
-</tbody></table></div>
-<h2 id="5.-aeb-fn-fp安全风险说明">5. AEB FN/FP安全风险说明</h2>
-<h2 id="5.1-aeb中的fn">5.1 AEB中的FN</h2>
+</tbody>
+</table></div>
+<h2 id="5-aeb-fnfp安全风险说明">5. AEB FN/FP安全风险说明</h2>
+<h2 id="51-aeb中的fn">5.1 AEB中的FN</h2>
 <p>FN定义：</p>
 <p><strong>真实危险目标存在，但模型没有识别出来。</strong></p>
 <p>AEB场景示例：</p>
@@ -444,7 +424,7 @@
 <li>增训后是否证明FN下降？</li>
 <li>是否做关键场景回归测试？</li>
 </ul>
-<h2 id="5.2-aeb中的fp">5.2 AEB中的FP</h2>
+<h2 id="52-aeb中的fp">5.2 AEB中的FP</h2>
 <p>FP定义：</p>
 <p><strong>真实危险目标不存在，但模型错误识别出危险目标。</strong></p>
 <p>AEB场景示例：</p>
@@ -478,13 +458,17 @@
 <li>FP场景是否进入误触发测试集？</li>
 <li>是否有False Brake Rate指标？</li>
 </ul>
-<h2 id="5.3-aeb-fn-fp风险对比">5.3 AEB FN/FP风险对比</h2>
-<div class="table-wrap"><table><thead><tr>
+<h2 id="53-aeb-fnfp风险对比">5.3 AEB FN/FP风险对比</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>类型</th>
 <th>风险方向</th>
 <th>典型后果</th>
 <th>关键安全目标</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FN</td>
 <td>漏检真实危险</td>
@@ -497,15 +481,16 @@
 <td>误制动，导致后车追尾或乘员伤害</td>
 <td>不应在无合理碰撞风险时发出强制动请求</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>结论：</p>
 <p><strong>AEB既怕漏触发，也怕误触发。</strong></p>
 <p>所以AEB不能只追求Recall，也不能只追求Precision，而要在安全目标、ODD、速度、目标类型、交通场景和残余风险接受准则下平衡。</p>
-<h2 id="6.-为什么map提升不等于aeb更安全">6. 为什么mAP提升不等于AEB更安全</h2>
-<h3 id="6.1-map是什么">6.1 mAP是什么</h3>
+<h2 id="6-为什么map提升不等于aeb更安全">6. 为什么mAP提升不等于AEB更安全</h2>
+<h3 id="61-map是什么">6.1 mAP是什么</h3>
 <p><code>mAP</code> 是目标检测中常用的总体性能指标，用于衡量模型在不同类别和阈值下的平均检测能力。</p>
 <p>它适合反映模型总体表现，但不等于安全充分性。</p>
-<h3 id="6.2-map的局限">6.2 mAP的局限</h3>
+<h3 id="62-map的局限">6.2 mAP的局限</h3>
 <p>mAP存在以下局限：</p>
 <ul>
 <li>是平均指标，可能掩盖关键场景失败。</li>
@@ -517,7 +502,7 @@
 <li>不直接反映制动请求是否安全。</li>
 <li>不直接证明增训后没有回归。</li>
 </ul>
-<h3 id="6.3-例子">6.3 例子</h3>
+<h3 id="63-例子">6.3 例子</h3>
 <p>假设模型更新后：</p>
 <ul>
 <li>总体mAP从 <code>0.72</code> 提升到 <code>0.78</code>。</li>
@@ -533,7 +518,7 @@
 <li>夜间行人和低矮障碍物虽然样本少，但安全后果严重。</li>
 <li>反光FP可能导致误制动。</li>
 </ul>
-<h3 id="6.4-aeb应补充哪些指标">6.4 AEB应补充哪些指标</h3>
+<h3 id="64-aeb应补充哪些指标">6.4 AEB应补充哪些指标</h3>
 <p>除了mAP，还应关注：</p>
 <ul>
 <li>按目标类型分层的Recall。</li>
@@ -546,11 +531,13 @@
 <li>增训前后Regression Delta。</li>
 <li>安全关键回归集表现。</li>
 </ul>
-<h3 id="6.5-面试表达">6.5 面试表达</h3>
+<h3 id="65-面试表达">6.5 面试表达</h3>
 <p>可以这样表达：</p>
-<blockquote>mAP是目标检测总体性能指标，但不能直接证明AEB更安全。AEB安全关注的是特定ODD和高风险场景下的漏检、误检、触发时机、TTC估计和制动请求合理性。一个模型即使mAP提升，也可能在夜间行人、遮挡两轮车、低矮障碍物或反光误检场景退化。因此需要按目标类型、环境条件和触发条件分层评估，并通过关键场景回归测试和Safety Case证据链证明风险确实降低。</blockquote>
-<h2 id="7.-机器人避障fn-fp安全风险说明">7. 机器人避障FN/FP安全风险说明</h2>
-<h2 id="7.1-机器人避障中的fn">7.1 机器人避障中的FN</h2>
+<blockquote>
+<p>mAP是目标检测总体性能指标，但不能直接证明AEB更安全。AEB安全关注的是特定ODD和高风险场景下的漏检、误检、触发时机、TTC估计和制动请求合理性。一个模型即使mAP提升，也可能在夜间行人、遮挡两轮车、低矮障碍物或反光误检场景退化。因此需要按目标类型、环境条件和触发条件分层评估，并通过关键场景回归测试和Safety Case证据链证明风险确实降低。</p>
+</blockquote>
+<h2 id="7-机器人避障fnfp安全风险说明">7. 机器人避障FN/FP安全风险说明</h2>
+<h2 id="71-机器人避障中的fn">7.1 机器人避障中的FN</h2>
 <p>FN定义：</p>
 <p><strong>真实障碍物或人存在，但机器人没有识别出来。</strong></p>
 <p>服务机器人商场场景示例：</p>
@@ -588,7 +575,7 @@
 <li>是否有最小安全距离？</li>
 <li>是否有速度和动能限制？</li>
 </ul>
-<h2 id="7.2-机器人避障中的fp">7.2 机器人避障中的FP</h2>
+<h2 id="72-机器人避障中的fp">7.2 机器人避障中的FP</h2>
 <p>FP定义：</p>
 <p><strong>真实障碍物不存在，但机器人错误识别出障碍物。</strong></p>
 <p>服务机器人商场场景示例：</p>
@@ -624,13 +611,17 @@
 <li>是否按环境类型统计误停率？</li>
 <li>是否有用户体验和安全风险平衡策略？</li>
 </ul>
-<h2 id="7.3-机器人避障fn-fp风险对比">7.3 机器人避障FN/FP风险对比</h2>
-<div class="table-wrap"><table><thead><tr>
+<h2 id="73-机器人避障fnfp风险对比">7.3 机器人避障FN/FP风险对比</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>类型</th>
 <th>风险方向</th>
 <th>典型后果</th>
 <th>关键安全目标</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FN</td>
 <td>漏检真实障碍物或人</td>
@@ -643,7 +634,8 @@
 <td>频繁急停、异常绕行、堵塞通道</td>
 <td>不应因虚假障碍物产生不合理运动风险或任务中断</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>结论：</p>
 <p>机器人避障和AEB类似，都要同时控制FN和FP。</p>
 <p>但机器人还有额外风险：</p>
@@ -653,7 +645,7 @@
 <li>儿童、老人、宠物等对象行为更不可预测。</li>
 <li>低速不代表无风险，夹伤、绊倒、惊吓也可能构成安全问题。</li>
 </ul>
-<h2 id="8.-数据泄漏为什么会导致安全证据失效">8. 数据泄漏为什么会导致安全证据失效</h2>
+<h2 id="8-数据泄漏为什么会导致安全证据失效">8. 数据泄漏为什么会导致安全证据失效</h2>
 <p>数据泄漏是指测试数据、验证数据或其高度相似样本进入训练过程，导致模型评估结果虚高。</p>
 <p>安全影响：</p>
 <ul>
@@ -672,7 +664,7 @@
 <li>增训数据是否污染回归测试集？</li>
 <li>是否有数据集独立性检查记录？</li>
 </ul>
-<h2 id="9.-ood输入为什么需要降级或人工确认">9. OOD输入为什么需要降级或人工确认</h2>
+<h2 id="9-ood输入为什么需要降级或人工确认">9. OOD输入为什么需要降级或人工确认</h2>
 <p>OOD输入是指系统遇到超出训练分布或目标操作域的数据。</p>
 <p>智驾例子：</p>
 <ul>
@@ -706,28 +698,32 @@
 <li>退出操作域。</li>
 <li>记录事件并回灌数据闭环。</li>
 </ul>
-<h2 id="10.-5月验收问答">10. 5月验收问答</h2>
-<h3 id="10.1-aeb中fn和fp分别对应什么风险">10.1 AEB中FN和FP分别对应什么风险？</h3>
+<h2 id="10-5月验收问答">10. 5月验收问答</h2>
+<h3 id="101-aeb中fn和fp分别对应什么风险">10.1 AEB中FN和FP分别对应什么风险？</h3>
 <p>回答：</p>
 <p>FN表示真实危险目标存在但模型漏检，可能导致AEB不触发或触发过晚，引发追尾、撞行人、撞两轮车等风险。FP表示真实危险目标不存在但模型误检，可能导致AEB误制动，引发后车追尾、乘员不适、驾驶员不信任等风险。</p>
-<h3 id="10.2-为什么map不能替代关键场景recall">10.2 为什么mAP不能替代关键场景Recall？</h3>
+<h3 id="102-为什么map不能替代关键场景recall">10.2 为什么mAP不能替代关键场景Recall？</h3>
 <p>回答：</p>
 <p>mAP是总体平均指标，可能掩盖高风险场景退化。AEB安全更关注特定ODD和触发条件下的漏检与误检，例如夜间行人、遮挡两轮车、低矮障碍物、逆光静止车辆。即使总体mAP提升，如果这些关键场景Recall下降，AEB安全风险仍可能升高。</p>
-<h3 id="10.3-数据泄漏为什么会导致安全证据失效">10.3 数据泄漏为什么会导致安全证据失效？</h3>
+<h3 id="103-数据泄漏为什么会导致安全证据失效">10.3 数据泄漏为什么会导致安全证据失效？</h3>
 <p>回答：</p>
 <p>数据泄漏会让测试结果虚高，因为模型可能已经在训练过程中见过测试样本或高度相似样本。这样测试报告不能证明模型具备真实泛化能力，也不能作为可靠认证证据。对于安全相关模型，必须保证训练、验证、测试和回归测试集独立，并保留数据版本和划分记录。</p>
-<h3 id="10.4-ood输入为什么需要降级或触发人工确认">10.4 OOD输入为什么需要降级或触发人工确认？</h3>
+<h3 id="104-ood输入为什么需要降级或触发人工确认">10.4 OOD输入为什么需要降级或触发人工确认？</h3>
 <p>回答：</p>
 <p>OOD输入超出了模型训练分布或目标操作域，模型输出可能不可靠，甚至可能高置信度错误。对于智驾和机器人系统，继续正常执行可能导致碰撞、误操作或人身伤害。因此系统应识别OOD或高不确定性输入，并进入降速、降级、停止、请求人工确认或退出操作域等安全策略。</p>
-<h3 id="10.5-机器人避障中的fn和fp有什么安全后果">10.5 机器人避障中的FN和FP有什么安全后果？</h3>
+<h3 id="105-机器人避障中的fn和fp有什么安全后果">10.5 机器人避障中的FN和FP有什么安全后果？</h3>
 <p>回答：</p>
 <p>机器人避障中的FN表示真实人或障碍物存在但未识别，可能导致机器人不减速、不绕行、不停止，进而撞人或撞物。FP表示不存在障碍物但错误识别，可能导致机器人频繁急停、异常绕行、堵塞通道或任务失败。两者都需要控制，但FN通常直接关联物理伤害风险，FP则可能引入新的运行安全和用户体验风险。</p>
-<h2 id="11.-本月复盘模板">11. 本月复盘模板</h2>
+<h2 id="11-本月复盘模板">11. 本月复盘模板</h2>
 <p>月底复盘时填写：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>问题</th>
 <th>复盘内容</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>本月是否理解AI基础指标？</td>
 <td></td>
@@ -756,8 +752,9 @@
 <td>6月学习AEB HARA前还需要补什么？</td>
 <td></td>
 </tr>
-</tbody></table></div>
-<h2 id="12.-下月衔接">12. 下月衔接</h2>
+</tbody>
+</table></div>
+<h2 id="12-下月衔接">12. 下月衔接</h2>
 <p>6月进入：</p>
 <p><strong>AEB功能安全基础：HARA、Safety Goal、FSC/TSC。</strong></p>
 <p>5月成果将用于6月：</p>
@@ -769,16 +766,20 @@
 </ul>
 <p>注意：</p>
 <p>6月不需要继续扩散AI模型知识，重点应转向AEB危险事件、安全目标和需求分解。</p>
-<h2 id="13.-这些基础概念对后续有什么作用">13. 这些基础概念对后续有什么作用</h2>
+<h2 id="13-这些基础概念对后续有什么作用">13. 这些基础概念对后续有什么作用</h2>
 <p>本文件目前确实以基础概念为主，但这些概念不是为了“懂名词”，而是为了支撑后续安全分析、标准转化、数据闭环和认证证据链。</p>
-<h3 id="13.1-对aeb-hara的作用">13.1 对AEB HARA的作用</h3>
+<h3 id="131-对aeb-hara的作用">13.1 对AEB HARA的作用</h3>
 <p>5月学到的 <code>FN/FP</code>、<code>OOD</code>、<code>分布偏移</code> 会帮助6月做危险事件识别。</p>
 <p>例如：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>5月概念</th>
 <th>英文全称</th>
 <th>6月HARA中的作用</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FN</td>
 <td>False Negative</td>
@@ -809,9 +810,10 @@
 <td>Overconfident Error</td>
 <td>转化为“系统未识别自身判断不可靠，未降级或提示”</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>如果没有这些概念，HARA容易只写“功能失效”，而无法解释AI模型为什么会导致危险事件。</p>
-<h3 id="13.2-对sotif的作用">13.2 对SOTIF的作用</h3>
+<h3 id="132-对sotif的作用">13.2 对SOTIF的作用</h3>
 <p>SOTIF关注的是系统没有随机故障，但由于预期功能不足而产生风险。</p>
 <p>5月概念会用于后续识别：</p>
 <ul>
@@ -821,10 +823,14 @@
 <li>哪些场景是未知不安全风险。</li>
 </ul>
 <p>示例：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>5月概念</th>
 <th>SOTIF中的作用</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>OOD</td>
 <td>判断是否超出ODD或接近ODD边界</td>
@@ -845,8 +851,9 @@
 <td>置信度不可靠</td>
 <td>解释为什么系统未能识别功能不足</td>
 </tr>
-</tbody></table></div>
-<h3 id="13.3-对ai-safety和iso-pas-8800的作用">13.3 对AI Safety和ISO/PAS 8800的作用</h3>
+</tbody>
+</table></div>
+<h3 id="133-对ai-safety和isopas-8800的作用">13.3 对AI Safety和ISO/PAS 8800的作用</h3>
 <p>AI Safety需要把模型风险转成数据、模型、验证和运行监控要求。</p>
 <p>5月概念会直接支撑：</p>
 <ul>
@@ -859,10 +866,14 @@
 <li>发布门禁。</li>
 </ul>
 <p>示例：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>5月概念</th>
 <th>AI Safety中的作用</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>数据泄漏</td>
 <td>判断模型验证报告是否可信</td>
@@ -887,8 +898,9 @@
 <td>数据版本</td>
 <td>支撑认证证据可追溯</td>
 </tr>
-</tbody></table></div>
-<h3 id="13.4-对测试验证的作用">13.4 对测试验证的作用</h3>
+</tbody>
+</table></div>
+<h3 id="134-对测试验证的作用">13.4 对测试验证的作用</h3>
 <p>测试不是随便跑场景，而是要根据风险和指标设计。</p>
 <p>5月概念会帮助后续设计：</p>
 <ul>
@@ -900,14 +912,20 @@
 <li>模型更新后回归测试。</li>
 </ul>
 <p>如果没有5月的指标语言，测试计划容易变成“场景列表”，而不是“风险驱动的验证方案”。</p>
-<h3 id="13.5-对safety-case的作用">13.5 对Safety Case的作用</h3>
+<h3 id="135-对safety-case的作用">13.5 对Safety Case的作用</h3>
 <p>Safety Case需要回答：</p>
-<blockquote>为什么可以相信这个AI模型在目标ODD内足够安全？</blockquote>
+<blockquote>
+<p>为什么可以相信这个AI模型在目标ODD内足够安全？</p>
+</blockquote>
 <p>5月概念对应Safety Case中的证据：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>Safety Case问题</th>
 <th>需要的5月基础</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>数据是否充分？</td>
 <td>数据代表性、完整性、可追溯性</td>
@@ -928,14 +946,19 @@
 <td>是否能处理不确定输入？</td>
 <td>置信度、Calibration、降级策略</td>
 </tr>
-</tbody></table></div>
-<h3 id="13.6-对机器人-具身智能副线的作用">13.6 对机器人/具身智能副线的作用</h3>
+</tbody>
+</table></div>
+<h3 id="136-对机器人具身智能副线的作用">13.6 对机器人/具身智能副线的作用</h3>
 <p>机器人安全同样需要这些概念。</p>
 <p>对应关系：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>智驾AI概念</th>
 <th>机器人安全迁移</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>ODD</td>
 <td>机器人操作域</td>
@@ -960,11 +983,187 @@
 <td>回归验证</td>
 <td>机器人模型更新后已验证避障能力不能退化</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>所以5月虽然基础，但它是后续从智驾迁移到机器人安全的共同语言。</p>
-<h2 id="14.-当前12.1的不足">14. 当前12.1的不足</h2>
+<h3 id="137-按场景分层解释模型风险能力说明">13.7 按场景分层解释模型风险（能力说明）</h3>
+<p>验收标准里的 <strong>「能按场景分层解释模型风险」</strong>，不是再背一遍 Precision/Recall 公式，而是要求你能用<strong>安全评审语言</strong>回答下面这件事：</p>
+<blockquote>
+<p>这个模型在<strong>哪些具体运行场景</strong>里会漏检（FN）、误检（FP）或给出不可信的高置信度输出？这些场景的严重程度如何？是否允许发布或必须补数据/补测？</p>
+</blockquote>
+<h4 id="1371-什么叫场景分层">13.7.1 什么叫「场景分层」</h4>
+<p><strong>场景分层</strong>，是把检测/预测结果按<strong>可识别的运行条件</strong>拆开统计和解释，而不是只报一个「总体 mAP / 总体 Recall」。</p>
+<p>常见分层维度（可按项目裁剪，不必一次全用）：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>分层维度</th>
+<th>示例标签</th>
+<th>安全上常关心什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>道路/环境</td>
+<td>高速、城市、地库、施工区</td>
+<td>不同 ODD 下 FN/FP 是否差异大</td>
+</tr>
+<tr>
+<td>光照/天气</td>
+<td>白天、夜间、雨雾、逆光</td>
+<td>夜间行人 FN 往往是 AEB 高风险</td>
+</tr>
+<tr>
+<td>目标类型</td>
+<td>车辆、行人、两轮车、静态障碍物</td>
+<td>弱势交通参与者 Recall 是否单独达标</td>
+</tr>
+<tr>
+<td>干扰形态</td>
+<td>反光、阴影、遮挡、cut-in</td>
+<td>FP 是否集中在「假目标」类场景</td>
+</tr>
+<tr>
+<td>速度/距离</td>
+<td>近距、远距、相对速度高</td>
+<td>TTC 紧张时 FN 后果更严重</td>
+</tr>
+<tr>
+<td>功能状态</td>
+<td>正常、降级、OOD、传感器退化</td>
+<td>超 ODD 仍输出高置信度是否被识别</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>分层</strong>的关键是：每一层都要能对应到 <strong>TP/FP/FN/TN 或 Recall/Precision</strong>，并写出<strong>安全结论</strong>，而不是只写「夜间稍差」这种模糊话。</p>
+<h4 id="1372-和总体指标差在哪里">13.7.2 和「总体指标」差在哪里</h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>只看总体指标</th>
+<th>按场景分层解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「V2 mAP 从 0.72 提到 0.78」</td>
+<td>「V2 在<strong>白天车辆</strong> Recall 提升，但<strong>夜间行人</strong> Recall 从 0.82 降到 0.68」</td>
+</tr>
+<tr>
+<td>「平均表现不错，可以发布」</td>
+<td>「平均不错，但<strong>安全关键场景</strong>退化，<strong>不能发布</strong>」</td>
+</tr>
+<tr>
+<td>说不清风险在哪</td>
+<td>能指出风险集中在 <strong>FN 方向（漏触发）</strong> 还是 <strong>FP 方向（误触发）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>一句话：</p>
+<blockquote>
+<p><strong>总体指标回答「平均好不好」；场景分层回答「在谁身上不好、不好到什么程度、该不该拦发布」。</strong></p>
+</blockquote>
+<h4 id="1373-怎么分层推荐四步">13.7.3 怎么分层（推荐四步）</h4>
+<p><strong>第 1 步：定分层表（Scenario taxonomy）</strong></p>
+<p>与感知/数据团队对齐一组<strong>互斥、可标注</strong>的场景标签，例如：</p>
+<ul>
+<li><code>day_vehicle</code>、<code>night_pedestrian</code>、<code>reflection_fp</code>、<code>normal_empty</code> …</li>
+</ul>
+<p>要求：每个测试样本有 <code>scenario_id</code> / <code>scenario_type</code>，且规则稳定（见 §15.5 CSV 示例）。</p>
+<p><strong>第 2 步：按层算指标</strong></p>
+<p>在每个 <code>scenario_type</code> 内分别统计：</p>
+<ul>
+<li>TP、FP、FN、TN（或至少 FN、FP 数量）</li>
+<li>Precision、Recall（样本足够时）</li>
+<li>可选：FP 率、关键目标 Recall</li>
+</ul>
+<p><strong>第 3 步：写「安全解释」而非只写数字</strong></p>
+<p>每个场景层用固定句式，例如：</p>
+<ul>
+<li><strong>夜间行人</strong>：FN=2，Recall 明显低于白天 → <strong>漏触发风险高</strong> → 对应 AEB 在行人夜间场景不可放行。</li>
+<li><strong>反光/阴影</strong>：FP=2，Precision 低 → <strong>误触发风险高</strong> → 需误触发回归集与负样本增训。</li>
+</ul>
+<p><strong>第 4 步：连到发布门禁与 6 月 HARA</strong></p>
+<ul>
+<li>发布：任一<strong>安全关键场景</strong> FN/FP 退化且未闭环 → <strong>不放行</strong>（见 §15.4）。</li>
+<li>HARA：把「某场景 + FN/FP」写成危险事件草案（见 §15.6），例如「夜间行人横穿 + AEB 未触发」。</li>
+</ul>
+<h4 id="1374-完整小例子与-152-同一组数据">13.7.4 完整小例子（与 §15.2 同一组数据）</h4>
+<p>10 个样本总体：TP=4，FN=2，FP=2，TN=2 → Precision=Recall=0.667。</p>
+<p>若只报总体，容易得出「还行」；分层后：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>场景类型</th>
+<th>TP</th>
+<th>FN</th>
+<th>FP</th>
+<th>安全结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>白天车辆</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>表现可接受</td>
+</tr>
+<tr>
+<td>夜间行人</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td><strong>漏检严重，AEB 漏触发风险，不能放行</strong></td>
+</tr>
+<tr>
+<td>反光/阴影</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td><strong>误检严重，AEB 误触发风险，需专项回归</strong></td>
+</tr>
+<tr>
+<td>普通空场景</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>正常抑制</td>
+</tr>
+</tbody>
+</table></div>
+<p>分层结论（评审口吻）：</p>
+<blockquote>
+<p>模型总体 Precision/Recall 均为 0.667，但风险<strong>集中在夜间行人 FN 与反光场景 FP</strong>。建议针对夜间行人补充数据与关键场景 Recall 门禁，针对反光/阴影建立误触发回归集；在完成闭环前不建议发布。</p>
+</blockquote>
+<p>这就是「按场景分层解释模型风险」的完整输出形态。</p>
+<h4 id="1375-和-fnfpoodhara-的关系">13.7.5 和 FN/FP、OOD、HARA 的关系</h4>
+<div class="mermaid">
+flowchart LR
+  data[测试样本带 scenario 标签] --&gt; split[按场景分层统计 TP/FP/FN]
+  split --&gt; fn[FN 多的场景 → 漏触发风险]
+  split --&gt; fp[FP 多的场景 → 误触发风险]
+  fn --&gt; gate[发布门禁 / 数据 gap]
+  fp --&gt; gate
+  gate --&gt; hara[6月 HARA 危险事件草案]
+</div>
+<ul>
+<li><strong>FN 分层</strong>：回答「在哪些场景会漏掉真实危险目标」→ 功能安全语言常写成 <strong>AEB 未触发/过晚</strong>。</li>
+<li><strong>FP 分层</strong>：回答「在哪些场景会把无风险当成有风险」→ 常写成 <strong>AEB 误触发</strong>。</li>
+<li><strong>OOD/分布偏移</strong>：可单独作为一层（训练未覆盖、运行超 ODD）→ 常写成 <strong>超 ODD 仍输出可信判断</strong>。</li>
+</ul>
+<h4 id="1376-你怎么判断自己已经会了">13.7.6 你怎么判断自己「已经会了」</h4>
+<p>对照下面清单，<strong>能脱稿完成</strong>即达到 5 月该项验收：</p>
+<ol>
+<li>给定一张带 <code>scenario_type</code> 的检测结果表，能算出<strong>至少 3 个场景层</strong>的 FN、FP 数量。</li>
+<li>能指出<strong>风险最大的 1～2 个场景层</strong>，并说明是 FN 风险还是 FP 风险。</li>
+<li>能写一段<strong>发布评审结论</strong>（放行 / 不放行 + 理由），理由必须引用场景层而非仅引用 mAP。</li>
+<li>能把最严重的 1 条 FN 场景、1 条 FP 场景，各写成一条 <strong>HARA 危险事件草案</strong>（见 §15.6）。</li>
+</ol>
+<p>动手练习见 <strong>§15.2～§15.6</strong>；若只做 §15.1 手工算总体指标，还不算掌握分层解释。</p>
+<h2 id="14-当前121的不足">14. 当前12.1的不足</h2>
 <p>当前 <code>12.1</code> 已经完成基础概念整理，但确实存在明显不足。</p>
-<h3 id="14.1-偏概念-缺少真实数据练习">14.1 偏概念，缺少真实数据练习</h3>
+<h3 id="141-偏概念缺少真实数据练习">14.1 偏概念，缺少真实数据练习</h3>
 <p>当前内容主要是解释概念和风险，没有使用真实或公开数据做一次指标计算。</p>
 <p>不足表现：</p>
 <ul>
@@ -973,7 +1172,7 @@
 <li>没有展示mAP、Recall、FP/FN之间的差异。</li>
 <li>没有用具体样本说明数据泄漏。</li>
 </ul>
-<h3 id="14.2-缺少公开案例分析">14.2 缺少公开案例分析</h3>
+<h3 id="142-缺少公开案例分析">14.2 缺少公开案例分析</h3>
 <p>当前缺少真实行业事件或公开案例。</p>
 <p>可以补充：</p>
 <ul>
@@ -983,7 +1182,7 @@
 <li>模型更新导致回归的案例。</li>
 </ul>
 <p>这些案例能帮助把概念从“表格”变成“真实风险”。</p>
-<h3 id="14.3-缺少小型实践任务">14.3 缺少小型实践任务</h3>
+<h3 id="143-缺少小型实践任务">14.3 缺少小型实践任务</h3>
 <p>当前还没有动手任务。</p>
 <p>应该增加：</p>
 <ul>
@@ -993,7 +1192,7 @@
 <li>判断是否允许发布。</li>
 <li>写一段安全评审结论。</li>
 </ul>
-<h3 id="14.4-缺少面向认证的证据格式">14.4 缺少面向认证的证据格式</h3>
+<h3 id="144-缺少面向认证的证据格式">14.4 缺少面向认证的证据格式</h3>
 <p>当前有“指标到证据”的映射，但还没有形成认证材料格式。</p>
 <p>需要补：</p>
 <ul>
@@ -1002,7 +1201,7 @@
 <li>增训验证记录模板。</li>
 <li>发布门禁记录模板。</li>
 </ul>
-<h3 id="14.5-缺少与6月hara的直接输入">14.5 缺少与6月HARA的直接输入</h3>
+<h3 id="145-缺少与6月hara的直接输入">14.5 缺少与6月HARA的直接输入</h3>
 <p>当前说了会衔接HARA，但还没有把5月结果直接转成6月危险事件输入。</p>
 <p>需要补：</p>
 <ul>
@@ -1011,16 +1210,20 @@
 <li>OOD导致误用或超域运行危险事件草案。</li>
 <li>高置信度错误导致未降级危险事件草案。</li>
 </ul>
-<h2 id="15.-5月应补充的真实实践任务">15. 5月应补充的真实实践任务</h2>
+<h2 id="15-5月应补充的真实实践任务">15. 5月应补充的真实实践任务</h2>
 <p>为了让5月成果不只是概念，建议补充以下实践任务。</p>
-<h3 id="15.1-实践任务1-手工计算aeb检测指标">15.1 实践任务1：手工计算AEB检测指标</h3>
+<h3 id="151-实践任务1手工计算aeb检测指标">15.1 实践任务1：手工计算AEB检测指标</h3>
 <p>构造一个简化样例：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>场景ID</th>
 <th>真实是否有危险目标</th>
 <th>模型是否检出</th>
 <th>结果类型</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>S01</td>
 <td>是</td>
@@ -1081,14 +1284,19 @@
 <td>是</td>
 <td>TP</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>四类结果的英文全称：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>缩写</th>
 <th>英文全称</th>
 <th>中文含义</th>
 <th>AEB安全含义</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>TP</td>
 <td>True Positive</td>
@@ -1113,7 +1321,8 @@
 <td>真实无危险目标，模型也未检出</td>
 <td>正确抑制无风险场景</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>计算：</p>
 <ul>
 <li>TP = 4。</li>
@@ -1131,15 +1340,20 @@
 <li>Precision只有0.667，说明检出的目标中有三分之一是误检，可能导致误制动。</li>
 <li>该模型不能仅凭总体表现放行，需要按场景分析FN和FP来源。</li>
 </ul>
-<h3 id="15.2-实践任务2-按场景分层分析">15.2 实践任务2：按场景分层分析</h3>
+<h3 id="152-实践任务2按场景分层分析">15.2 实践任务2：按场景分层分析</h3>
+<p>理论说明见 <strong>§13.7 按场景分层解释模型风险</strong>。本任务是把 §15.1 的 10 个样本<strong>按场景类型拆开</strong>，练习「总体指标相同、安全风险不同」的判断。</p>
 <p>将上述样例按场景拆分：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>场景类型</th>
 <th>TP</th>
 <th>FN</th>
 <th>FP</th>
 <th>安全结论</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>白天车辆</td>
 <td>2</td>
@@ -1168,18 +1382,25 @@
 <td>0</td>
 <td>表现正常</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>结论：</p>
-<blockquote>即使总体Precision和Recall相同，安全风险主要集中在夜间行人FN和反光阴影FP。后续应针对夜间行人补充数据和测试，并针对反光阴影建立误触发回归集。</blockquote>
-<h3 id="15.3-实践任务3-模型版本对比">15.3 实践任务3：模型版本对比</h3>
+<blockquote>
+<p>即使总体Precision和Recall相同，安全风险主要集中在夜间行人FN和反光阴影FP。后续应针对夜间行人补充数据和测试，并针对反光阴影建立误触发回归集。</p>
+</blockquote>
+<h3 id="153-实践任务3模型版本对比">15.3 实践任务3：模型版本对比</h3>
 <p>构造模型版本对比：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>指标</th>
 <th>模型V1</th>
 <th>模型V2</th>
 <th>变化</th>
 <th>安全判断</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>总体mAP</td>
 <td>0.72</td>
@@ -1215,15 +1436,22 @@
 <td>+0.06</td>
 <td>误触发风险升高</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>安全评审结论示例：</p>
-<blockquote>虽然模型V2总体mAP提升，但夜间行人Recall明显下降，反光场景FP率升高，分别对应AEB漏触发和误触发风险。建议不直接放行V2，应阻断发布或限制ODD，要求补充夜间行人数据、反光误检负样本，并完成关键场景回归测试后重新评审。</blockquote>
-<h3 id="15.4-实践任务4-写一个发布门禁判断">15.4 实践任务4：写一个发布门禁判断</h3>
+<blockquote>
+<p>虽然模型V2总体mAP提升，但夜间行人Recall明显下降，反光场景FP率升高，分别对应AEB漏触发和误触发风险。建议不直接放行V2，应阻断发布或限制ODD，要求补充夜间行人数据、反光误检负样本，并完成关键场景回归测试后重新评审。</p>
+</blockquote>
+<h3 id="154-实践任务4写一个发布门禁判断">15.4 实践任务4：写一个发布门禁判断</h3>
 <p>发布门禁模板：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>门禁项</th>
 <th>判断</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>总体指标是否提升</td>
 <td>是</td>
@@ -1248,19 +1476,26 @@
 <td>是否可发布</td>
 <td>否</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>结论：</p>
-<blockquote>不允许发布。模型V2虽然总体指标提升，但关键安全场景退化，且未完成数据补强和回归验证。</blockquote>
-<h3 id="15.5-实践任务5-用轻量python实现指标计算">15.5 实践任务5：用轻量Python实现指标计算</h3>
+<blockquote>
+<p>不允许发布。模型V2虽然总体指标提升，但关键安全场景退化，且未完成数据补强和回归验证。</p>
+</blockquote>
+<h3 id="155-实践任务5用轻量python实现指标计算">15.5 实践任务5：用轻量Python实现指标计算</h3>
 <p>本任务的目的不是训练算法模型，而是把安全指标计算变成可复现证据。</p>
 <p>建议建立一个最小CSV：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>scenario_id</th>
 <th>scenario_type</th>
 <th>object_type</th>
 <th>ground_truth</th>
 <th>prediction</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>S01</td>
 <td>day_vehicle</td>
@@ -1289,7 +1524,8 @@
 <td>0</td>
 <td>0</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>脚本应输出：</p>
 <ul>
 <li><code>TP</code></li>
@@ -1304,7 +1540,7 @@
 <li>高风险 <code>FP</code> 清单</li>
 </ul>
 <p>建议脚本目标：</p>
-<pre><code># 伪代码示意，后续可实现为 scripts/metrics/aeb_metrics.py
+<pre><code class="language-python"># 伪代码示意，后续可实现为 scripts/metrics/aeb_metrics.py
 tp = count(ground_truth == 1 and prediction == 1)
 fp = count(ground_truth == 0 and prediction == 1)
 fn = count(ground_truth == 1 and prediction == 0)
@@ -1312,7 +1548,8 @@ tn = count(ground_truth == 0 and prediction == 0)
 
 precision = tp / (tp + fp)
 recall = tp / (tp + fn)
-f1 = 2 * precision * recall / (precision + recall)</code></pre>
+f1 = 2 * precision * recall / (precision + recall)
+</code></pre>
 <p>输出报告应回答：</p>
 <ul>
 <li>哪些场景FN最多？</li>
@@ -1320,13 +1557,17 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <li>是否存在不能放行的安全风险？</li>
 <li>哪些数据需要补强？</li>
 </ul>
-<h3 id="15.6-实践任务6-转成6月hara输入">15.6 实践任务6：转成6月HARA输入</h3>
+<h3 id="156-实践任务6转成6月hara输入">15.6 实践任务6：转成6月HARA输入</h3>
 <p>将5月分析转成6月危险事件草案：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>来源</th>
 <th>危险事件草案</th>
 <th>后续HARA输入</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FN</td>
 <td>前方真实目标存在，AEB未触发或触发过晚</td>
@@ -1352,22 +1593,25 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <td>训练数据未覆盖真实运行场景，导致目标检测性能退化</td>
 <td>H-AEB-005</td>
 </tr>
-</tbody></table></div>
-<h2 id="16.-5月补强后的验收标准">16. 5月补强后的验收标准</h2>
+</tbody>
+</table></div>
+<h2 id="16-5月补强后的验收标准">16. 5月补强后的验收标准</h2>
 <p>补强后，5月不只要求“能解释概念”，还应达到以下标准：</p>
 <ul>
 <li>能手工计算TP、FP、FN、TN、Precision、Recall。</li>
-<li>能按场景分层解释模型风险。</li>
+<li>能按场景分层解释模型风险（定义、四步方法、评审结论与 HARA 衔接见 <strong>§13.7</strong>；动手见 <strong>§15.2</strong>）。</li>
 <li>能说明总体mAP提升但安全风险升高的情况。</li>
 <li>能写出一段模型发布安全评审结论。</li>
 <li>能把FN/FP/OOD转成AEB HARA危险事件输入。</li>
 <li>能把机器人避障FN/FP转成机器人安全副案例输入。</li>
 </ul>
-<h2 id="17.-对后续的关键提醒">17. 对后续的关键提醒</h2>
+<h2 id="17-对后续的关键提醒">17. 对后续的关键提醒</h2>
 <p>5月不是最终成果，而是安全语言训练。</p>
 <p>如果只停留在概念解释，价值有限。</p>
 <p>真正有价值的是：</p>
-<blockquote>用这些概念去审查模型指标、发现安全缺口、设计数据闭环、阻断不安全发布，并把结果转成HARA、SOTIF、AI Safety和Safety Case证据。</blockquote>
+<blockquote>
+<p>用这些概念去审查模型指标、发现安全缺口、设计数据闭环、阻断不安全发布，并把结果转成HARA、SOTIF、AI Safety和Safety Case证据。</p>
+</blockquote>
 <p>因此，5月剩余时间应优先补：</p>
 <ol>
 <li>一个手工指标计算例子。</li>
@@ -1376,7 +1620,7 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <li>一个HARA输入转换表。</li>
 <li>一个最小Python指标计算脚本。</li>
 </ol>
-<h2 id="18.-端到端模型视角补充">18. 端到端模型视角补充</h2>
+<h2 id="18-端到端模型视角补充">18. 端到端模型视角补充</h2>
 <p>在端到端智驾模型中，<code>TP/FP/FN/TN</code>、<code>Precision</code>、<code>Recall</code>、<code>mAP</code> 这类传统感知指标仍然有价值，但它们不再足以单独证明系统安全。</p>
 <p>端到端模型更关注：</p>
 <ul>
@@ -1388,11 +1632,15 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <li>模型更新后是否引入行为回归。</li>
 </ul>
 <p>因此，5月基础指标要升级为“模型行为指标”：</p>
-<div class="table-wrap"><table><thead><tr>
+<div class="table-wrap"><table>
+<thead>
+<tr>
 <th>指标类型</th>
 <th>传统模块化视角</th>
 <th>端到端视角</th>
-</tr></thead><tbody>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>FN</td>
 <td>真实目标漏检</td>
@@ -1418,7 +1666,8 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <td>目标检测平均性能</td>
 <td>只能作为中间能力参考，不能替代行为安全验证</td>
 </tr>
-</tbody></table></div>
+</tbody>
+</table></div>
 <p>端到端安全补充问题：</p>
 <ul>
 <li>模型是否在真实危险场景中输出安全轨迹？</li>
@@ -1428,9 +1677,6 @@ f1 = 2 * precision * recall / (precision + recall)</code></pre>
 <li>是否有独立安全监控器检查输出轨迹？</li>
 </ul>
 <p>结论：</p>
-<blockquote>5月的指标学习仍然必要，但要从“目标检测指标”进一步扩展为“端到端模型行为安全指标”的基础语言。</blockquote><div class="footer">Source: 12.1-2026年5月AI基础概念与安全风险执行包.md · Generated into html/</div></article></main></div>
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#eef4ff', primaryTextColor: '#172033', primaryBorderColor: '#2454d6', lineColor: '#64748b', secondaryColor: '#ecfeff', tertiaryColor: '#fff7ed' } });
-</script>
-</body></html>
+<blockquote>
+<p>5月的指标学习仍然必要，但要从“目标检测指标”进一步扩展为“端到端模型行为安全指标”的基础语言。</p>
+</blockquote><div class="footer">Source: 12.1 md</div></article></main></div><script type="module">import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true,theme:'base'});</script></body></html>
